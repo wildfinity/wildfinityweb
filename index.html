@@ -3,7 +3,7 @@
    <head>
       <meta charset="utf-8">
       <title>Wildfinity - Sitio Oficial</title>
-      <meta name="description" content="Sitio oficial de Wildfinity. Hard Rock y Arena Rock.">
+      <meta name="description" content="Sitio oficial de Wildfinity. Hard Rock, Arena Rock y Glam Metal.">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
       <link href="css/base.css" rel="stylesheet" type="text/css" media="all"/>
@@ -16,7 +16,7 @@
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,300,400,400i,600,700,800" rel="stylesheet">
 
       <style>
-         /* SOLUCIÓN CRÍTICA PARA GITHUB PAGES: Eliminar la rueda de carga para que no se congele */
+         /* SOLUCIÓN CRÍTICA PARA GITHUB PAGES: Desactivar visualmente la rueda para evitar bloqueo */
          .loader { 
             display: none !important; 
          }
@@ -25,12 +25,12 @@
          body, .wrapper, .bg-secondary { background-color: #13181d !important; color: #ffffff; }
          .card, .block-tracklist, .block-teaser { background-color: #090d10 !important; border: 1px solid #0046ff; }
          
-         /* Rojo Wildfinity para acentos principales */
+         /* Rojo Wildfinity para Acentos Principales */
          .bg-red, .btn-primary, .block-top { background-color: #e62129 !important; border-color: #e62129 !important; }
          .btn-primary:hover { background-color: #0046ff !important; border-color: #0046ff !important; }
          .text-red, .block-title h1, h3.text-red, .block-lyrics h5 { color: #e62129 !important; }
          
-         /* Azul Eléctrico interactivo */
+         /* Azul Eléctrico para Elementos Interactivos */
          a, .link, .block-album h5 { color: #0046ff; transition: color 0.3s; }
          a:hover, .link:hover { color: #e62129; }
          .border-2 { border-color: #0046ff !important; color: #0046ff !important; background: transparent; }
@@ -38,33 +38,51 @@
          .border-3 { border-color: #e62129 !important; color: #ffffff !important; background: transparent; }
          .border-3:hover { background: #e62129 !important; color: #ffffff !important; }
 
-         /* Estilos interactivos del Formulario con validación visual */
-         .form-control { background-color: #13181d !important; color: #fff !important; border: 1px solid #0046ff !important; padding-right: 40px; }
-         .form-group { position: relative; }
+         /* Estilos personalizados del Formulario de Contacto */
+         .custom-contact-form .form-control { 
+            background-color: #13181d !important; 
+            color: #fff !important; 
+            border: 1px solid #0046ff !important; 
+            padding-right: 40px; 
+         }
+         .custom-contact-form .form-group { position: relative; }
          
-         /* Iconos de check de validación */
-         .validate-icon { position: absolute; right: 15px; top: 42px; color: #25d366; font-size: 18px; display: none; }
-         .form-control.is-valid { border-color: #25d366 !important; }
-         .form-control.is-valid + .validate-icon { display: block; }
+         /* Iconos de check (Tildes verdes de validación) */
+         .validate-icon { 
+            position: absolute; 
+            right: 15px; 
+            top: 43px; 
+            color: #25d366; 
+            font-size: 18px; 
+            display: none; 
+            font-weight: bold;
+         }
+         .custom-contact-form .form-control.is-valid { border-color: #25d366 !important; }
+         .custom-contact-form .form-control.is-valid + .validate-icon { display: block; }
          
-         /* Estados del envío */
-         #form-status { display: none; font-weight: 600; margin-top: 15px; padding: 10px; rounded: 4px; text-center; }
-         .status-success { background-color: rgba(37, 211, 102, 0.2); color: #25d366; border: 1px solid #25d366; }
-         .status-error { background-color: rgba(230, 33, 41, 0.2); color: #e62129; border: 1px solid #e62129; }
+         /* Contenedores de Estado de Envío */
+         #form-status { display: none; font-weight: 600; margin-top: 20px; padding: 12px; border-radius: 4px; text-align: center; }
+         .status-success { background-color: rgba(37, 211, 102, 0.15); color: #25d366; border: 1px solid #25d366; }
+         .status-error { background-color: rgba(230, 33, 41, 0.15); color: #e62129; border: 1px solid #e62129; }
       </style>
    </head>
    <body>
-
-      <div class="wrapper" id="wrapper">
-         
+      <div class="loader">
+         <div class="loader-inner">
+            <svg width="120" height="220" viewbox="0 0 100 100" class="loading-spinner" version="1.1" xmlns="http://www.w3.org/2000/svg">
+               <circle class="spinner" cx="50" cy="50" r="21" fill="#13181d" stroke-width="2"/>
+            </svg>
+         </div>
+         </div>
+      <div class="wrapper">
          <div class="block-search-form">
             <div class="block-content">
                <div class="container">
                   <div class="row justify-content-center">
                      <div class="col-12 col-md-10 col-lg-8">
-                        <form method="get">
-                           <div class="card bg-red">
-                              <div class="card-body row no-gutters align-items-center">
+                        <form method="get"  >
+                           <div class="card  bg-red ">
+                              <div class="card-body  row no-gutters align-items-center">
                                  <div class="col-auto">
                                     <i class="icon-search"></i>
                                  </div>
@@ -72,7 +90,8 @@
                                     <input class="form-control form-control-lg form-control-border0" placeholder="Type a keywords..." type="search">
                                  </div>
                                  <div class="col-auto">
-                                    <button type="submit" class="btn btn-primary uppercase border-3">Search now</button>
+                                    <button type="submit" class="btn  btn-primary uppercase border-3">
+                                    Search now</button>
                                  </div>
                                  </div>
                            </div>
@@ -80,8 +99,8 @@
                      </div>
                      </div>
                   </div>
-               </div>
             </div>
+         </div>
          <section class="hero">
             <div class="main-slider slider flexslider">
                <ul class="slides">
@@ -111,7 +130,7 @@
                            <div class="col-sm-12 text-center">
                               <div class="inner-hero">
                                  <h1 class="large text-white uppercase mb-0">WE ARE</h1>
-                                 <h5 class="mb-0 text-white uppercase">Álbum Debut Disponible</h5>
+                                 <h5 class="mb-0 text-white uppercase">Álbum Debut Disponible en Todas las Plataformas</h5>
                                  <a class="video-play-but popup-youtube" href="https://www.youtube.com/playlist?list=PL1Zf6DeDOb8kQB2IqdAZh3KD6f6dDD3jR"></a>
                               </div>
                            </div>
@@ -121,7 +140,7 @@
                </ul>
             </div>
             <header class="header default">
-               <div class="left-part">
+               <div class=" left-part">
                   <a class="logo scroll" href="#wrapper">
                      <h2 class="mb-0 uppercase font-weight-700">Wildfinity.</h2>
                   </a>
@@ -129,22 +148,25 @@
                <div class="right-part">
                   <nav class="main-nav">
                      <div class="toggle-mobile-but">
-                        <a href="#" class="mobile-but">
+                        <a href="#" class="mobile-but" >
                            <div class="lines"></div>
                         </a>
                      </div>
                      <ul class="main-menu list-inline">
                         <li><a class="scroll list-inline-item" href="#wrapper">Inicio</a></li>
-                        <li><a class="scroll list-inline-item" href="#album">Último Álbum</a></li>
                         <li><a class="scroll list-inline-item" href="#about">El Concepto</a></li>
                         <li><a class="scroll list-inline-item" href="#discography">Discografía</a></li>
                         <li><a class="scroll list-inline-item" href="#band">Integrantes</a></li>
                         <li><a class="scroll list-inline-item" href="#tour">Tours</a></li>
                         <li><a class="scroll list-inline-item" href="#gallery">Galería</a></li>
                         <li><a class="scroll list-inline-item" href="#news">Noticias</a></li>
-                        <li><a class="scroll list-inline-item" href="#shop">Tienda</a></li>
                         <li><a class="scroll list-inline-item" href="#contact">Contacto</a></li>
-                        <li class="list-inline-item"><span class="search-ico"><i class="icon-search"></i></span></li>
+                        <li>
+                           <ul class="block-helper list-inline">
+                              <li class="list-inline-item"><a href="#"><i class="icon-shop"></i></a></li>
+                              <li class="list-inline-item"><span class="search-ico"><i class="icon-search"></i></span></li>
+                           </ul>
+                        </li>
                      </ul>
                   </nav>
                </div>
@@ -153,179 +175,608 @@
          <section id="album" class="latest main">
             <div class="container">
                <div class="row justify-content-center">
-                  <div class="col-12 col-md-10 col-lg-9">
+                  <div class="col-12 col-md-10 col-lg-9 ">
                      <div class="block-content text-center gap-one-bottom-md">
-                        <div class="block-title">
-                           <h1 class="uppercase">Último Álbum</h1>
+                        <div class="block-title ">
+                           <h1 class="uppercase">Último álbum</h1>
                         </div>
                      </div>
                   </div>
                </div>
-            </div>
+               </div>
             <div class="container">
                <div class="row justify-content-center">
-                  <div class="col-12 col-lg-4">
+                  <div class="col-12  col-lg-4  ">
                      <div class="block-content text-center gap-one-bottom-sm">
                         <div class="block-album-info">
                            <ul>
-                              <li><h5 class="uppercase list-inline-item">Sello :</h5> <span>Independiente</span></li>
-                              <li><h5 class="uppercase list-inline-item">Lanzamiento :</h5> <span>22/12/2024</span></li>
-                              <li><h5 class="uppercase list-inline-item">Género :</h5> <span>Hard Rock / Arena Rock</span></li>
-                              <li><h5 class="uppercase list-inline-item">Estilo :</h5> <span>Glam Metal</span></li>
+                           <li><h5 class=" uppercase list-inline-item ">Sello :</h5> <span>Independiente</span></li>
+                           <li><h5 class=" uppercase list-inline-item">Lanzamiento :</h5> <span>22/12/2024</span></li>
+                           <li><h5 class=" uppercase list-inline-item">Género :</h5> <span>Hard Rock / Arena Rock</span></li>
+                           <li><h5 class="uppercase list-inline-item">Estilo :</h5> <span>Glam Metal</span></li>
+                           <li>
                            </ul>
                         </div>
-                        <ul class="block-social list-inline mt-4" style="font-size: 20px;">
-                           <li class="list-inline-item"><a href="https://music.apple.com/es/album/we-are/1832627084" target="_blank"><i class="socicon-apple"></i></a></li>
-                           <li class="list-inline-item"><a href="https://music.youtube.com/playlist?list=OLAK5uy_mcU7RYRulW885vH1efRZ5aQEv8Ij9ol60" target="_blank"><i class="socicon-youtube"></i></a></li>
-                           <li class="list-inline-item"><a href="https://www.deezer.com/es/album/802604251" target="_blank"><i class="socicon-deezer"></i></a></li>
-                           <li class="list-inline-item"><a href="https://open.spotify.com/intl-es/album/2MK4nt9Jcrh2fezp5smtqJ" target="_blank"><i class="socicon-spotify"></i></a></li>
+                        <ul class="block-social list-inline mt-4">
+                           <li class="list-inline-item mr-0"><a href="https://music.apple.com/es/album/we-are/1832627084" target="_blank"><i class="socicon-apple"></i></a></li>
+                           <li class="list-inline-item mr-0"><a href="https://music.youtube.com/playlist?list=OLAK5uy_mcU7RYRulW885vH1efRZ5aQEv8Ij9ol60" target="_blank"><i class="socicon-youtube"></i></a></li>
+                           <li class="list-inline-item mr-0"><a href="https://www.amazon.es" target="_blank"><i class="socicon-amazon"></i></a></li>
+                           <li class="list-inline-item mr-0"><a href="https://soundcloud.com" target="_blank"><i class="socicon-soundcloud"></i></a></li>
+                           <li class="list-inline-item mr-0"><a href="https://open.spotify.com/intl-es/album/2MK4nt9Jcrh2fezp5smtqJ" target="_blank"><i class="socicon-spotify"></i></a></li>
+                           <li class="list-inline-item mr-0"><a href="https://www.youtube.com/@Wildfinity" target="_blank"><i class="socicon-youtube"></i></a></li>
                         </ul>
                      </div>
                   </div>
                </div>
-            </div>
-
+               </div>
             <div class="container">
                <div class="row justify-content-center">
                   <div class="col-12 col-lg-8 col-md-10">
                      <div class="block-tracklist">
                         <audio preload class="album"></audio>
                         <div class="block-content pb-0 text-center">
-                           <img class="mb-0 rounded" src="img/album/5.jpg" alt="We Are Album Cover" style="max-width:300px;">
+                           <img  class="mb-0 rounded" src="img/album/5.jpg" alt="We Are" style="max-width: 300px;">
                         </div>
                         <ol class="playlist">
                            <li>
                               <div class="as-link" data-src="mp3/01. We Are.mp3">
                                  <div class="row">
-                                    <div class="col-lg-6 col-md-6">
+                                    <div class="col-lg-6 col-md-6 ">
                                        <div class="block-track">
                                           <h6 class="mb-0 opc-70 uppercase font-weight-700 text-red">We Are</h6>
                                           <span>We Are</span>
                                        </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 text-md-right">
-                                       <a href="#" class="btn-s uppercase btn btn-primary with-ico border-2 toggle-lyrics"><i class="icon-note"></i>Lyrics</a>
-                                       <a href="https://music.apple.com/es/album/we-are/1832627084" target="_blank" class="btn-s uppercase btn btn-primary with-ico"><i class="icon-cart"></i>Stream</a>
-                                    </div>
-                                    <div class="col-12">
-                                       <div class="block-lyrics w-75 text-center mt-3">
-                                          <h5 class="mb-4 opc-70 uppercase">We Are</h5>
-                                          <p>[Espacio asignado para la letra oficial de tu tema principal / Lyrics space]</p>
-                                       </div>
+                                       <a href="https://music.apple.com/es/album/we-are/1832627084" target="_blank" class="btn-s uppercase btn btn-primary with-ico" ><i class="icon-download"></i>Stream</a>
                                     </div>
                                  </div>
                               </div>
                            </li>
-                           <li>
+                           <li >
                               <div class="as-link" data-src="mp3/02. Live Tonight.mp3">
                                  <div class="row">
                                     <div class="col-lg-6 col-md-6">
                                        <div class="block-track">
                                           <h6 class="mb-0 opc-70 uppercase font-weight-700">Live Tonight</h6>
-                                          <span>We Are</span>
+                                          <span> We Are</span>
                                        </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 text-md-right">
-                                       <a href="https://www.youtube.com/@Wildfinity" target="_blank" class="btn-s uppercase btn btn-primary with-ico"><i class="icon-video"></i>Video</a>
+                                       <a href="#" class="btn-s uppercase btn btn-primary with-ico border-2 toggle-lyrics"><i class="icon-note"></i>Lyrics</a>
+                                       <a href="https://music.apple.com/es/album/we-are/1832627084" target="_blank" class="btn-s uppercase btn btn-primary with-ico" ><i class="icon-cart"></i>Purchase</a>
+                                    </div>
+                                    <div class="col-12 ">
+                                       <div class="block-lyrics w-75 text-center mt-3">
+                                          <h5 class="mb-4 opc-70 uppercase ">Live Tonight</h5>
+                                          <p>Liberian girl<br>
+                                             You came and you changed my world<br>
+                                             A love so brand new<br>
+                                             Liberian girl<br>
+                                             You came and you changed my world<br>
+                                             A feeling so true
+                                          </p>
+                                          <p>Liberian girl<br>
+                                             You know that you came<br>
+                                             And you changed my world<br>
+                                             Just like in the movies<br>
+                                             With two lovers in a scene<br>
+                                             And she says<br>
+                                             "Do you love me"<br>
+                                             And he says so endlessly<br>
+                                             "I love you, Liberian girl"
+                                          </p>
+                                       </div>
                                     </div>
                                  </div>
                               </div>
                            </li>
-                           <li>
+                           <li >
                               <div class="as-link" data-src="mp3/03. Bounce Out.mp3">
                                  <div class="row">
                                     <div class="col-lg-6 col-md-6">
                                        <div class="block-track">
-                                          <h6 class="mb-0 opc-70 uppercase">Bounce Out</h6>
-                                          <span>We Are</span>
+                                          <h6 class="mb-0 opc-70 uppercase">Bounce out</h6>
+                                          <span>We Are </span>
                                        </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 text-md-right">
-                                       <a href="#" class="btn-s uppercase btn btn-primary with-ico"><i class="icon-download"></i>Listen</a>
+                                       <a href="#" class="btn-s uppercase btn btn-primary with-ico" ><i class="icon-download"></i>Download</a>
+                                    </div>
+                                 </div>
+                              </div>
+                           </li>
+                           <li >
+                              <div class="as-link" data-src="mp3/04.mp3">
+                                 <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                       <div class="block-track">
+                                          <h6 class="mb-0 opc-70 uppercase">Girls are the same</h6>
+                                          <span>Limitless </span>
+                                       </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 text-md-right">
+                                       <a href="#" class="btn-s uppercase btn btn-primary with-ico"><i class="icon-download"></i>Download</a>
+                                    </div>
+                                 </div>
+                              </div>
+                           </li>
+                           <li >
+                              <div class="as-link" data-src="mp3/05.mp3">
+                                 <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                       <div class="block-track">
+                                          <h6 class="mb-0 opc-70 uppercase ">My queen</h6>
+                                          <span>Limitless </span>
+                                       </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 text-md-right">
+                                       <a href="#" class="btn-s uppercase btn btn-primary with-ico border-2 toggle-lyrics"><i class="icon-note"></i>Lyrics</a>
+                                       <a href="#" class="btn-s uppercase btn btn-primary with-ico" ><i class="icon-cart"></i>Purchase</a>
+                                    </div>
+                                    <div class="col-12 ">
+                                       <div class="block-lyrics w-75  text-center mt-3">
+                                          <h5 class="mb-4 opc-70 uppercase ">My queen</h5>
+                                          <p>Liberian girl<br>
+                                             You came and you changed my world<br>
+                                             A love so brand new<br>
+                                             Liberian girl<br>
+                                             You came and you changed my world<br>
+                                             A feeling so true
+                                          </p>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </li>
+                           <li >
+                              <div class="as-link" data-src="mp3/06.mp3">
+                                 <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                       <div class="block-track">
+                                          <h6 class="mb-0 opc-70 uppercase">Falling apart</h6>
+                                          <span>Limitless </span>
+                                       </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 text-md-right">
+                                       <a href="#" class="btn-s uppercase btn btn-primary with-ico" ><i class="icon-download"></i>Download</a>
+                                       <a href="#" class="btn-s uppercase btn btn-primary with-ico" ><i class="icon-basket"></i>Purchase</a>
                                     </div>
                                  </div>
                               </div>
                            </li>
                         </ol>
-                        <div class="text-center p-3">
-                           <a href="album-single.html" class="link uppercase font-weight-700 small">Ver las 10 canciones en detalle ›</a>
-                        </div>
                      </div>
                   </div>
                </div>
-            </div>
-         </section>
-
+               </div>
+            </section>
          <section id="about" class="about overlay main">
-            <div class="background-img">
-               <img src="img/3.jpg" alt="">
+            <div class="background-img" >
+               <img  src="img/3.jpg" alt="">
             </div>
             <div class="container">
-               <div class="row vertical-align">
+               <div class="row  vertical-align">
                   <div class="col-lg-5 col-md-12">
                      <div class="front-p">
                         <h1 class="uppercase text-white">Un concepto<br>de Rock diferente</h1>
-                        <p class="w-93">Wildfinity es una banda de Hard Rock y Arena Rock fundada en Almería, España. La propuesta une potentes riffs de guitarra de la vieja escuela, melodías vocales arrolladoras y una producción adaptada a los estándares de impacto del siglo XXI. El objetivo es directo: revivir el espíritu salvaje y monumental del rock de estadios.</p>
+                        <p class=" w-93">Wildfinity es una banda de Hard Rock y Arena Rock fundada en Almería, España. La propuesta une potentes riffs de guitarra de la vieja escuela, melodías vocales arrolladoras y una producción adaptada a los estándares de impacto del siglo XXI. El objetivo es directo: revivir el espíritu salvaje y monumental del rock de estadios.</p>
                         <img class="sing mb-0" src="img/signature.png" alt="">
                      </div>
                   </div>
                   <div class="col-lg-7">
-                     <div class="row">
-                        <div class="col-md-4">
+                     <div class="row ">
+                        <div class="col-md-4 ">
                            <div class="block-content front-p">
-                              <h3 class="uppercase">Próximo Show</h3>
-                              <span class="p">Concentración Motera<br>El Ejido, Almería</span>
+                              <h3 class="uppercase ">Próximo Show</h3>
+                              <span class=" p">Concentración Motera<br>El Ejido, Almería
+                              </span>
                            </div>
                         </div>
                         <div class="col-md-4">
                            <div class="block-content front-p">
-                              <h3 class="uppercase">Ubicación</h3>
-                              <span class="p">Andalucía,<br>España</span>
+                              <h3 class="uppercase ">Ubicación </h3>
+                              <span class=" p">Andalucía,<br>España
+                              </span>
                            </div>
                         </div>
                         <div class="col-md-4">
-                           <div class="block-content text-md-right front-p">
+                           <div class="block-content text-md-right  front-p">
                               <a class="btn btn-primary uppercase with-ico border-2 scroll" href="#tour"><i class="icon-ticket"></i>Ver Gira</a>
                            </div>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12 ">
                            <div class="block-content front-p">
                               <h3 class="uppercase text-red">Escucha Oficial</h3>
                               <ul class="block-social list-inline">
                                  <li class="list-inline-item mr-0"><a class="border-3" href="https://music.apple.com/es/album/we-are/1832627084" target="_blank"><i class="socicon-apple"></i></a></li>
-                                 <li class="list-inline-item mr-0"><a class="border-3" href="https://music.youtube.com/playlist?list=OLAK5uy_mcU7RYRulW885vH1efRZ5aQEv8Ij9ol60" target="_blank"><i class="socicon-youtube"></i></a></li>
-                                 <li class="list-inline-item mr-0"><a class="border-3" href="https://www.deezer.com/es/album/802604251" target="_blank"><i class="socicon-deezer"></i></a></li>
-                                 <li class="list-inline-item mr-0"><a class="border-3" href="https://open.spotify.com/intl-es/album/2MK4nt9Jcrh2fezp5smtqJ" target="_blank"><i class="socicon-spotify"></i></a></li>
+                                 <li class="list-inline-item mr-0"><a  class="border-3" href="https://music.youtube.com/playlist?list=OLAK5uy_mcU7RYRulW885vH1efRZ5aQEv8Ij9ol60" target="_blank"><i class="socicon-youtube"></i></a></li>
+                                 <li class="list-inline-item mr-0"><a  class="border-3" href="https://www.amazon.es" target="_blank"><i class="socicon-amazon"></i></a></li>
+                                 <li class="list-inline-item mr-0"><a  class="border-3" href="https://open.spotify.com/intl-es/album/2MK4nt9Jcrh2fezp5smtqJ" target="_blank"><i class="socicon-spotify"></i></a></li>
+                                 <li class="list-inline-item mr-0"><a  class="border-3" href="https://soundcloud.com" target="_blank"><i class="socicon-soundcloud"></i></a></li>
                               </ul>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
-            </div>
-         </section>
-
+               </div>
+            </section>
          <section id="discography" class="discography main">
             <div class="container">
                <div class="row justify-content-center">
-                  <div class="col-12 col-md-10 col-lg-9">
+                  <div class="col-12 col-md-10 col-lg-9 ">
                      <div class="block-content text-center gap-one-bottom-md">
-                        <div class="block-title">
-                           <h1 class="uppercase">Discografía</h1>
+                        <div class="block-title ">
+                           <h1 class="uppercase">Discography</h1>
                         </div>
                      </div>
                   </div>
                </div>
-            </div>
+               </div>
             <div class="container">
-               <div class="row gap-one-bottom-sm justify-content-center">
+               <div class="row gap-one-bottom-sm">
                   <div class="col-12 col-md-6 col-lg-3">
-                     <div class="block-album block-content text-center">
+                     <div class="block-album block-content">
                         <h5 class="mb-0 opc-70 uppercase">We Are (2024)</h5>
-                        <a class="link" href="album-single.html">Ver Álbum</a>
+                        <a class="link" href="album-single.html">View Album</a>
                         <a href="album-single.html">
-                           <img class="animated" src="img/album/1.jpg" alt="">
+                        <img class="animated" src="img/album/1.jpg" alt="">
                         </a>
                         <ul class="block-social list-inline mb-md-3">
                            <li class="list-inline-item mr-0"><a href="https://music.apple.com/es/album/we-are/1832627084" target="_blank"><i class="socicon-apple"></i></a></li>
-                           <li class="list-inline-item mr-0"><a href="
+                           <li class="list-inline-item mr-0"><a href="https://music.youtube.com/playlist?list=OLAK5uy_mcU7RYRulW885vH1efRZ5aQEv8Ij9ol60" target="_blank"><i class="socicon-youtube"></i></a></li>
+                           <li class="list-inline-item mr-0"><a href="https://www.amazon.es" target="_blank"><i class="socicon-amazon"></i></a></li>
+                           <li class="list-inline-item mr-0"><a href="https://open.spotify.com/intl-es/album/2MK4nt9Jcrh2fezp5smtqJ" target="_blank"><i class="socicon-spotify"></i></a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-12 col-md-6 col-lg-3">
+                     <div class="block-album block-content">
+                        <h5 class="mb-0 opc-70 uppercase">Set me free</h5>
+                        <a class="link" href="album-single.html">View Album</a>
+                        <a href="album-single.html">
+                        <img class="animated" src="img/album/2.jpg" alt="">
+                        </a>
+                        <ul class="block-social list-inline mb-md-3">
+                           <li class="list-inline-item mr-0"><a href="#"><i class="socicon-apple"></i></a></li>
+                           <li class="list-inline-item mr-0"><a href="#"><i class="socicon-play"></i></a></li>
+                           <li class="list-inline-item mr-0"><a href="#"><i class="socicon-amazon"></i></a></li>
+                           <li class="list-inline-item mr-0"><a href="#"><i class="socicon-soundcloud"></i></a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-12 col-md-6 col-lg-3">
+                     <div class="block-album block-content">
+                        <h5 class="mb-0 opc-70 uppercase">How It Feels</h5>
+                        <a class="link" href="album-single.html">View Album</a>
+                        <a href="album-single.html">
+                        <img  class="animated" src="img/album/3.jpg" alt="">
+                        </a>
+                        <ul class="block-social list-inline mb-md-3">
+                           <li class="list-inline-item mr-0"><a href="#"><i class="socicon-apple"></i></a></li>
+                           <li class="list-inline-item mr-0"><a href="#"><i class="socicon-play"></i></a></li>
+                           <li class="list-inline-item mr-0"><a href="#"><i class="socicon-amazon"></i></a></li>
+                           <li class="list-inline-item mr-0"><a href="#"><i class="socicon-soundcloud"></i></a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-12 col-md-6 col-lg-3">
+                     <div class="block-album block-content">
+                        <h5 class="mb-0 uppercase opc-70">Tonight</h5>
+                        <a class="link" href="album-single.html">View Album</a>
+                        <a href="album-single.html">
+                        <img class="animated"  src="img/album/4.jpg" alt="">
+                        </a>
+                        <ul class="block-social list-inline mb-md-3">
+                           <li class="list-inline-item mr-0"><a href="#"><i class="socicon-apple"></i></a></li>
+                           <li class="list-inline-item mr-0"><a href="#"><i class="socicon-play"></i></a></li>
+                           <li class="list-inline-item mr-0"><a href="#"><i class="socicon-amazon"></i></a></li>
+                           <li class="list-inline-item mr-0"><a href="#"><i class="socicon-soundcloud"></i></a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               </div>
+            <div class="container">
+               <div class="row justify-content-center">
+                  <div class="col-12  col-lg-8 col-md-10 ">
+                     <div class="block-content gap-one-top-sm text-center">
+                        <div class="block-teaser ">
+                           <p class="mb-0">PRE-ORDER THE NEW ALBUM AND GET ACCESS TO<br> THE PRE-SALE OF 'THE upcoming TOUR'</p>
+                           <a class="link mb-0" href="#">Click here for more info </a>
+                        </div>
+                        <div class="block-presale gap-one-top-sm">
+                           <ul>
+                           <li><h5 class="uppercase list-inline-item">Pre-Sale Tour 1 :</h5> <span>2/07 - 2/09</span></li>
+                           <li><h5 class=" uppercase list-inline-item">Pre-Sale Tour 1 :</h5> <span>2/14 - 2/16</span></li>
+                           <li><h5 class="uppercase list-inline-item">Pre-Sale Tour 1 :</h5> <span>2/14 - 2/16</span></li>
+                        </ul>
+                           <p class=" opc-70 mb-0">All pre-sales begin 12am local and end 6pm local time.</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               </div>
+            </section>
+         <section  class="divider overlay">
+            <div class="background-img" >
+               <img  src="img/4.jpg" alt="">
+            </div>
+            <div class="container">
+               <div class="row justify-content-center">
+                  <div class="col-12 col-lg-10 ">
+                     <div class="block-content text-center front-p">
+                        <h1 class="uppercase">Tiempo restante para el próximo show</h1>
+                        <p class="lead">Próxima fecha programada en directo / Almería, España</p>
+                        <span class="countdown uppercase  mb-0 opc-70"></span>
+                     </div>
+                  </div>
+               </div>
+               </div>
+            </section>
+         <section id="band" class="band main ">
+            <div class="container">
+               <div class="row justify-content-center">
+                  <div class="col-12 col-md-10 col-lg-9">
+                     <div class="block-content text-center gap-one-bottom-md">
+                        <div class="block-title ">
+                           <h1 class="uppercase">Integrantes</h1>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               </div>
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-4 col-lg-4">
+                     <div class="block-member">
+                        <img src="img/5.jpg" alt="">
+                        <div class="member-info">
+                           <h6 class="uppercase mb-0 ">Joe Walker (Nery Kiiroi)</h6>
+                           <span class=" mt-0"> Voz Principal, Concepto Visual</span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4 col-lg-4">
+                     <div class="block-member">
+                        <img src="img/6.jpg" alt="">
+                        <div class="member-info">
+                           <h6 class="uppercase mb-0 ">Andrew Smith (Gonzalo Paletta)</h6>
+                           <span class=" mt-0"> Guitarras, Composición, Producción</span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4 col-lg-4">
+                     <div class="block-member">
+                        <img src="img/7.jpg" alt="">
+                        <div class="member-info">
+                           <h6 class="uppercase mb-0 ">Jeremy Anderton</h6>
+                           <span class=" mt-0">Drums, keyboards</span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               </div>
+            </section>
+         <section id="tour" class="tour  main bg-secondary">
+            <div class="container">
+               <div class="row justify-content-center ">
+                  <div class="col-12 col-md-10 col-lg-9">
+                     <div class="block-content  gap-one-bottom-md text-center">
+                        <div class="block-title ">
+                           <h1 class="uppercase">Upcoming tours</h1>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               </div>
+            <div class="container">
+               <div class="row justify-content-center ">
+                  <div class="col-12 col-lg-8 col-md-10">
+                     <ul class="block-tabs list-inline gap-one-bottom-sm text-center">
+                        <li class="active list-inline-item">
+                           <h5 class="uppercase  mb-0">american tour</h5>
+                        </li>
+                        <li class="list-inline-item">
+                           <h5 class="uppercase  mb-0">europeen tour</h5>
+                        </li>
+                     </ul>
+                     <ul class="block-tab">
+                        <li class="active ">
+                           <div class="block-content text-center">
+                              <div class="block-video">
+                                 <img src="img/8.jpg" class="background-img mb-0"  alt="" >
+                                 <a class="video-play-but popup-youtube" href="https://www.youtube.com/playlist?list=PL1Zf6DeDOb8kQB2IqdAZh3KD6f6dDD3jR"></a>
+                                 <div class="embed-responsive embed-responsive-16by9">
+                                 </div>
+                              </div>
+                              <p class=" mt-3"><span class="opc-70">The American Tour 2018 -</span> <a class="link" href="#">Booking Enqueries</a> </p>
+                           </div>
+                           <div class="block-content gap-one-top-sm text-left">
+                              <div class="block-content ">
+                                 <div class="row">
+                                    <div class="col-lg-3 col-md-3">
+                                       <h4 class="switch-fot">14 Mar</h4>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+                                       <h6 class="mb-0 opc-70 uppercase">Melbourne, AU</h6>
+                                       <span>Rod Laver Arena </span>
+                                    </div>
+                                    <div class="col-12 col-lg-5 col-md-5 text-md-right">
+                                       <a class="btn-s uppercase btn btn-primary with-ico border-2" href="#"><i class="icon-ticket"></i>Vip</a>
+                                       <a class="btn-s uppercase btn btn-primary with-ico" href="#"><i class="icon-ticket"></i>Buy Ticket</a>
+                                    </div>
+                                 </div>
+                              </div>
+                              <hr>
+                              <div class="block-content ">
+                                 <div class="row">
+                                    <div class="col-lg-3 col-md-3">
+                                       <h4 class="switch-fot">10 Apr</h4>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+                                       <h6 class="mb-0 opc-70 uppercase">Washington, DC, USA</h6>
+                                       <span>Capital One Arena</span>
+                                    </div>
+                                    <div class="col-12 col-lg-5 col-md-5 text-md-right">
+                                       <a class="btn-s uppercase btn btn-primary with-ico" href="#"><i class="icon-ticket"></i>Buy Ticket</a>
+                                    </div>
+                                 </div>
+                              </div>
+                              <hr>
+                              <div class="block-content ">
+                                 <div class="row">
+                                    <div class="col-lg-3 col-md-3">
+                                       <h4 class="switch-fot">24 May</h4>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+                                       <h6 class="mb-0 opc-70 uppercase">Houston, TX, USA</h6>
+                                       <span>Arena Theatre</span>
+                                    </div>
+                                    <div class=" col-12 col-lg-5 col-md-5 text-md-right">
+                                       <a class="btn-s uppercase btn btn-primary with-ico border-2" href="#"><i class="icon-ticket"></i>Vip</a>
+                                       <a class="btn-s uppercase btn btn-primary with-ico" href="#"><i class="icon-ticket"></i>Buy Ticket</a>
+                                    </div>
+                                 </div>
+                              </div>
+                              <hr>
+                              <div class="block-content">
+                                 <div class="row">
+                                    <div class="col-lg-3 col-md-3">
+                                       <h4 class="switch-fot">31 Jun</h4>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+                                       <h6 class="mb-0 opc-70 uppercase">Chicago, IL, USA</h6>
+                                       <span>United Center</span>
+                                    </div>
+                                    <div class="col-12 col-lg-5 col-md-5 text-md-right">
+                                       <a class="btn-s uppercase btn btn-primary with-ico" href="#"><i class="icon-ticket"></i>Buy Ticket</a>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="block-content text-center">
+                              <div class="block-video">
+                                 <img src="img/9.jpg" class="background-img mb-0"  alt="" >
+                                 <a class="video-play-but popup-youtube" href="https://www.youtube.com/playlist?list=PL1Zf6DeDOb8kQB2IqdAZh3KD6f6dDD3jR"></a>
+                                 <div class="embed-responsive embed-responsive-16by9">
+                                 </div>
+                              </div>
+                              <p class=" mt-3"><span class="opc-70">The Europeen Tour 2018 -</span> <a class="link" href="#">Booking Enqueries</a> </p>
+                           </div>
+                           <div class="block-content gap-one-top-sm text-left">
+                              <div class="block-content ">
+                                 <div class="row ">
+                                    <div class="col-lg-3 col-md-3">
+                                       <h4 class="switch-fot">24 Jul</h4>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+                                       <h6 class="mb-0 opc-70 uppercase">Stockholm, Sweden</h6>
+                                       <span>Annexet</span>
+                                    </div>
+                                    <div class="col-12 col-lg-5 col-md-5 text-md-right">
+                                       <a class="btn-s uppercase btn btn-primary with-ico" href="#"><i class="icon-ticket"></i>Buy Ticket</a>
+                                    </div>
+                                 </div>
+                              </div>
+                              <hr>
+                              <div class="block-content ">
+                                 <div class="row">
+                                    <div class="col-lg-3 col-md-3">
+                                       <h4 class="switch-fot">16 Aug</h4>
+                                    </div>
+                                    <div class=" col-lg-4 col-md-4">
+                                       <h6 class="mb-0 opc-70 uppercase">Berlin, Germany</h6>
+                                       <span>Mercedes-Benz Arena</span>
+                                    </div>
+                                    <div class="col-12 col-lg-5 col-md-5 float-left text-md-right">
+                                       <a class="btn-s uppercase btn btn-primary with-ico" href="#"><i class="icon-ticket"></i>Buy Ticket</a>
+                                    </div>
+                                 </div>
+                              </div>
+                              <hr>
+                              <div class="block-content ">
+                                 <div class="row">
+                                    <div class="col-lg-3 col-md-3">
+                                       <h4 class="switch-fot">24 Sep</h4>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+                                       <h6 class="mb-0 opc-70 uppercase">Monterrey, Mexico</h6>
+                                       <span>Machaca </span>
+                                    </div>
+                                    <div class="col-12 col-lg-5 col-md-5 text-md-right">
+                                       <a class="btn-s uppercase btn btn-primary with-ico border-2" href="#"><i class="icon-ticket"></i>Vip</a>
+                                       <a class="btn-s uppercase btn btn-primary with-ico" href="#"><i class="icon-ticket"></i>Buy Ticket</a>
+                                    </div>
+                                 </div>
+                              </div>
+                              <hr>
+                              <div class="block-content">
+                                 <div class="row">
+                                    <div class="col-lg-3 col-md-3">
+                                       <h4 class="switch-fot">31 Oct</h4>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+                                       <h6 class="mb-0 opc-70 uppercase">Moscow, Russia</h6>
+                                       <span>Olimpiyskiy</span>
+                                    </div>
+                                    <div class="col-12 col-lg-5 col-md-5 text-md-right">
+                                       <a class="btn-s uppercase btn btn-primary with-ico border-2" href="#"><i class="icon-ticket"></i>Vip</a>
+                                       <a class="btn-s uppercase btn btn-primary with-ico" href="#"><i class="icon-ticket"></i>Buy Ticket</a>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="col-12  col-lg-8   col-md-10">
+                     <div class="block-content  gap-one-top-sm">
+                        <div class="card  bg-red ">
+                           <div class="card-body p-5 block-subscribe ">
+                              <p class="uppercase text-center mb-4">Subscribe for free downloads and <br>band news updates</p>
+                              <form method="get">
+                                 <div class="form-row justify-content-center">
+                                    <div class="col-12 col-md-9 col-lg-8">
+                                       <div class="form-group">
+                                          <input class="form-control form-control-lg" name="email" placeholder="Email Address..." type="email">
+                                          <span class="text-small mt-1">* We don’t share your information with anyone.</span>
+                                       </div>
+                                    </div>
+                                    <div class="col-auto">
+                                       <button type="submit" class="btn  btn-primary uppercase border-3">
+                                       Subscribe now</button>
+                                    </div>
+                                 </div>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               </div>
+            </section>
+         <section id="gallery" class="gallery main bg-secondary">
+            <div class="container">
+               <div class="row justify-content-center ">
+                  <div class="col-12 col-md-10 col-lg-9">
+                     <div class="block-content  gap-one-bottom-md text-center">
+                        <h1 class="uppercase indent">Gallery</h1>
+                        <i class="icon-camera-7 big-icon adjust-space "></i>
+                     </div>
+                  </div>
+               </div>
+               </div>
+            <div class="container">
+               <div class="row justify-content-center text-center">
+                  <div class="col-12 ">
+                     <div class="card-gallery image-gallery">
+                        <a href="img/10.jpg" class="popup-image mb-0"><img class="animated" alt="" src="img/10.jpg" ></a>
+                        <a href="img/11.jpg" class="popup-image mb-0"><img class="animated" alt="" src="img/11.jpg" ></a>
+                        <a href="img/12.jpg" class="popup-image mb-0"><img class="animated" alt="" src="img/12.jpg"></a>
+                        <a href="img/13.jpg" class="popup-image mb-0"><img class="animated" alt="" src="img/13.jpg" ></a>
+                        <a href="img/20.jpg" class="popup-image mb-0"><img class="animated" alt="" src="img/20.jpg" ></a>
+                        <a href="img/14.jpg" class="popup-image mb-0"><img
