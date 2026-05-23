@@ -16,7 +16,7 @@
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,300,400,400i,600,700,800" rel="stylesheet">
 
       <style>
-         /* IMPORTACIÓN Y CONFIGURACIÓN DE FUENTE UNI SANS */
+         /* IMPORTACIÓN DE FUENTE UNI SANS */
          @font-face {
             font-family: 'Uni Sans';
             src: url('fonts/UniSans-Heavy.woff2') format('woff2'),
@@ -32,31 +32,37 @@
             font-style: normal;
          }
 
-         /* Aplicación de fuentes a encabezados y elementos clave */
+         /* Aplicación general de fuentes */
          h1, h2, h3, h4, h5, h6, .uppercase, .main-menu a, .btn {
             font-family: 'Uni Sans', 'Dosis', sans-serif !important;
             letter-spacing: 1px;
          }
-         body, p, span, .p, small {
+         body, p, span, .p, small, label, input, textarea {
             font-family: 'Uni Sans Regular', 'Open Sans', sans-serif !important;
          }
 
-         /* ARREGLO CRÍTICO PRELOADER (GITHUB PAGES): Ocultado directo por CSS para que no se quede girando */
+         /* DESACTIVACIÓN TOTAL DEL PRELOADER (Evita pantallas congeladas en blanco/negro) */
          .loader { 
             display: none !important; 
+            visibility: hidden !important;
+            opacity: 0 !important;
+         }
+         body {
+            overflow: visible !important;
+            background-color: #13181d !important; 
+            color: #ffffff !important;
          }
 
-         /* PALETA CROMÁTICA OFICIAL */
-         /* Fondos */
-         body, .wrapper, .bg-secondary, section.main { background-color: #13181d !important; color: #ffffff !important; }
+         /* PALETA DE COLORES OFICIAL */
+         body, .wrapper, .bg-secondary, section.main { background-color: #13181d !important; }
          
-         /* Bloques oscuros nativos de la plantilla (Tracklist, Teaser, Cards de contacto) */
+         /* Bloques oscuros con borde azul */
          .block-tracklist, .block-teaser, .contact .card, .custom-contact-box { 
             background-color: #090d10 !important; 
             border: 1px solid #0046ff !important; 
          }
          
-         /* Rojo Wildfinity para acentos de marca y fondos principales */
+         /* Rojo Wildfinity para acentos principales */
          .bg-red, .btn-primary, .block-top, .main-slider .flex-control-nav li a.flex-active { 
             background-color: #e62129 !important; 
             border-color: #e62129 !important; 
@@ -70,34 +76,38 @@
             color: #e62129 !important; 
          }
          
-         /* Azul Eléctrico para interacción y enlaces */
+         /* Azul Eléctrico para interacción */
          a, .link, .block-album h5 { color: #0046ff; transition: color 0.3s ease; }
          a:hover, .link:hover, .main-menu a:hover { color: #e62129 !important; }
          
-         /* Botones con bordes estilizados de la plantilla */
+         /* Botones con bordes nativos estilizados */
          .border-2 { border-color: #0046ff !important; color: #0046ff !important; background: transparent !important; }
          .border-2:hover { background: #0046ff !important; color: #ffffff !important; }
          .border-3 { border-color: #e62129 !important; color: #ffffff !important; background: transparent !important; }
          .border-3:hover { background: #e62129 !important; color: #ffffff !important; }
 
-         /* Líneas separadoras originales adaptadas */
          hr { border-top: 1px solid rgba(0, 70, 255, 0.3) !important; }
 
-         /* FORMULARIO DE CONTACTO MAQUETADO EN EL ESQUEMA DE COLORES */
+         /* ESTILOS EXCLUSIVOS DEL FORMULARIO DE CONTACTO */
          .custom-contact-form .form-control { 
             background-color: #13181d !important; 
             color: #ffffff !important; 
             border: 1px solid #0046ff !important; 
             border-radius: 4px;
             padding-right: 45px; 
+            height: auto;
+            padding-top: 10px;
+            padding-bottom: 10px;
          }
          .custom-contact-form .form-control:focus {
             border-color: #e62129 !important;
             box-shadow: 0 0 5px rgba(230, 33, 41, 0.5);
+            background-color: #13181d !important;
+            color: #ffffff !important;
          }
          .custom-contact-form .form-group { position: relative; }
          
-         /* Tildes verdes de validación interactiva */
+         /* Iconos de validación en verde */
          .validate-icon { 
             position: absolute; 
             right: 15px; 
@@ -110,21 +120,18 @@
          .custom-contact-form .form-control.is-valid { border-color: #25d366 !important; }
          .custom-contact-form .form-control.is-valid + .validate-icon { display: block; }
          
-         /* Contenedor de Estado de Envío Ajax */
+         /* Alertas de Estado Ajax */
          #form-status { display: none; font-weight: bold; margin-top: 20px; padding: 12px; border-radius: 4px; text-align: center; }
          .status-success { background-color: rgba(37, 211, 102, 0.15); color: #25d366; border: 1px solid #25d366; }
          .status-error { background-color: rgba(230, 33, 41, 0.15); color: #e62129; border: 1px solid #e62129; }
       </style>
    </head>
    <body>
-      <div class="loader">
-         <div class="loader-inner">
-            <svg width="120" height="220" viewbox="0 0 100 100" class="loading-spinner" version="1.1" xmlns="http://www.w3.org/2000/svg">
-               <circle class="spinner" cx="50" cy="50" r="21" fill="#13181d" stroke-width="2"/>
-            </svg>
-         </div>
-      </div>
+
+      <div class="loader"></div>
+
       <div class="wrapper" id="wrapper">
+         
          <div class="block-search-form">
             <div class="block-content">
                <div class="container">
@@ -150,6 +157,7 @@
                </div>
             </div>
          </div>
+
          <section class="hero">
             <div class="main-slider slider flexslider">
                <ul class="slides">
@@ -220,7 +228,8 @@
                   </nav>
                </div>
             </header>
-            </section>
+         </section>
+         
          <section id="album" class="latest main">
             <div class="container">
                <div class="row justify-content-center">
@@ -896,79 +905,6 @@
                   </div>
                </div>
             </div>
-            <div class="container">
-               <div class="row justify-content-center">
-                  <div class="col-12 col-lg-10">
-                     <ul class="feature-list feature-list-sm text-center row list-unstyled">
-                        <li class="col-md-6 col-lg-4">
-                           <div class="card text-center">
-                              <div class="card-body">
-                                 <h2 class="uppercase text-red">Booking</h2>
-                                 <p class="mb-0">
-                                    <h5 class="uppercase opc-70">Gonzalo Paletta</h5>
-                                    Almería, España<br>
-                                    wildfinity@gmail.com
-                                 </p>
-                              </div>
-                           </div>
-                        </li>
-                        <li class="col-md-6 col-lg-4">
-                           <div class="card text-center">
-                              <div class="card-body">
-                                 <h2 class="uppercase text-red">Press</h2>
-                                 <p class="mb-0">
-                                    <h5 class="uppercase opc-70">Zakaria Kalal</h5>
-                                    T+(513)352-3209<br>
-                                    wildfinity@gmail.com
-                                 </p>
-                              </div>
-                           </div>
-                        </li>
-                        <li class="col-md-6 col-lg-4">
-                           <div class="card text-center">
-                              <div class="card-body">
-                                 <h2 class="uppercase text-red">Info</h2>
-                                 <p class="mb-0">
-                                    <h5 class="uppercase opc-70">Youssef Ait</h5>
-                                    T+(513)352-3209<br>
-                                    wildfinity@gmail.com
-                                 </p>
-                              </div>
-                           </div>
-                        </li>
-                     </ul>
-                  </div>
-               </div>
-
-               <div class="row justify-content-center mt-5 custom-contact-form">
-                  <div class="col-12 col-lg-10">
-                     <form id="ajax-form" action="https://formspree.io/f/tu_endpoint_aqui" method="POST" class="p-5 rounded text-left custom-contact-box">
-                        <h3 class="uppercase text-white text-center mb-4">Envianos un mensaje directo</h3>
-                        <div class="row">
-                           <div class="col-md-6 mb-4 form-group">
-                              <label class="form-label uppercase small font-weight-700 text-white">Nombre *</label>
-                              <input type="text" id="form-name" name="name" class="form-control" required autocomplete="off">
-                              <span class="validate-icon">✓</span>
-                           </div>
-                           <div class="col-md-6 mb-4 form-group">
-                              <label class="form-label uppercase small font-weight-700 text-white">Teléfono (Opcional)</label>
-                              <input type="tel" id="form-phone" name="phone" class="form-control" autocomplete="off">
-                              <span class="validate-icon">✓</span>
-                           </div>
-                           <div class="col-12 mb-4 form-group">
-                              <label class="form-label uppercase small font-weight-700 text-white">Mensaje *</label>
-         <section id="contact" class="contact main bg-secondary">
-            <div class="container">
-               <div class="row justify-content-center">
-                  <div class="col-12 col-md-10 col-lg-9">
-                     <div class="block-content gap-one-bottom-md text-center">
-                        <div class="block-title">
-                           <h1 class="uppercase">Contratación & Booking</h1>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
             
             <div class="container">
                <div class="row justify-content-center">
@@ -978,8 +914,7 @@
                            <div class="card text-center">
                               <div class="card-body">
                                  <h2 class="uppercase text-red">Booking</h2>
-                                 <p class="mb-0"></p>
-                                 <h5 class="uppercase opc-70">Gonzalo Paletta</h5>
+                                 <h5 class="uppercase opc-70 mt-3">Gonzalo Paletta</h5>
                                  Almería, España<br>
                                  wildfinity@gmail.com
                               </div>
@@ -989,8 +924,7 @@
                            <div class="card text-center">
                               <div class="card-body">
                                  <h2 class="uppercase text-red">Press</h2>
-                                 <p class="mb-0"></p>
-                                 <h5 class="uppercase opc-70">Zakaria Kalal</h5>
+                                 <h5 class="uppercase opc-70 mt-3">Zakaria Kalal</h5>
                                  T+(513)352-3209<br>
                                  wildfinity@gmail.com
                               </div>
@@ -1000,8 +934,7 @@
                            <div class="card text-center">
                               <div class="card-body">
                                  <h2 class="uppercase text-red">Info</h2>
-                                 <p class="mb-0"></p>
-                                 <h5 class="uppercase opc-70">Youssef Ait</h5>
+                                 <h5 class="uppercase opc-70 mt-3">Youssef Ait</h5>
                                  T+(513)352-3209<br>
                                  wildfinity@gmail.com
                               </div>
@@ -1013,32 +946,34 @@
 
                <div class="row justify-content-center mt-5 custom-contact-form">
                   <div class="col-12 col-lg-10">
-                     <form id="ajax-form" action="https://formspree.io/f/tu_endpoint_aqui" method="POST" class="p-5 rounded text-left custom-contact-box">
-                        <h3 class="uppercase text-white text-center mb-4">Envianos un mensaje directo</h3>
-                        <div class="row">
-                           <div class="col-md-6 mb-4 form-group">
-                              <label class="form-label uppercase small font-weight-700 text-white">Nombre *</label>
-                              <input type="text" id="form-name" name="name" class="form-control" required autocomplete="off">
-                              <span class="validate-icon">✓</span>
+                     <div class="p-5 rounded text-left custom-contact-box">
+                        <form id="ajax-form" action="https://formspree.io/f/tu_endpoint_aqui" method="POST">
+                           <h3 class="uppercase text-white text-center mb-4">Envianos un mensaje directo</h3>
+                           <div class="row">
+                              <div class="col-md-6 mb-4 form-group">
+                                 <label class="form-label uppercase small font-weight-700 text-white">Nombre *</label>
+                                 <input type="text" id="form-name" name="name" class="form-control" required autocomplete="off">
+                                 <span class="validate-icon">✓</span>
+                              </div>
+                              <div class="col-md-6 mb-4 form-group">
+                                 <label class="form-label uppercase small font-weight-700 text-white">Teléfono (Opcional)</label>
+                                 <input type="tel" id="form-phone" name="phone" class="form-control" autocomplete="off">
+                                 <span class="validate-icon">✓</span>
+                              </div>
+                              <div class="col-12 mb-4 form-group">
+                                 <label class="form-label uppercase small font-weight-700 text-white">Mensaje *</label>
+                                 <textarea id="form-message" name="message" class="form-control" rows="5" required></textarea>
+                                 <span class="validate-icon" style="top: 40px;">✓</span>
+                              </div>
+                              <div class="col-12 text-center">
+                                 <button type="submit" class="btn btn-primary uppercase font-weight-700 px-5">Enviar Formulario</button>
+                              </div>
+                              <div class="col-12">
+                                 <div id="form-status"></div>
+                              </div>
                            </div>
-                           <div class="col-md-6 mb-4 form-group">
-                              <label class="form-label uppercase small font-weight-700 text-white">Teléfono (Opcional)</label>
-                              <input type="tel" id="form-phone" name="phone" class="form-control" autocomplete="off">
-                              <span class="validate-icon">✓</span>
-                           </div>
-                           <div class="col-12 mb-4 form-group">
-                              <label class="form-label uppercase small font-weight-700 text-white">Mensaje *</label>
-                              <textarea id="form-message" name="message" class="form-control" rows="5" required></textarea>
-                              <span class="validate-icon" style="top: 40px;">✓</span>
-                           </div>
-                           <div class="col-12 text-center">
-                              <button type="submit" class="btn btn-primary uppercase font-weight-700 px-5">Enviar Formulario</button>
-                           </div>
-                           <div class="col-12">
-                              <div id="form-status"></div>
-                           </div>
-                        </div>
-                     </form>
+                        </form>
+                     </div>
                   </div>
                </div>
 
@@ -1057,7 +992,6 @@
                </div>
             </div>
          </section>
-                              
          
          <footer class="pt-5 pb-5 footer">
             <div class="container">
@@ -1098,50 +1032,56 @@
             
             requiredFields.forEach(selector => {
                const inputEl = document.querySelector(selector);
-               inputEl.addEventListener('input', function() {
-                  if(this.checkValidity() && this.value.trim() !== "") {
+               if(inputEl) {
+                  inputEl.addEventListener('input', function() {
+                     if(this.checkValidity() && this.value.trim() !== "") {
+                        this.classList.add('is-valid');
+                     } else {
+                        this.classList.remove('is-valid');
+                     }
+                  });
+               }
+            });
+
+            const phoneEl = document.querySelector('#form-phone');
+            if(phoneEl) {
+               phoneEl.addEventListener('input', function() {
+                  if(this.value.trim() !== "") {
                      this.classList.add('is-valid');
                   } else {
                      this.classList.remove('is-valid');
                   }
                });
-            });
+            }
 
-            const phoneEl = document.querySelector('#form-phone');
-            phoneEl.addEventListener('input', function() {
-               if(this.value.trim() !== "") {
-                  this.classList.add('is-valid');
-               } else {
-                  this.classList.remove('is-valid');
-               }
-            });
+            if(form) {
+               form.addEventListener("submit", function(e) {
+                  e.preventDefault();
+                  statusDiv.style.display = "block";
+                  statusDiv.className = "";
+                  statusDiv.textContent = "Enviando mensaje...";
 
-            form.addEventListener("submit", function(e) {
-               e.preventDefault();
-               statusDiv.style.display = "block";
-               statusDiv.className = "";
-               statusDiv.textContent = "Enviando mensaje...";
-
-               const data = new FormData(form);
-               fetch(form.action, {
-                  method: form.method,
-                  body: data,
-                  headers: { 'Accept': 'application/json' }
-               }).then(response => {
-                  if (response.ok) {
-                     statusDiv.className = "status-success";
-                     statusDiv.textContent = "¡Enviado correctamente!";
-                     form.reset();
-                     document.querySelectorAll('.form-control').forEach(el => el.classList.remove('is-valid'));
-                  } else {
+                  const data = new FormData(form);
+                  fetch(form.action, {
+                     method: form.method,
+                     body: data,
+                     headers: { 'Accept': 'application/json' }
+                  }).then(response => {
+                     if (response.ok) {
+                        statusDiv.className = "status-success";
+                        statusDiv.textContent = "¡Enviado correctamente!";
+                        form.reset();
+                        document.querySelectorAll('.form-control').forEach(el => el.classList.remove('is-valid'));
+                     } else {
+                        statusDiv.className = "status-error";
+                        statusDiv.textContent = "Error al enviar. Por favor intenta de nuevo.";
+                     }
+                  }).catch(error => {
                      statusDiv.className = "status-error";
-                     statusDiv.textContent = "Error al enviar. Por favor intenta de nuevo.";
-                  }
-               }).catch(error => {
-                  statusDiv.className = "status-error";
-                  statusDiv.textContent = "Error de red. Comprueba tu conexión.";
+                     statusDiv.textContent = "Error de red. Comprueba tu conexión.";
+                  });
                });
-            });
+            }
          });
       </script>
    </body>
