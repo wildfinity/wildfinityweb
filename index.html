@@ -42,16 +42,7 @@
 </head>
 <body>
 
-   <!-- Preloader -->
-   <div style="display: none;" class="loader">
-      <div class="loader-inner">
-         <svg width="120" height="220" viewBox="0 0 100 100" class="loading-spinner" version="1.1" xmlns="http://www.w3.org/2000/svg">
-            <circle class="spinner" cx="50" cy="50" r="21" fill="#13181d" stroke-width="2"/>
-         </svg>
-      </div>
-   </div>
-
-   <!-- Wrapper -->
+   <!-- Wrapper (Carga directa sin preloader) -->
    <div class="wrapper" id="wrapper">
       
       <!-- Hero Section (Slider Principal) -->
@@ -125,7 +116,7 @@
                      <li class="block-helper">
                         <a href="#album" class="scroll"><span><i class="icon-cd-2"></i></span></a>
                      </li>
-                     <!-- Selector de Idioma Integrado -->
+                     <!-- Selector de Idioma -->
                      <li class="block-helper ml-3">
                         <span class="lang-switcher">
                            <a class="lang-btn active" onclick="setLanguage('es')">ES</a>
@@ -486,7 +477,6 @@
          
          elements.forEach(el => {
             if (lang === 'en') {
-               // Si contiene HTML interno pesado (como las etiquetas strong de la lista), lo renderiza completo
                if (el.getAttribute('data-en').includes('<strong')) {
                   el.innerHTML = el.getAttribute('data-en');
                } else {
@@ -505,7 +495,6 @@
          const buttons = document.querySelectorAll('.lang-btn');
          buttons.forEach(btn => btn.classList.remove('active'));
          
-         // Marcamos visualmente el botón correcto según el idioma elegido
          if (lang === 'es') {
             buttons[0].classList.add('active');
          } else {
