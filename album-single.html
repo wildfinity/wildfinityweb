@@ -1,510 +1,338 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
    <head>
-      <!-- Metas -->
       <meta charset="utf-8">
-      <title>Mousiqua - Music Band and Musician Template</title>
-      <meta name="description" content="">
+      <title>Wildfinity - We Are (Álbum Oficial)</title>
+      <meta name="description" content="Escucha 'WE ARE', el álbum debut de Wildfinity. Hard Rock, Arena Rock y Glam Metal con la fuerza de los 80 y sonido del siglo XXI.">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!-- Css -->
       <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
       <link href="css/base.css" rel="stylesheet" type="text/css" media="all"/>
       <link href="css/main.css" rel="stylesheet" type="text/css" media="all"/>
       <link href="css/flexslider.css" rel="stylesheet" type="text/css"  media="all" />
       <link href="css/fonts.css" rel="stylesheet" type="text/css"  media="all" />
-      <link href="http://fonts.googleapis.com/css?family=Dosis:100,300,400,600,700" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Dosis:100,300,400,600,700" rel="stylesheet" type="text/css">
       <link href="https://fonts.googleapis.com/css?family=Raleway:100,400,500,600,700" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400,400i,600,700,800" rel="stylesheet">
+
+      <style>
+         body, .wrapper, .bg-secondary, .main { background-color: #13181d !important; color: #ffffff; }
+         .card, .block-tracklist, .block-teaser, .block-inner { background-color: #090d10 !important; border: 1px solid #0046ff; }
+         
+         /* Acentuación en Rojo Wildfinity */
+         .bg-red, .btn-primary, .block-top { background-color: #e62129 !important; border-color: #e62129 !important; }
+         .btn-primary:hover { background-color: #0046ff !important; border-color: #0046ff !important; }
+         .text-red, .block-title h1, h1.large, h3.text-red, .block-lyrics h5 { color: #e62129 !important; }
+         
+         /* Azul Eléctrico interactivo */
+         a, .link, .block-album h5 { color: #0046ff; transition: color 0.3s; }
+         a:hover, .link:hover { color: #e62129; }
+         .border-2 { border-color: #0046ff !important; color: #0046ff !important; background: transparent; }
+         .border-2:hover { background: #0046ff !important; color: #fff !important; }
+         .border-3 { border-color: #e62129 !important; color: #ffffff !important; background: transparent; }
+         .border-3:hover { background: #e62129 !important; color: #ffffff !important; }
+
+         /* Selector de Idiomas integrado en el menú superior */
+         .lang-switcher { font-weight: 600; cursor: pointer; display: inline-flex; gap: 5px; margin-left: 15px; }
+         .lang-btn { color: rgba(255,255,255,0.6); text-decoration: none; }
+         .lang-btn:hover, .lang-btn.active { color: #0046ff !important; text-shadow: 0 0 5px #0046ff; }
+         header.default .lang-btn { color: #ffffff; }
+         header.default .lang-btn.active { color: #e62129 !important; }
+      </style>
    </head>
    <body>
-      <!-- Preloader -->
       <div class="loader">
-         <!-- Preloader inner -->
          <div class="loader-inner">
             <svg width="120" height="220" viewbox="0 0 100 100" class="loading-spinner" version="1.1" xmlns="http://www.w3.org/2000/svg">
                <circle class="spinner" cx="50" cy="50" r="21" fill="#13181d" stroke-width="2"/>
             </svg>
          </div>
-         <!-- End preloader inner -->
       </div>
-      <!-- End preloader-->
-      <!--Wrapper-->
-      <div class="wrapper">
-         <div class="block-search-form">
-            <div class="block-content">
-               <div class="container">
-                  <!--end of row-->
-                  <div class="row justify-content-center">
-                     <div class="col-12 col-md-10 col-lg-8">
-                        <form method="get"  >
-                           <div class="card  bg-red ">
-                              <div class="card-body  row no-gutters align-items-center">
-                                 <div class="col-auto">
-                                    <i class="icon-search"></i>
-                                 </div>
-                                 <!--end of col-->
-                                 <div class="col">
-                                    <input class="form-control form-control-lg form-control-border0" placeholder="Type a keywords..." type="search">
-                                 </div>
-                                 <!--end of col-->
-                                 <div class="col-auto">
-                                    <button type="submit" class="btn  btn-primary uppercase border-3">
-                                    Search now</button>
-                                 </div>
-                                 <!--end of col-->
-                              </div>
-                           </div>
-                        </form>
-                     </div>
-                     <!--end of col-->
+
+      <div class="wrapper" id="wrapper">
+         
+         <header class="header default dynamic">
+            <div class="left-part">
+               <a class="logo" href="index.html#wrapper">
+                  <h2 class="mb-0 uppercase font-weight-700">Wildfinity.</h2>
+               </a>
+            </div>
+            <div class="right-part">
+               <nav class="main-nav">
+                  <div class="toggle-mobile-but">
+                     <a href="#" class="mobile-but">
+                        <div class="lines"></div>
+                     </a>
                   </div>
-                  <!--end of row-->
-               </div>
+                  <ul class="main-menu list-inline">
+                     <li><a class="list-inline-item" href="index.html#wrapper" data-es="Inicio" data-en="Home">Inicio</a></li>
+                     <li><a class="list-inline-item" href="index.html#album" data-es="Último Álbum" data-en="Latest Album">Último Álbum</a></li>
+                     <li><a class="list-inline-item" href="index.html#discography" data-es="Discografía" data-en="Discography">Discografía</a></li>
+                     <li><a class="list-inline-item" href="index.html#band" data-es="Integrantes" data-en="Band">Integrantes</a></li>
+                     <li><a class="list-inline-item" href="index.html#tour" data-es="Giras" data-en="Tours">Giras</a></li>
+                     <li><a class="list-inline-item" href="index.html#shop" data-es="Tienda" data-en="Store">Tienda</a></li>
+                     <li><a class="list-inline-item" href="index.html#contact" data-es="Contacto" data-en="Contact">Contacto</a></li>
+                     <li>
+                        <ul class="block-helper list-inline">
+                           <li class="list-inline-item">
+                              <span class="lang-switcher">
+                                 <a class="lang-btn active" onclick="setLanguage('es')">ES</a>
+                                 <span class="text-muted">|</span>
+                                 <a class="lang-btn" onclick="setLanguage('en')">EN</a>
+                              </span>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+               </nav>
             </div>
-         </div>
-         <!--Hero section-->
-         <section class="hero height-70">
-            <div class="background-img overlay zoom">
-               <img src="img/21.jpg" alt="">
+         </header>
+
+         <section class="inner-hero overlay">
+            <div class="background-img">
+               <img src="img/2.jpg" alt="We Are Album Session">
             </div>
-            <!--Container-->
             <div class="container hero-content">
-               <!--Row-->
                <div class="row">
                   <div class="col-sm-12 text-center">
-                     <!--Inner hero-->
                      <div class="inner-hero">
-                        <div class="back-rect"></div>
-                        <h1 class="large text-white uppercase mb-0">Limitless Album</h1>
-                        <h5 class="mb-0 text-white uppercase">Our big Heath album Available Everywhere</h5>
-                        <div class="front-rect"></div>
+                        <h1 class="large text-white uppercase mb-0">WE ARE</h1>
+                        <h5 class="mb-0 text-white uppercase" data-es="El Álbum Debut Completo" data-en="The Full Debut Album">El Álbum Debut Completo</h5>
                      </div>
                   </div>
-                  <!--End row-->
                </div>
-               <!--End container-->
             </div>
-            <!--End inner hero-->
-            <!--Header-->
-            <header class="header default">
-               <div class=" left-part">
-                  <a class="logo scroll" href="index.html">
-                     <h2 class="mb-0 uppercase">mousiqua.</h2>
-                  </a>
-               </div>
-               <div class="right-part">
-                  <nav class="main-nav">
-                     <div class="toggle-mobile-but">
-                        <a href="#" class="mobile-but" >
-                           <div class="lines"></div>
-                        </a>
-                     </div>
-                     <ul class="main-menu list-inline">
-                        <li><a class="scroll list-inline-item" href="index.html#wrapper">Home</a></li>
-                        <li><a class="scroll list-inline-item" href="index.html#about">about</a></li>
-                        <li><a class="scroll list-inline-item" href="index.html#discography">discography</a></li>
-                        <li><a class="scroll list-inline-item" href="index.html#band">Band</a></li>
-                        <li><a class="scroll list-inline-item" href="index.html#tour">Tours</a></li>
-                        <li><a class="scroll list-inline-item" href="index.html#gallery">Gallery</a></li>
-                        <li><a class="scroll list-inline-item" href="index.html#news">News</a></li>
-                        <li><a class="scroll list-inline-item" href="index.html#contact">Contact</a></li>
-                        <li>
-                           <ul class="block-helper list-inline">
-                              <li class="list-inline-item"><a href="#"><i class="icon-shop"></i></a></li>
-                              <li class="list-inline-item"><span class="search-ico"><i class="icon-search"></i></span></li>
-                           </ul>
-                        </li>
-                     </ul>
-                  </nav>
-               </div>
-            </header>
-            <!--End header-->
          </section>
-         <!--End hero section-->
-         <!--Discography section-->
-         <section id="discography" class="discography main">
-            <!--Container-->
+
+         <section class="album-single main segment">
             <div class="container">
-               <!--Row-->
                <div class="row justify-content-center">
-                  <div class="col-12 col-md-10 col-lg-9 ">
-                     <div class="block-content text-center gap-one-bottom-md">
-                        <div class="block-title ">
-                           <h1 class="uppercase">Album information</h1>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!--End row-->
-            </div>
-            <!--End container-->
-            <!--Container-->
-            <div class="container">
-               <!--Row-->
-               <div class="row justify-content-center">
-                  <div class="col-12 col-md-6 col-lg-8  ">
-                     <div class="block-content text-center gap-one-bottom-sm">
-                        <div class="block-album-info">
+                  
+                  <div class="col-12 col-md-10 col-lg-4">
+                     <div class="block-inner text-center p-4 rounded shadow-lg mb-5">
+                        <img class="img-fluid rounded mb-4" src="img/album/5.jpg" alt="We Are Album Cover" style="max-width: 100%;">
+                        <div class="block-album-info text-left">
                            <ul>
-                           <li><h5 class=" uppercase list-inline-item ">Label :</h5> <span>Limitless</span></li>
-                           <li><h5 class=" uppercase list-inline-item">Released :</h5> <span>March 23/3/18</span></li>
-                           <li><h5 class=" uppercase list-inline-item">Genre :</h5> <span>Pop/Rock/techno</span></li>
-                           <li><h5 class="uppercase list-inline-item">Styles :</h5> <span>Revival/Indie Rock</span></li>
-                           <li>
+                              <li><h5 class="uppercase list-inline-item" data-es="Lanzamiento :" data-en="Released :">Lanzamiento :</h5> <span>22/12/2024</span></li>
+                              <li><h5 class="uppercase list-inline-item" data-es="Duración :" data-en="Length :">Duración :</h5> <span>10 Tracks</span></li>
+                              <li><h5 class="uppercase list-inline-item" data-es="Sello :" data-en="Label :">Sello :</h5> <span data-es="Independiente" data-en="Independent">Independiente</span></li>
+                              <li><h5 class="uppercase list-inline-item" data-es="Género :" data-en="Genre :">Género :</h5> <span>Hard Rock / Arena Rock</span></li>
                            </ul>
                         </div>
-                        <ul class="block-social list-inline mt-4">
-                           <li class="list-inline-item mr-0"><a href="#"><i class="socicon-apple"></i></a></li>
-                           <li class="list-inline-item mr-0"><a href="#"><i class="socicon-play"></i></a></li>
-                           <li class="list-inline-item mr-0"><a href="#"><i class="socicon-amazon"></i></a></li>
-                           <li class="list-inline-item mr-0"><a href="#"><i class="socicon-soundcloud"></i></a></li>
-                           <li class="list-inline-item mr-0"><a href="#"><i class="socicon-spotify"></i></a></li>
-                           <li class="list-inline-item mr-0"><a href="#"><i class="socicon-youtube"></i></a></li>
+                        
+                        <h4 class="uppercase font-weight-700 mt-4 mb-3 text-red" data-es="Escucha en Streaming" data-en="Stream Everywhere">Escucha en Streaming</h4>
+                        <ul class="block-social list-inline text-center" style="font-size: 20px;">
+                           <li class="list-inline-item"><a class="border-3" href="https://open.spotify.com/intl-es/album/2MK4nt9Jcrh2fezp5smtqJ" target="_blank"><i class="socicon-spotify"></i></a></li>
+                           <li class="list-inline-item"><a class="border-3" href="https://music.apple.com/es/album/we-are/1832627084" target="_blank"><i class="socicon-apple"></i></a></li>
+                           <li class="list-inline-item"><a class="border-3" href="https://music.youtube.com/playlist?list=OLAK5uy_mcU7RYRulW885vH1efRZ5aQEv8Ij9ol60" target="_blank"><i class="socicon-youtube"></i></a></li>
+                           <li class="list-inline-item"><a class="border-3" href="https://www.deezer.com/es/album/802604251" target="_blank"><i class="socicon-deezer"></i></a></li>
                         </ul>
                      </div>
                   </div>
-               </div>
-               <!--End row-->
-            </div>
-            <!--End container-->
-            <!--Container-->
-            <div class="container">
-               <!--Row-->
-               <div class="row justify-content-center">
+
                   <div class="col-12 col-lg-8 col-md-10">
-                     <div class="block-tracklist">
+                     <div class="block-tracklist drop-shadow">
                         <audio preload class="album"></audio>
-                        <div class="block-content pb-0">
-                           <img  class="mb-0" src="img/album/6.jpg" alt="">
-                        </div>
                         <ol class="playlist">
+                           
                            <li>
-                              <div class="as-link" data-src="mp3/01.mp3">
-                                 <!--Row-->
-                                 <div class="row">
-                                    <div class="col-lg-6 col-md-6 ">
+                              <div class="as-link" data-src="mp3/01. We Are.mp3">
+                                 <div class="row align-items-center">
+                                    <div class="col-lg-7 col-md-7">
                                        <div class="block-track">
-                                          <h6 class="mb-0 opc-70 uppercase">Love alive</h6>
-                                          <span>Limitless </span>
+                                          <h6 class="mb-0 opc-70 uppercase font-weight-700 text-red">1. We Are</h6>
+                                          <span data-es="Single Principal del Álbum" data-en="Lead Album Single">Single Principal del Álbum</span>
                                        </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 text-md-right">
-                                       <a href="#" class="btn-s uppercase btn btn-primary with-ico" ><i class="icon-download"></i>Download</a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </li>
-                           <li >
-                              <div class="as-link" data-src="mp3/01.mp3">
-                                 <!--Row-->
-                                 <div class="row">
-                                    <div class="col-lg-6 col-md-6 ">
-                                       <div class="block-track">
-                                          <h6 class="mb-0 opc-70 uppercase">Hope</h6>
-                                          <span> Limitless</span>
-                                       </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 text-md-right">
+                                    <div class="col-lg-5 col-md-5 text-md-right">
                                        <a href="#" class="btn-s uppercase btn btn-primary with-ico border-2 toggle-lyrics"><i class="icon-note"></i>Lyrics</a>
-                                       <a href="#" class="btn-s uppercase btn btn-primary with-ico" ><i class="icon-cart"></i>Purchase</a>
                                     </div>
-                                    <div class="col-12 ">
-                                       <div class="block-lyrics w-75 text-center mt-3">
-                                          <h6 class="mb-4 opc-70 uppercase ">Hope</h6>
-                                          <p>Liberian girl
-                                             You came and you changed my world
-                                             A love so brand new
-                                             Liberian girl
-                                             You came and you changed my world
-                                             A feeling so true
-                                          </p>
-                                          <p>Liberian girl
-                                             You know that you came
-                                             And you changed my world
-                                             Just like in the movies
-                                             With two lovers in a scene
-                                             And she says
-                                             "Do you love me"
-                                             And he says so endlessly
-                                             "I love you, Liberian girl"
-                                          </p>
-                                          <p>Liberian girl
-                                             More precious than any pearl
-                                             Your love so complete
-                                             Liberian girl
-                                             You kiss me then,
-                                             Ooh, the world
-                                             You do this to me
-                                             Liberian girl
-                                             You know that you came
-                                             And you changed my world
-                                             Just like in the movies
-                                             With two lovers in a scene
-                                             And she says
-                                             "Do you love me"
-                                             And he says so endlessly
-                                             "I love you, Liberian girl"
-                                          </p>
-                                          <p>Liberian girl
-                                             You know that you came
-                                             And you changed my world
-                                             I wait for the day
-                                             When you have to say
-                                             "I do"… 
-                                          </p>
+                                    <div class="col-12">
+                                       <div class="block-lyrics text-center mt-3 p-3">
+                                          <h5 class="mb-3 opc-70 uppercase">We Are - Lyrics</h5>
+                                          <p>[Espacio asignado para la letra oficial de vuestro tema principal / Lyrics space]</p>
                                        </div>
                                     </div>
                                  </div>
                               </div>
                            </li>
-                           <li >
-                              <div class="as-link" data-src="mp3/03.mp3">
-                                 <!--Row-->
-                                 <div class="row">
-                                    <div class="col-lg-6 col-md-6 ">
+
+                           <li>
+                              <div class="as-link" data-src="mp3/02. Live Tonight.mp3">
+                                 <div class="row align-items-center">
+                                    <div class="col-lg-7 col-md-7">
                                        <div class="block-track">
-                                          <h6 class="mb-0 opc-70 uppercase ">Bounce out</h6>
-                                          <span>Limitless </span>
+                                          <h6 class="mb-0 opc-70 uppercase font-weight-700">2. Live Tonight</h6>
+                                          <span data-es="Pura energía Arena Rock" data-en="Pure Arena Rock energy">Pura energía Arena Rock</span>
                                        </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 text-md-right">
-                                       <a href="#" class="btn-s uppercase btn btn-primary with-ico" ><i class="icon-download"></i>Download</a>
+                                    <div class="col-lg-5 col-md-5 text-md-right">
+                                       <a href="https://www.youtube.com/@Wildfinity" target="_blank" class="btn-s uppercase btn btn-primary with-ico"><i class="icon-video"></i>Video</a>
                                     </div>
                                  </div>
                               </div>
                            </li>
-                           <li >
-                              <div class="as-link" data-src="mp3/04.mp3">
-                                 <!--Row-->
-                                 <div class="row">
-                                    <div class="col-lg-6 col-md-6 ">
+
+                           <li>
+                              <div class="as-link" data-src="mp3/03. Bounce Out.mp3">
+                                 <div class="row align-items-center">
+                                    <div class="col-12">
                                        <div class="block-track">
-                                          <h6 class="mb-0 opc-70 ">Girls are the same</h6>
-                                          <span>Limitless </span>
+                                          <h6 class="mb-0 opc-70 uppercase font-weight-700">3. Bounce Out</h6>
+                                          <span data-es="Riffs demoledores de guitarra" data-en="Crushing guitar riffs">Riffs demoledores de guitarra</span>
                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 text-md-right">
-                                       <a href="#" class="btn-s uppercase btn btn-primary with-ico"><i class="icon-download"></i>Download</a>
                                     </div>
                                  </div>
                               </div>
                            </li>
-                           <li >
-                              <div class="as-link" data-src="mp3/05.mp3">
-                                 <!--Row-->
-                                 <div class="row">
-                                    <div class="col-lg-6 col-md-6 ">
+
+                           <li>
+                              <div class="as-link" data-src="mp3/04. Hell Is Empty.mp3">
+                                 <div class="row align-items-center">
+                                    <div class="col-12">
                                        <div class="block-track">
-                                          <h6 class="mb-0 opc-70 uppercase">My queen</h6>
-                                          <span>Limitless </span>
-                                       </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 text-md-right">
-                                       <a href="#" class="btn-s uppercase btn btn-primary with-ico border-2 toggle-lyrics"><i class="icon-note"></i>Lyrics</a>
-                                       <a href="#" class="btn-s uppercase btn btn-primary with-ico" ><i class="icon-cart"></i>Purchase</a>
-                                    </div>
-                                    <div class="col-12 ">
-                                       <div class="block-lyrics w-75  text-center mt-3">
-                                          <h6 class="mb-4 opc-70 uppercase ">My queen</h6>
-                                          <p>Liberian girl
-                                             You came and you changed my world
-                                             A love so brand new
-                                             Liberian girl
-                                             You came and you changed my world
-                                             A feeling so true
-                                          </p>
-                                          <p>Liberian girl
-                                             You know that you came
-                                             And you changed my world
-                                             Just like in the movies
-                                             With two lovers in a scene
-                                             And she says
-                                             "Do you love me"
-                                             And he says so endlessly
-                                             "I love you, Liberian girl"
-                                          </p>
-                                          <p>Liberian girl
-                                             More precious than any pearl
-                                             Your love so complete
-                                             Liberian girl
-                                             You kiss me then,
-                                             Ooh, the world
-                                             You do this to me
-                                             Liberian girl
-                                             You know that you came
-                                             And you changed my world
-                                             Just like in the movies
-                                             With two lovers in a scene
-                                             And she says
-                                             "Do you love me"
-                                             And he says so endlessly
-                                             "I love you, Liberian girl"
-                                          </p>
-                                          <p>Liberian girl
-                                             You know that you came
-                                             And you changed my world
-                                             I wait for the day
-                                             When you have to say
-                                             "I do"… 
-                                          </p>
+                                          <h6 class="mb-0 opc-70 uppercase font-weight-700">4. Hell Is Empty</h6>
+                                          <span data-es="Sonido potente y agresivo" data-en="Heavy aggressive sound">Sonido potente y agresivo</span>
                                        </div>
                                     </div>
                                  </div>
                               </div>
                            </li>
-                           <li >
-                              <div class="as-link" data-src="mp3/06.mp3">
-                                 <!--Row-->
-                                 <div class="row">
-                                    <div class="col-lg-6 col-md-6 ">
+
+                           <li>
+                              <div class="as-link" data-src="mp3/05. Over And Over.mp3">
+                                 <div class="row align-items-center">
+                                    <div class="col-12">
                                        <div class="block-track">
-                                          <h6 class="mb-0 opc-70 uppercase">Falling apart</h6>
-                                          <span>Limitless </span>
+                                          <h6 class="mb-0 opc-70 uppercase font-weight-700">5. Over And Over</h6>
+                                          <span data-es="Melodía contagiosa de estadios" data-en="Catchy stadium anthem">Melodía contagiosa de estadios</span>
                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 text-md-right">
-                                       <a href="#" class="btn-s uppercase btn btn-primary with-ico" ><i class="icon-download"></i>Download</a>
                                     </div>
                                  </div>
                               </div>
                            </li>
+
+                           <li>
+                              <div class="as-link" data-src="mp3/06. Shadows.mp3">
+                                 <div class="row align-items-center">
+                                    <div class="col-12">
+                                       <div class="block-track">
+                                          <h6 class="mb-0 opc-70 uppercase font-weight-700">6. Shadows</h6>
+                                          <span data-es="Atmósfera y mística rockera" data-en="Atmospheric rock vibe">Atmósfera y mística rockera</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </li>
+
+                           <li>
+                              <div class="as-link" data-src="mp3/07. Burned.mp3">
+                                 <div class="row align-items-center">
+                                    <div class="col-12">
+                                       <div class="block-track">
+                                          <h6 class="mb-0 opc-70 uppercase font-weight-700">7. Burned</h6>
+                                          <span data-es="Fuego puro en la ejecución" data-en="Pure blazing performance">Fuego puro en la ejecución</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </li>
+
+                           <li>
+                              <div class="as-link" data-src="mp3/08. Rock and Roll.mp3">
+                                 <div class="row align-items-center">
+                                    <div class="col-12">
+                                       <div class="block-track">
+                                          <h6 class="mb-0 opc-70 uppercase font-weight-700">8. Rock and Roll</h6>
+                                          <span data-es="La esencia indomable del género" data-en="The untamed spirit of the genre">La esencia indomable del género</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </li>
+
+                           <li>
+                              <div class="as-link" data-src="mp3/09. One Last Time.mp3">
+                                 <div class="row align-items-center">
+                                    <div class="col-12">
+                                       <div class="block-track">
+                                          <h6 class="mb-0 opc-70 uppercase font-weight-700">9. One Last Time</h6>
+                                          <span data-es="Fuerza emocional y solos épicos" data-en="Emotional power and epic solos">Fuerza emocional y solos épicos</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </li>
+
+                           <li>
+                              <div class="as-link" data-src="mp3/10. Hard To Live.mp3">
+                                 <div class="row align-items-center">
+                                    <div class="col-12">
+                                       <div class="block-track">
+                                          <h6 class="mb-0 opc-70 uppercase font-weight-700">10. Hard To Live</h6>
+                                          <span data-es="Clímax y cierre definitivo" data-en="The grand definitive finale">Clímax y cierre definitivo</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </li>
+
                         </ol>
                      </div>
                   </div>
+
                </div>
-               <!--End row-->
             </div>
-            <!--End container-->
          </section>
-         <!--End discography section-->
-        <!--Contact section-->
-         <section id="contact" class="contact main bg-secondary">
-            <!--Container-->
-            <div class="container">
-               <!--Row-->
-               <div class="row justify-content-center ">
-                  <div class="col-12 col-md-10 col-lg-9">
-                     <div class="block-content  gap-one-bottom-md text-center">
-                        <div class="block-title ">
-                           <h1 class="uppercase">stay in touche</h1>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!--End row-->
-            </div>
-            <!--End container-->
-            <!--Container-->
-            <div class="container">
-               <div class="row justify-content-center">
-                  <div class="col-12 col-lg-10">
-                    <ul class="feature-list feature-list-sm text-center row">
-                        <li class="col-md-6  col-lg-4">
-                           <div class="card text-center" >
-                              <div class="card-body">
-                                 <h2 class="uppercase ">Booking</h2>
-                                 <p class="mb-0"><em class="uppercase h5 opc-70">Benaissa Ghrib</em>
-                                    T+(513)352-3209<br>
-                                    booking@mousiqua.net
-                                 </p>
-                              </div>
-                           </div>
-                        </li>
-                        <li class="col-md-6  col-lg-4">
-                           <div class="card text-center">
-                              <div class="card-body">
-                                 <h2 class="uppercase">Press</h2>
-                                 <p class="mb-0"><em class="uppercase h5 opc-70">Zakaria Kalal</em>
-                                    T+(513)352-3209<br>
-                                    press@mousiqua.net
-                                 </p>
-                              </div>
-                           </div>
-                        </li>
-                        <li class="col-md-6  col-lg-4">
-                           <div class="card text-center">
-                              <div class="card-body">
-                                 <h2 class="uppercase ">info</h2>
-                                 <p class=" mb-0"><em class="uppercase h5 opc-70">Youssef Ait</em>
-                                    T+(513)352-3209<br>
-                                    info@mousiqua.net
-                                 </p>
-                              </div>
-                           </div>
-                        </li>
-                     </ul>                  </div>
-               </div>
-               <div class="row justify-content-center">
-                  <div class="col-12">
-                     <ul class="block-social list-inline text-center">
-                        <li class="list-inline-item">
-                           <a href="#"> <i class="socicon-facebook"></i> </a>
-                        </li>
-                        <li class="list-inline-item">
-                           <a href="#"><i class="socicon-instagram"></i> </a>
-                        </li>
-                        <li class="list-inline-item">
-                           <a href="#"><i class="socicon-twitter"></i> </a>
-                        </li>
-                        <li class="list-inline-item">
-                           <a href="#"><i class="socicon-youtube"></i> </a>
-                        </li>
-                        <li class="list-inline-item">
-                           <a href="#"><i class="socicon-apple"></i> </a>
-                        </li>
-                        <li class="list-inline-item">
-                           <a href="#"><i class="socicon-amazon"></i></a> 
-                        </li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-            <!--End container-->
-         </section>
-         <!--End contact section-->  
+
          <footer class="pt-5 pb-5 footer">
-            <!--Container-->
             <div class="container">
                <div class="row justify-content-between align-items-center">
                   <div class="col-md-6">
-                     <small class="small"><span>&copy; 2019 all rights reserved - a product of</span> mutationthemes.</small>
+                     <small class="small"><span>© 2026 Wildfinity. Todos los derechos reservados.</span></small>
                   </div>
                   <div class="col-md-6 text-md-right">
-                     <ul class="list-inline small">
-                        <li class="list-inline-item">
-                           <a href="#">Privacy Policy</a>
-                        </li>
-                        <li class="list-inline-item">
-                           <a href="#">Terms of Use</a>
-                        </li>
-                        <li class="list-inline-item">
-                           <a href="#">About</a>
-                        </li>
-                        <li class="list-inline-item">
-                           <a href="#">Legal</a>
-                        </li>
-                     </ul>
+                     <p class="mb-0 small text-muted">Hard Rock • Arena Rock • Glam Metal</p>
                   </div>
                </div>
             </div>
-            <!--End container-->
          </footer>
-         <a class="block-top scroll" href="#wrapper">
-         <i class="icon-angle-up"></i></a>
+         
+         <a class="block-top scroll" href="#wrapper"><i class="icon-angle-up"></i></a>
       </div>
-      <!-- End wrapper-->
-      <!--Javascript--> 
+
       <script src="js/jquery-1.12.4.min.js"></script>
       <script src="js/jquery.flexslider-min.js"></script>
-      <script src="js/smooth-scroll.js" ></script>
-      <script src="js/jquery.magnific-popup.min.js" ></script>
-      <script src="js/audio.min.js" ></script>
-      <script src="js/twitterFetcher_min.js" ></script>
-      <script src="js/jquery.countdown.min.js" ></script>
+      <script src="js/smooth-scroll.js"></script>
+      <script src="js/jquery.magnific-popup.min.js"></script>
+      <script src="js/audio.min.js"></script>
+      <script src="js/twitterFetcher_min.js"></script>
+      <script src="js/jquery.countdown.min.js"></script>
       <script src="js/placeholders.min.js"></script>
       <script src="js/script.js"></script>
-      <!-- Google analytics -->
-      <!-- End google analytics -->
+
+      <script>
+         function setLanguage(lang) {
+            localStorage.setItem('selectedLang', lang);
+            const elements = document.querySelectorAll('[data-es]');
+            
+            elements.forEach(el => {
+               const txt = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-es');
+               if (txt.includes('<strong') || txt.includes('<span') || txt.includes('<br>')) {
+                  el.innerHTML = txt;
+               } else {
+                  el.textContent = txt;
+               }
+            });
+
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            if (lang === 'es') { buttons[0].classList.add('active'); } else { buttons[1].classList.add('active'); }
+         }
+
+         document.addEventListener("DOMContentLoaded", function() {
+            const savedLang = localStorage.getItem('selectedLang') || 'es';
+            setLanguage(savedLang);
+         });
+      </script>
    </body>
 </html>
-
