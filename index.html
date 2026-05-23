@@ -1,374 +1,111 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-   <!-- Metas -->
-   <meta charset="utf-8">
-   <title>Wildfinity - Sitio Oficial | Hard Rock & Arena Rock</title>
-   <meta name="description" content="Sitio oficial de Wildfinity. La fuerza de los 80 con el sonido del siglo XXI. Hard Rock, Arena Rock y Glam Metal desde Almería.">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
-   <!-- Css -->
-   <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
-   <link href="css/base.css" rel="stylesheet" type="text/css" media="all"/>
-   <link href="css/main.css" rel="stylesheet" type="text/css" media="all"/>
-   <link href="css/flexslider.css" rel="stylesheet" type="text/css" media="all" />
-   <link href="css/magnific-popup.css" rel="stylesheet" type="text/css" media="all" />
-   <link href="css/fonts.css" rel="stylesheet" type="text/css" media="all" />
-   <link href="https://fonts.googleapis.com/css?family=Dosis:100,300,400,600,700" rel="stylesheet" type="text/css">
-   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,300,400,400i,600,700,800" rel="stylesheet">
+   <head>
+      <meta charset="utf-8">
+      <title>Wildfinity - Sitio Oficial | Hard Rock & Arena Rock</title>
+      <meta name="description" content="Sitio oficial de Wildfinity. La fuerza de los 80 con el sonido del siglo XXI. Hard Rock, Arena Rock y Glam Metal desde Almería.">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+      <link href="css/base.css" rel="stylesheet" type="text/css" media="all"/>
+      <link href="css/main.css" rel="stylesheet" type="text/css" media="all"/>
+      <link href="css/flexslider.css" rel="stylesheet" type="text/css" media="all" />
+      <link href="css/magnific-popup.css" rel="stylesheet" type="text/css" media="all" />
+      <link href="css/fonts.css" rel="stylesheet" type="text/css" media="all" />
+      <link href="https://fonts.googleapis.com/css?family=Dosis:100,300,400,600,700" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Raleway:100,400,500,600,700" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,300,400,400i,600,700,800" rel="stylesheet">
 
-   <style>
-      .lang-switcher { font-weight: 600; cursor: pointer; display: inline-flex; gap: 5px; }
-      .lang-btn { color: rgba(255,255,255,0.6); transition: color 0.3s; }
-      .lang-btn:hover, .lang-btn.active { color: #e62129 !important; }
-      header.default .lang-btn { color: #13181d; }
-      header.default .lang-btn.active { color: #e62129 !important; }
-      .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; }
-      .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0; }
-      .btn-whatsapp { background-color: #25d366; color: white !important; border: none; }
-      .btn-whatsapp:hover { background-color: #20ba5a; }
-   </style>
-</head>
-<body>
-
-   <!-- Wrapper (Carga directa, sin ruedita de carga) -->
-   <div class="wrapper" id="wrapper">
-      
-      <!-- Hero Section -->
-      <section class="hero">
-         <div class="main-slider slider flexslider">
-            <ul class="slides">
-               <li>
-                  <div class="background-img overlay zoom">
-                     <img src="img/1.jpg" alt="Wildfinity Banner">
-                  </div>
-                  <div class="container hero-content">
-                     <div class="row">
-                        <div class="col-sm-12 text-center">
-                           <div class="inner-hero">
-                              <div class="back-rect"></div>
-                              <h1 class="large text-white uppercase mb-0">WILDFINITY</h1>
-                              <h5 class="mb-3 text-white uppercase letter-spacing-2" 
-                                  data-es="“La fuerza de los 80 con el sonido del siglo XXI”" 
-                                  data-en="“The power of the 80s with the sound of the 21st century”">“La fuerza de los 80 con el sonido del siglo XXI”</h5>
-                              <p class="text-white uppercase small drop-sm">HARD ROCK • ARENA ROCK • MODERN ROCK • GLAM METAL</p>
-                              <div class="front-rect"></div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </li>
-               <li>
-                  <div class="background-img overlay zoom">
-                     <img src="img/2.jpg" alt="We Are Album">
-                  </div>
-                  <div class="container hero-content">
-                     <div class="row">
-                        <div class="col-sm-12 text-center">
-                           <div class="inner-hero">
-                              <h1 class="large text-white uppercase mb-0">WE ARE</h1>
-                              <h5 class="mb-3 text-white uppercase" data-es="El Álbum Debut ya disponible" data-en="The Debut Album out now">El Álbum Debut ya disponible</h5>
-                              <a class="video-play-but popup-youtube" href="https://www.youtube.com/playlist?list=PL1Zf6DeDOb8kQB2IqdAZh3KD6f6dDD3jR"></a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </li>
-            </ul>
-         </div>
-
-         <!-- Header / Navegación -->
-         <header class="header default">
-            <div class="left-part">
-               <a class="logo scroll" href="#wrapper">
-                  <h2 class="mb-0 uppercase font-weight-700">Wildfinity.</h2>
-               </a>
-            </div>
-            <div class="right-part">
-               <nav class="main-nav">
-                  <div class="toggle-mobile-but">
-                     <a href="#" class="mobile-but"><div class="lines"></div></a>
-                  </div>
-                  <ul class="main-menu list-inline">
-                     <li><a class="scroll list-inline-item" href="#wrapper" data-es="Inicio" data-en="Home">Inicio</a></li>
-                     <li><a class="scroll list-inline-item" href="#concept" data-es="El Concepto" data-en="The Concept">El Concepto</a></li>
-                     <li><a class="scroll list-inline-item" href="#album" data-es="Último Álbum" data-en="Latest Album">Último Álbum</a></li>
-                     <li><a class="scroll list-inline-item" href="#tour" data-es="Fechas" data-en="Tour">Fechas</a></li>
-                     <li><a class="scroll list-inline-item" href="#band" data-es="Integrantes" data-en="Members">Integrantes</a></li>
-                     <li><a class="scroll list-inline-item" href="#media" data-es="Multimedia" data-en="Media">Multimedia</a></li>
-                     <li><a class="scroll list-inline-item" href="#merch" data-es="Tienda" data-en="Merch">Tienda</a></li>
-                     <li><a class="scroll list-inline-item" href="#contact" data-es="Contacto" data-en="Contact">Contacto</a></li>
-                     <li class="block-helper ml-3">
-                        <span class="lang-switcher">
-                           <a class="lang-btn active" onclick="setLanguage('es')">ES</a>
-                           <span class="text-muted">|</span>
-                           <a class="lang-btn" onclick="setLanguage('en')">EN</a>
-                        </span>
-                     </li>
-                  </ul>
-               </nav>
-            </div>
-         </header>
-      </section>
-
-      <!-- El Concepto -->
-      <section id="concept" class="about overlay main">
-         <div class="background-img"><img src="img/25.jpg" alt="Concept Background"></div>
-         <div class="container">
-            <div class="row vertical-align">
-               <div class="col-lg-6 col-md-12">
-                  <div class="front-p">
-                     <h1 class="uppercase text-white mb-4" data-es="El Concepto" data-en="The Concept">El Concepto</h1>
-                     <p class="text-white drop-sm" data-es="Wildfinity es un dúo de Hard Rock establecido en Almería, España, creado en 2020 por Nery Kiiroi y Gonzalo. Nacido originalmente en Argentina, el proyecto surge con la intención de recuperar la fuerza emocional y escénica del rock de estadios, reinterpretándola desde una producción moderna y una identidad visual cinematográfica." data-en="Wildfinity is a Hard Rock duo based in Almería, Spain, founded in 2020 by Nery Kiiroi and Gonzalo. Originally born in Argentina, the project emerged with the vision of reclaiming the emotional and scenic power of stadium rock, reinterpreting it through modern production and a cinematic visual identity.">Wildfinity es un dúo de Hard Rock establecido en Almería, España, creado en 2020 por Nery Kiiroi y Gonzalo.</p>
-                     <p class="text-white drop-sm" data-es="Su propuesta fusiona riffs potentes, melodías intensas y una estética inspirada en las grandes bandas internacionales de los años 80 y 90, combinando la energía del Hard Rock clásico con elementos contemporáneos de producción y diseño sonoro." data-en="Their proposal blends powerful riffs, intense melodies, and an aesthetic inspired by the great international bands of the 80s and 90s, combining classic Hard Rock energy with contemporary production elements and sound design.">Su propuesta fusiona riffs potentes y melodías intensas.</p>
-                     <h5 class="uppercase text-white mt-4 mb-2" data-es="Influencias principales:" data-en="Main Influences:">Influencias principales:</h5>
-                     <p class="text-red font-weight-600">Skid Row • Warrant • Mötley Crüe • Bon Jovi • Poison • Queen</p>
-                  </div>
-               </div>
-               <div class="col-lg-6 col-md-12">
-                  <div class="block-content front-p pt-4 pb-4 pl-4 pr-4 rounded bg-dark-blue text-center mb-4">
-                     <blockquote class="blockquote border-0 mb-0">
-                        <h3 class="text-white uppercase font-weight-600 mb-0" data-es="“Arena Rock cinematográfico con espíritu clásico y producción moderna.”" data-en="“Cinematic Arena Rock with a classic spirit and modern production.”">“Arena Rock cinematográfico con espíritu clásico y producción moderna.”</h3>
-                     </blockquote>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-
-      <!-- Último Álbum -->
-      <section id="album" class="latest main bg-neutral">
-         <div class="container">
-            <div class="row justify-content-center">
-               <div class="col-12 col-md-10 col-lg-9">
-                  <div class="block-content text-center gap-one-bottom-md">
-                     <div class="block-title">
-                        <h1 class="uppercase" data-es="Último Lanzamiento" data-en="Latest Release">Último Lanzamiento</h1>
-                        <h2 class="uppercase text-red font-weight-700">WE ARE</h2>
-                     </div>
-                     <p class="lead w-93 mx-auto mt-3" data-es="Un álbum de 10 canciones originales en inglés nacido completamente desde la independencia creativa y la autogestión artística." data-en="A 10-track album of original songs in English, born entirely from creative independence and artistic self-management.">Un álbum de 10 canciones originales en inglés nacido completamente desde la independencia creativa.</p>
-                  </div>
-               </div>
-            </div>
-            <div class="row justify-content-center">
-               <div class="col-12 col-lg-5">
-                  <div class="block-album-info text-center">
-                     <ul>
-                        <li><h5 class="uppercase list-inline-item" data-es="Lanzamiento" data-en="Released">Lanzamiento</h5> <span data-es="22 de Diciembre de 2024" data-en="December 22, 2024">22 de Diciembre de 2024</span></li>
-                        <li><h5 class="uppercase list-inline-item" data-es="Producción" data-en="Production">Producción</h5> <span data-es="Independiente / Autogestión" data-en="Independent / Self-managed">Independiente / Autogestión</span></li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-
-      <!-- SECCIÓN CONCIERTOS / AGENDA (TOUR) -->
-      <section id="tour" class="date main overlay">
-         <div class="background-img"><img src="img/11.jpg" alt="Tour Background"></div>
-         <div class="container front-p">
-            <div class="row justify-content-center">
-               <div class="col-12 col-md-10 col-lg-9">
-                  <div class="block-content text-center gap-one-bottom-md">
-                     <div class="block-title">
-                        <h1 class="uppercase text-white" data-es="Próximas Fechas" data-en="Upcoming Tour Dates">Próximas Fechas</h1>
-                        <p class="text-white-50" data-es="¡Súmate a la experiencia Arena Rock en directo!" data-en="Join the Arena Rock live experience!">¡Súmate a la experiencia Arena Rock en directo!</p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="row justify-content-center">
-               <div class="col-12 col-lg-10">
-                  <ul class="block-dates list-unstyled">
-                     <!-- Ejemplo de fecha 1 -->
-                     <li class="py-3 border-bottom border-secondary d-md-flex align-items-center justify-content-between text-white">
-                        <div class="mb-2 mb-md-0">
-                           <span class="badge bg-red me-2">12 JUL 2026</span>
-                           <strong class="text-uppercase">Sala Custom</strong> — Sevilla, ESP
-                        </div>
-                        <div>
-                           <a href="#" class="btn btn-sm btn-primary uppercase" data-es="Comprar Entradas" data-en="Buy Tickets">Comprar Entradas</a>
-                        </div>
-                     </li>
-                     <!-- Ejemplo de fecha 2 -->
-                     <li class="py-3 border-bottom border-secondary d-md-flex align-items-center justify-content-between text-white">
-                        <div class="mb-2 mb-md-0">
-                           <span class="badge bg-secondary me-2">28 AGO 2026</span>
-                           <strong class="text-uppercase">Concentración Motera Almería</strong> — El Ejido, ESP
-                        </div>
-                        <div>
-                           <span class="badge bg-success p-2 uppercase" data-es="Entrada Libre" data-en="Free Admission">Entrada Libre</span>
-                        </div>
-                     </li>
-                  </ul>
-               </div>
-            </div>
-         </div>
-      </section>
-
-      <!-- Los Integrantes -->
-      <section id="band" class="discography main bg-neutral">
-         <div class="container">
-            <div class="row justify-content-center"><h1 class="uppercase mb-5" data-es="Los Integrantes" data-en="The Members">Los Integrantes</h1></div>
-            <div class="row justify-content-center">
-               <div class="col-12 col-md-6 col-lg-5 mb-5 mb-md-0">
-                  <div class="block-album text-center">
-                     <img class="img-fluid rounded-circle mb-3 shadow" src="img/album/1.jpg" alt="Nery" style="width: 180px; height: 180px; object-fit: cover;">
-                     <h3 class="uppercase font-weight-700">Nery Kiiroi</h3>
-                     <h6 class="text-red uppercase font-weight-600 mb-2" data-es="Voz • Dirección Visual" data-en="Lead Vocals • Visual Direction">Voz • Dirección Visual</h6>
-                     <p class="small">Artista argentina con trayectoria en performance desde 2007. Identidad vocal intensa y fuerte presencia escénica.</p>
-                  </div>
-               </div>
-               <div class="col-12 col-md-6 col-lg-5">
-                  <div class="block-album text-center">
-                     <img class="img-fluid rounded-circle mb-3 shadow" src="img/album/2.jpg" alt="Gonzalo" style="width: 180px; height: 180px; object-fit: cover;">
-                     <h3 class="uppercase font-weight-700">Gonzalo</h3>
-                     <h6 class="text-red uppercase font-weight-600 mb-2" data-es="Guitarras • Producción • Mastering" data-en="Guitars • Production • Mastering">Guitarras • Production • Mastering</h6>
-                     <p class="small">Responsable de la producción sonora, riffs potentes y diseño sonoro con identidad de rock de estadios.</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-
-      <!-- MULTIMEDIA / REPRODUCTOR Y VIDEO EMBED -->
-      <section id="media" class="video main overlay">
-         <div class="background-img"><img src="img/4.jpg" alt="Media Background"></div>
-         <div class="container front-p">
-            <div class="row justify-content-center">
-               <div class="col-12 col-lg-10 text-center">
-                  <h1 class="uppercase text-white mb-4" data-es="Contenido Multimedia" data-en="Multimedia Hub">Contenido Multimedia</h1>
-                  
-                  <!-- Contenedor del Iframe del Videoclip Oficial -->
-                  <div class="video-container shadow-lg rounded mb-5">
-                     <!-- Reemplazar el ID de la URL (embed/vuestro-id) por el de vuestro videoclip real -->
-                     <iframe src="https://www.youtube.com/embed/videoseries?list=PL1Zf6DeDOb8kQB2IqdAZh3KD6f6dDD3jR" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                  </div>
-                  
-                  <div class="text-center">
-                     <a href="https://drive.google.com/drive/folders/1BBTkndL5LPcurn1aGTwDH7wjaHTH9kQl?usp=drive_link" target="_blank" class="btn btn-primary uppercase border-2"><span data-es="Descargar Press Kit Completo" data-en="Download Electronic Press Kit">Descargar Press Kit Completo</span></a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-
-      <!-- SECCIÓN MERCHANDISING / TIENDA -->
-      <section id="merch" class="store main bg-neutral text-center">
-         <div class="container">
-            <div class="row justify-content-center">
-               <div class="col-12 col-md-10 col-lg-9 mb-4">
-                  <h1 class="uppercase mb-2" data-es="Tienda Oficial" data-en="Official Merch Store">Tienda Oficial</h1>
-                  <p class="text-muted" data-es="Consigue vuestras camisetas, buzos y complementos oficiales de Wildfinity." data-en="Get your official Wildfinity t-shirts, hoodies, and accessories.">Consigue vuestras camisetas, buzos y complementos oficiales.</p>
-               </div>
-            </div>
-            
-            <!-- Bloque para Widget o catálogo Embed -->
-            <div class="row justify-content-center">
-               <div class="col-12 col-md-8">
-                  <div class="p-5 border border-dashed rounded bg-white shadow-sm">
-                     <i class="icon-shopping-cart text-red style mb-3" style="font-size: 40px; display: block;"></i>
-                     <h4 class="uppercase font-weight-700" data-es="Nuestra colección On-Demand está llegando" data-en="Our On-Demand collection is coming soon">Nuestra colección On-Demand está llegando</h4>
-                     <p class="small text-muted mb-4" data-es="Estamos enlazando los últimos diseños de camisetas y sudaderas con el distribuidor." data-en="We are currently linking our latest t-shirt and hoodie apparel designs with the supplier."></p>
-                     <!-- Si usas LaTostadora o Teespring, metes el iframe o enlace directo aquí debajo -->
-                     <a href="#" class="btn btn-primary uppercase" data-es="Visitar Tienda Externa" data-en="Visit External Store">Visitar Tienda Externa</a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-
-      <!-- Contacto & Formulario -->
-      <section id="contact" class="contact main text-center bg-white border-top">
-         <div class="container">
-            <div class="row justify-content-center">
-               <div class="col-12 col-md-10 col-lg-8">
-                  <div class="block-title mb-5">
-                     <h1 class="uppercase mb-2" data-es="Contratación & Contacto" data-en="Booking & Contact">Contratación & Contacto</h1>
-                     <p class="text-muted" data-es="Escríbenos directamente o habla con nosotros mediante WhatsApp instantáneo." data-en="Write to us directly or reach out via instantaneous WhatsApp message."></p>
-                  </div>
-                  
-                  <!-- BOTÓN DINÁMICO DE WHATSAPP -->
-                  <div class="mb-5">
-                     <a id="whatsapp-link" href="https://wa.me/34641064198?text=Me%20gustar%C3%ADa%20hablar%20para%20contratar%20a%20wildfinity" target="_blank" class="btn btn-lg btn-whatsapp uppercase px-4 py-3 font-weight-700 shadow-sm rounded">
-                        <i class="socicon-whatsapp me-2"></i> <span data-es="Contratación por WhatsApp" data-en="Book via WhatsApp">Contratación por WhatsApp</span>
-                     </a>
-                  </div>
-
-                  <!-- FORMULARIO DE CONTACTO INTEGRADO (Envia a wildfinity@gmail.com mediante Formspree) -->
-                  <form action="https://formspree.io/f/tu_id_aqui" method="POST" class="text-left row g-3 p-4 bg-neutral rounded shadow-sm">
-                     <div class="col-md-6 mb-3">
-                        <label class="form-label uppercase small font-weight-700" data-es="Nombre" data-en="Name">Nombre</label>
-                        <input type="text" name="name" class="form-control" required>
-                     </div>
-                     <div class="col-md-6 mb-3">
-                        <label class="form-label uppercase small font-weight-700">Email</label>
-                        <input type="email" name="_replyto" class="form-control" required>
-                     </div>
-                     <div class="col-12 mb-3">
-                        <label class="form-label uppercase small font-weight-700" data-es="Mensaje" data-en="Message">Mensaje</label>
-                        <textarea name="message" class="form-control" rows="5" required></textarea>
-                     </div>
-                     <div class="col-12 text-center">
-                        <button type="submit" class="btn btn-primary uppercase px-5" data-es="Enviar Mensaje" data-en="Send Message">Enviar Mensaje</button>
-                     </div>
-                  </form>
-
-               </div>
-            </div>
-         </div>
-      </section>
-
-      <!-- Pie de página con todos los iconos solicitados del dossier -->
-      <footer class="py-4 text-center bg-dark text-white small">
-         <div class="container">
-            <ul class="block-social list-inline mb-3" style="font-size: 20px;">
-               <li class="list-inline-item mx-2"><a href="https://open.spotify.com/intl-es/album/2MK4nt9Jcrh2fezp5smtqJ" target="_blank" title="Spotify"><i class="socicon-spotify"></i></a></li>
-               <li class="list-inline-item mx-2"><a href="https://music.apple.com/es/album/we-are/1832627084" target="_blank" title="Apple Music"><i class="socicon-apple"></i></a></li>
-               <li class="list-inline-item mx-2"><a href="https://www.youtube.com/@Wildfinity" target="_blank" title="YouTube Official"><i class="socicon-youtube"></i></a></li>
-               <li class="list-inline-item mx-2"><a href="https://www.instagram.com/wildfinity" target="_blank" title="Instagram"><i class="socicon-instagram"></i></a></li>
-               <li class="list-inline-item mx-2"><a href="https://www.tiktok.com/@wildfinity" target="_blank" title="TikTok"><i class="socicon-tiktok"></i></a></li>
-               <li class="list-inline-item mx-2"><a href="https://www.deezer.com/es/album/802604251" target="_blank" title="Deezer"><i class="socicon-deezer"></i></a></li>
-            </ul>
-            <p class="mb-0 text-white-50" data-es="&copy; 2026 Wildfinity. Arena Rock Internacional. Roquetas de Mar, España." data-en="&copy; 2026 Wildfinity. International Arena Rock. Roquetas de Mar, Spain.">&copy; 2026 Wildfinity. Arena Rock Internacional.</p>
-         </div>
-      </footer>
-
-   </div>
-
-   <!-- Script de Idioma Traducible Avanzado -->
-   <script>
-      function setLanguage(lang) {
-         localStorage.setItem('selectedLang', lang);
-         const elements = document.querySelectorAll('[data-es]');
+      <style>
+         /* Colores base: Negro y Azul Eléctrico */
+         body, .wrapper, .bg-secondary { background-color: #13181d !important; color: #ffffff; }
+         .card, .block-tracklist, .block-teaser, .block-subscribe { background-color: #090d10 !important; border: 1px solid #0046ff; }
          
-         elements.forEach(el => {
-            const txt = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-es');
-            if (txt.includes('<strong') || txt.includes('<span')) {
-               el.innerHTML = txt;
-            } else {
-               el.textContent = txt;
-            }
-         });
+         /* Rojo Wildfinity para acentos y elementos clave */
+         .bg-red, .btn-primary, .block-top { background-color: #e62129 !important; border-color: #e62129 !important; }
+         .btn-primary:hover { background-color: #0046ff !important; border-color: #0046ff !important; }
+         .text-red, .block-title h1, h3.text-red, .block-lyrics h5 { color: #e62129 !important; }
+         
+         /* Azul Eléctrico para enlaces, bordes interactivos y hovers */
+         a, .link, .block-album h5 { color: #0046ff; transition: color 0.3s; }
+         a:hover, .link:hover { color: #e62129; }
+         .border-2 { border-color: #0046ff !important; color: #0046ff !important; background: transparent; }
+         .border-2:hover { background: #0046ff !important; color: #fff !important; }
+         .border-3 { border-color: #e62129 !important; color: #ffffff !important; background: transparent; }
+         .border-3:hover { background: #e62129 !important; color: #ffffff !important; }
 
-         // Modificación dinámica del enlace e instrucciones del texto de WhatsApp
-         const waLink = document.getElementById('whatsapp-link');
-         if (lang === 'en') {
-            waLink.href = "https://wa.me/34641064198?text=I%20would%20like%20to%20get%20in%20touch%20to%20book%20Wildfinity";
-         } else {
-            waLink.href = "https://wa.me/34641064198?text=Me%20gustar%C3%ADa%20hablar%20para%20contratar%20a%20wildfinity";
-         }
+         /* Ajustes del Selector de Idiomas */
+         .lang-switcher { font-weight: 600; cursor: pointer; display: inline-flex; gap: 5px; margin-left: 15px; }
+         .lang-btn { color: rgba(255,255,255,0.6); text-decoration: none; }
+         .lang-btn:hover, .lang-btn.active { color: #0046ff !important; text-shadow: 0 0 5px #0046ff; }
+         header.default .lang-btn { color: #ffffff; }
+         header.default .lang-btn.active { color: #e62129 !important; }
 
-         const buttons = document.querySelectorAll('.lang-btn');
-         buttons.forEach(btn => btn.classList.remove('active'));
-         if (lang === 'es') { buttons[0].classList.add('active'); } else { buttons[1].classList.add('active'); }
-      }
+         /* Personalización de inputs */
+         .form-control { background-color: #13181d !important; color: #fff !important; border: 1px solid #0046ff !important; }
+         .form-control::placeholder { color: rgba(255,255,255,0.4); }
+         
+         /* WhatsApp */
+         .btn-whatsapp { background-color: #25d366 !important; color: white !important; border: none !important; }
+         .btn-whatsapp:hover { background-color: #20ba5a !important; }
+      </style>
+   </head>
+   <body>
+      <div class="loader">
+         <div class="loader-inner">
+            <svg width="120" height="220" viewbox="0 0 100 100" class="loading-spinner" version="1.1" xmlns="http://www.w3.org/2000/svg">
+               <circle class="spinner" cx="50" cy="50" r="21" fill="#13181d" stroke-width="2"/>
+            </svg>
+         </div>
+      </div>
 
-      document.addEventListener("DOMContentLoaded", function() {
-         const savedLang = localStorage.getItem('selectedLang') || 'es';
-         setLanguage(savedLang);
-      });
-   </script>
+      <div class="wrapper" id="wrapper">
+         
+         <div class="block-search-form">
+            <div class="block-content">
+               <div class="container">
+                  <div class="row justify-content-center">
+                     <div class="col-12 col-md-10 col-lg-8">
+                        <form method="get">
+                           <div class="card bg-red">
+                              <div class="card-body row no-gutters align-items-center">
+                                 <div class="col-auto">
+                                    <i class="icon-search"></i>
+                                 </div>
+                                 <div class="col">
+                                    <input class="form-control form-control-lg form-control-border0" placeholder="Type a keywords..." type="search">
+                                 </div>
+                                 <div class="col-auto">
+                                    <button type="submit" class="btn btn-primary uppercase border-3" data-es="Buscar" data-en="Search now">Buscar</button>
+                                 </div>
+                              </div>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
 
-</body>
-</html>
+         <section class="hero">
+            <div class="main-slider slider flexslider">
+               <ul class="slides">
+                  <li>
+                     <div class="background-img overlay zoom">
+                        <img src="img/1.jpg" alt="Wildfinity Banner">
+                     </div>
+                     <div class="container hero-content">
+                        <div class="row">
+                           <div class="col-sm-12 text-center">
+                              <div class="inner-hero">
+                                 <div class="back-rect"></div>
+                                 <h1 class="large text-white uppercase mb-0">WILDFINITY</h1>
+                                 <h5 class="mb-0 text-white uppercase" data-es="La fuerza de los 80 con el sonido del siglo XXI" data-en="The power of the 80s with the sound of the 21st century">La fuerza de los 80 con el sonido del siglo XXI</h5>
+                                 <div class="front-rect"></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </li>
+                  <li>
+                     <div class="background-img overlay zoom">
+                        <img src="img/2.jpg" alt="
