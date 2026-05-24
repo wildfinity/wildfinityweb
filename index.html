@@ -104,7 +104,7 @@
              color: #ff2a3b;
          }
 
-         /* Estilos y Hover en Rojo para botones de Control */
+         /* Botones de control con iluminación e iconos en el ROJO de la banda al hacer Hover */
          .wf-btn-control {
              background: transparent !important;
              border: 1px solid #ffffff !important;
@@ -135,7 +135,6 @@
              setTimeout(function() {
                  var loader = document.querySelector('.loader');
                  if (loader && window.getComputedStyle(loader).display !== 'none') {
-                     console.log("Failsafe: Forzando la ocultación del preloader colgado.");
                      loader.style.transition = "opacity 0.4s ease";
                      loader.style.opacity = "0";
                      setTimeout(function() {
@@ -244,10 +243,8 @@
                      <div class="bg-dark p-4 rounded text-light shadow">
                         <div class="text-center mb-3">
                            <h4 id="current-track-title" class="text-uppercase tracking-wider mb-1">We Are</h4>
-                           <p id="current-track-band" class="small text-muted mb-0">Wildfinity</p>
+                           <p id="current-track-band" class="small text-muted mb-3">Wildfinity</p>
                         </div>
-                        
-                        <audio id="wildfinity-custom-audio" class="wf-audio-isolated-element w-100 mb-3" src="mp3/01_WE_ARE.mp3" preload="auto" controls></audio>
                         
                         <div class="d-flex justify-content-center gap-3">
                            <button id="btn-prev" class="btn btn-sm uppercase wf-btn-control"><i class="icon-angle-left"></i> Anterior</button>
@@ -387,120 +384,86 @@
       <script src="js/placeholders.min.js"></script>
       <script src="js/script.js"></script>
 
-     <script>
-$(document).ready(function () {
+      <script>
+         $(document).ready(function() {
+             // Creamos el reproductor en memoria nativa e invisible para la plantilla vieja
+             var audioPlayer = new Audio();
+             var $trackTitle = $("#current-track-title");
+             var currentTrackIndex = 0;
 
-    // Desactivar posible reproductor viejo de la plantilla
-    if (window.audiojs) {
-        window.audiojs.instance = null;
-    }
+             // Cargar el primer track por defecto en frío (sin autoreproducción inicial)
+             var $initialTrack = $(".wf-track-item").eq(0);
+             audioPlayer.src = $initialTrack.attr("data-src");
 
-    const audioPlayer = document.getElementById("wildfinity-custom-audio");
-    const $trackTitle = $("#current-track-title");
-    const $playlistItems = $(".wf-track-item");
+             function loadTrack(index, shouldPlay) {
+                 var $playlistItems = $(".wf-track-item");
+                 if(index >= 0 && index < $playlistItems.length) {
+                     $playlistItems.removeClass("active-track");
+                     currentTrackIndex = index;
+                     
+                     var $activeItem = $playlistItems.eq(currentTrackIndex);
+                     $activeItem.addClass("active-track");
+                     
+                     var src = $activeItem.attr("data-src");
+                     var title = $activeItem.attr("data-title");
+                     
+                     audioPlayer.pause();
+                     audioPlayer.src = src;
+                     $trackTitle.text(title);
+                     
+                     if (shouldPlay) {
+                         audioPlayer.play().catch(function(err) {
+                             console.log("El navegador bloqueó el autoplay en frío, requiere acción previa del usuario:", err);
+                         });
+                     }
+                 }
+             }
 
-    let currentTrackIndex = 0;
+             // Clic en cualquier track de la lista para cambiar instantáneamente
+             $(".wf-track-item").on("click", function(e) {
+                 if ($(e.target).closest('a[download]').length) {
+                     return; 
+                 }
+                 var $playlistItems = $(".wf-track-item");
+                 var idx = $playlistItems.index(this);
+                 loadTrack(idx, true);
+             });
 
-    function loadTrack(index, autoplay = true) {
+             // Botón Anterior
+             $("#btn-prev").on("click", function(e) {
+                 e.preventDefault();
+                 var $playlistItems = $(".wf-track-item");
+                 var nextIdx = currentTrackIndex - 1;
+                 if(nextIdx < 0) {
+                     nextIdx = $playlistItems.length - 1;
+                 }
+                 loadTrack(nextIdx, true);
+             });
 
-        // bucle circular playlist
-        if (index < 0) {
-            index = $playlistItems.length - 1;
-        }
+             // Botón Siguiente
+             $("#btn-next").on("click", function(e) {
+                 e.preventDefault();
+                 var $playlistItems = $(".wf-track-item");
+                 var nextIdx = currentTrackIndex + 1;
+                 if(nextIdx >= $playlistItems.length) {
+                     nextIdx = 0;
+                 }
+                 loadTrack(nextIdx, true);
+             });
 
-        if (index >= $playlistItems.length) {
-            index = 0;
-        }
-
-        currentTrackIndex = index;
-
-        const $activeItem = $playlistItems.eq(index);
-
-        const src = $activeItem.data("src");
-        const title = $activeItem.data("title");
-
-        console.log("Cargando:", title, src);
-
-        // actualizar UI
-        $playlistItems.removeClass("active-track");
-        $activeItem.addClass("active-track");
-
-        // detener audio actual
-        audioPlayer.pause();
-
-        // cambiar canción
-        audioPlayer.src = src;
-
-        // refrescar reproductor
-        audioPlayer.load();
-
-        // actualizar título
-        $trackTitle.text(title);
-
-        // reproducir automáticamente
-        if (autoplay) {
-
-            const playPromise = audioPlayer.play();
-
-            if (playPromise !== undefined) {
-                playPromise.catch(function(err){
-                    console.log("Play bloqueado:", err);
-                });
-            }
-        }
-    }
-
-    // CLICK EN CANCIONES
-    $playlistItems.on("click", function(e){
-
-        // permitir descargar normalmente
-        if ($(e.target).closest("a[download]").length) {
-            return;
-        }
-
-        e.preventDefault();
-
-        const index = $playlistItems.index(this);
-
-        loadTrack(index, true);
-
-    });
-
-    // BOTÓN SIGUIENTE
-    $("#btn-next").on("click", function(e){
-
-        e.preventDefault();
-
-        loadTrack(currentTrackIndex + 1, true);
-
-    });
-
-    // BOTÓN ANTERIOR
-    $("#btn-prev").on("click", function(e){
-
-        e.preventDefault();
-
-        loadTrack(currentTrackIndex - 1, true);
-
-    });
-
-    // AUTO NEXT AL TERMINAR
-    audioPlayer.addEventListener("ended", function(){
-
-        loadTrack(currentTrackIndex + 1, true);
-
-    });
-
-    // DEBUG SI FALLA UN MP3
-    audioPlayer.addEventListener("error", function(){
-
-        console.log("ERROR DE AUDIO:", audioPlayer.src);
-
-    });
-
-});
-</script>
+             // Salto automático de track continuo al finalizar la canción
+             audioPlayer.addEventListener("ended", function() {
+                 var $playlistItems = $(".wf-track-item");
+                 var nextIdx = currentTrackIndex + 1;
+                 if(nextIdx >= $playlistItems.length) {
+                     nextIdx = 0;
+                 }
+                 loadTrack(nextIdx, true);
+             });
+         });
+      </script>
    </body>
+</html>
          <!--End latest album section-->
          <!--About section-->
          <section id="about" class="about overlay main">
