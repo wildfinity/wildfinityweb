@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <!-- Metas -->
       <meta charset="utf-8">
-      <title>Wildfinity - La fuerza de los 80 con el sonido del siglo XXI</title>
-      <meta name="description" content="">
+      <title>Wildfinity - Official Website</title>
+      <meta name="description" content="Official website of Wildfinity - High energy Hard Rock, Glam Metal, and Punk Rock.">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!-- Css -->
       <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
       <link href="css/base.css" rel="stylesheet" type="text/css" media="all"/>
       <link href="css/main.css" rel="stylesheet" type="text/css" media="all"/>
@@ -16,530 +14,494 @@
       <link href="http://fonts.googleapis.com/css?family=Dosis:100,300,400,600,700" rel="stylesheet" type="text/css">
       <link href="https://fonts.googleapis.com/css?family=Raleway:100,400,500,600,700" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,300,400,400i,600,700,800" rel="stylesheet">
+
+      <style>
+         /* Forzar visibilidad permanente y correcta de la barra de navegación superior en PC, Móviles y Tablets */
+         header.header.default {
+             position: fixed !important;
+             top: 0 !important;
+             left: 0 !important;
+             width: 100% !important;
+             z-index: 9999 !important;
+             background-color: #13181d !important;
+             display: flex !important;
+             align-items: center !important;
+             justify-content: space-between !important;
+             padding: 15px 30px !important;
+             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6) !important;
+             visibility: visible !important;
+             opacity: 1 !important;
+         }
+         
+         /* Evitar que el contenido superior quede oculto debajo de la barra fija */
+         body {
+             padding-top: 75px !important;
+         }
+
+         /* Estilos optimizados para los bloques desplegables de las letras musicales */
+         .block-lyrics {
+             display: none;
+             background: rgba(10, 13, 16, 0.95);
+             padding: 25px;
+             border-radius: 6px;
+             margin-top: 15px;
+             margin-bottom: 15px;
+             text-align: center;
+             border-left: 4px solid #ff2a3b;
+             border-right: 4px solid #ff2a3b;
+             max-height: 400px;
+             overflow-y: auto;
+             width: 100%;
+         }
+
+         .block-lyrics p {
+             color: #dbdbdb !important;
+             font-size: 14px !important;
+             line-height: 1.8 !important;
+             margin-bottom: 12px !important;
+         }
+
+         .toggle-lyrics-btn {
+             background-color: #ff2a3b !important;
+             color: #ffffff !important;
+             border: none !important;
+             padding: 6px 16px !important;
+             cursor: pointer !important;
+             font-size: 12px !important;
+             text-transform: uppercase !important;
+             font-weight: 700 !important;
+             letter-spacing: 1px;
+             display: inline-flex !important;
+             align-items: center;
+             gap: 6px;
+             border-radius: 3px;
+             transition: all 0.2s ease-in-out;
+         }
+
+         .toggle-lyrics-btn:hover {
+             background-color: #ffffff !important;
+             color: #ff2a3b !important;
+         }
+
+         .playlist li {
+             margin-bottom: 10px !important;
+             border-bottom: 1px solid rgba(255,255,255,0.05);
+             padding-bottom: 10px !important;
+         }
+      </style>
    </head>
    <body>
-      <!-- Preloader -->
-     <div class="custom-loader" id="customPreloader">
-   <div class="loader-content">
-      <div class="rock-spinner"></div>
-      <p class="loading-text">WILDFINITY</p>
-   </div>
-</div>
-      <!-- End preloader-->
-      <!--Wrapper-->
-      <div class="wrapper">
-         <div class="block-search-form">
-            <div class="block-content">
-               <div class="container">
-                  <!--end of row-->
-                  <div class="row justify-content-center">
-                     <div class="col-12 col-md-10 col-lg-8">
-                        <form method="get"  >
-                           <div class="card  bg-red ">
-                              <div class="card-body  row no-gutters align-items-center">
-                                 <div class="col-auto">
-                                    <i class="icon-search"></i>
-                                 </div>
-                                 <!--end of col-->
-                                 <div class="col">
-                                    <input class="form-control form-control-lg form-control-border0" placeholder="Type a keywords..." type="search">
-                                 </div>
-                                 <!--end of col-->
-                                 <div class="col-auto">
-                                    <button type="submit" class="btn  btn-primary uppercase border-3">
-                                    Search now</button>
-                                 </div>
-                                 <!--end of col-->
-                              </div>
-                           </div>
-                        </form>
-                     </div>
-                     <!--end of col-->
-                  </div>
-                  <!--end of row-->
-               </div>
-            </div>
+      <div class="loader">
+         <div class="loader-inner">
+            <svg width="120" height="220" viewbox="0 0 100 100" class="loading-spinner" version="1.1" xmlns="http://www.w3.org/2000/svg">
+               <circle class="spinner" cx="50" cy="50" r="21" fill="#13181d" stroke-width="2"/>
+            </svg>
          </div>
-         <!--Hero section-->
+      </div>
+      <div class="wrapper" id="wrapper">
+      
+         <header class="header default">
+            <div class="left-part">
+               <a class="logo scroll" href="#wrapper">
+                  <h2 class="mb-0 uppercase" style="color: #ffffff; letter-spacing: 2px;">WILDFINITY.</h2>
+               </a>
+            </div>
+            <div class="right-part">
+               <nav class="main-nav">
+                  <div class="toggle-mobile-but">
+                     <a href="#" class="mobile-but">
+                        <div class="lines"></div>
+                     </a>
+                  </div>
+                  <ul class="main-menu list-inline">
+                     <li><a class="scroll list-inline-item" href="#wrapper">Home</a></li>
+                     <li><a class="scroll list-inline-item" href="#album">Album</a></li>
+                     <li><a class="scroll list-inline-item" href="#about">About</a></li>
+                     <li><a class="scroll list-inline-item" href="#contact">Contact</a></li>
+                  </ul>
+               </nav>
+            </div>
+         </header>
+
          <section class="hero">
-            <!--Main slider-->
             <div class="main-slider slider flexslider">
                <ul class="slides">
                   <li>
                      <div class="background-img overlay zoom">
                         <img src="img/1.jpg" alt="">
                      </div>
-                     <!--Container-->
                      <div class="container hero-content">
-                        <!--Row-->
                         <div class="row">
                            <div class="col-sm-12 text-center">
-                              <!--Inner hero-->
                               <div class="inner-hero">
                                  <div class="back-rect"></div>
-                                 <h1 class="large text-white uppercase mb-0">Wildfinity</h1>
-                                 <h5 class="mb-0 text-white uppercase">La fuerza de los 80 con el sonido del siglo XXI</h5>
+                                 <h1 class="large text-white uppercase mb-0">WILDFINITY</h1>
+                                 <h5 class="mb-0 text-white uppercase">We Are the Weirdos, We Are the Odds</h5>
                                  <div class="front-rect"></div>
                               </div>
                            </div>
-                           <!--End row-->
                         </div>
-                        <!--End container-->
                      </div>
-                     <!--End inner hero-->
-                  </li>
-                  <li>
-                     <div class="background-img overlay zoom">
-                        <img src="img/2.jpg" alt="">
-                     </div>
-                     <!--Container-->
-                     <div class="container hero-content">
-                        <!--Row-->
-                        <div class="row">
-                           <div class="col-sm-12 text-center">
-                              <!--Inner hero-->
-                              <div class="inner-hero">
-                                 <h1 class="large text-white uppercase mb-0">We Are</h1>
-                                 <h5 class="mb-0 text-white uppercase">Nuevo Albúm disponible en todas las plataformas</h5>
-                                 <a class="video-play-but popup-youtube" href="https://music.youtube.com/playlist?list=OLAK5uy_mcU7RYRulW885vH1efRZ5aQEv8Ij9ol60"></a>
-                              </div>
-                           </div>
-                           <!--End row-->
-                        </div>
-                        <!--End container-->
-                     </div>
-                     <!--End inner hero-->
                   </li>
                </ul>
             </div>
-            <!--End main slider-->
-            <!--Header-->
-            <header class="header default">
-               <div class=" left-part">
-                  <a class="logo scroll" href="#wrapper">
-                     <h2 class="mb-0 uppercase">Wildfinity</h2>
-                  </a>
-               </div>
-               <div class="right-part">
-                  <nav class="main-nav">
-                     <div class="toggle-mobile-but">
-                        <a href="#" class="mobile-but" >
-                           <div class="lines"></div>
-                        </a>
-                     </div>
-                     <ul class="main-menu list-inline">
-                        <li><a class="scroll list-inline-item" href="#wrapper">Home</a></li>
-                        <li><a class="scroll list-inline-item" href="#about">about</a></li>
-                        <li><a class="scroll list-inline-item" href="#discography">discography</a></li>
-                        <li><a class="scroll list-inline-item" href="#band">Band</a></li>
-                        <li><a class="scroll list-inline-item" href="#tour">Tours</a></li>
-                        <li><a class="scroll list-inline-item" href="#gallery">Gallery</a></li>
-                        <li><a class="scroll list-inline-item" href="#news">News</a></li>
-                        <li><a class="scroll list-inline-item" href="#contact">Contact</a></li>
-                        <li>
-                           <ul class="block-helper list-inline">
-                              <li class="list-inline-item"><a href="#"><i class="icon-shop"></i></a></li>
-                              <li class="list-inline-item"><span class="search-ico"><i class="icon-search"></i></span></li>
-                           </ul>
-                        </li>
-                     </ul>
-                  </nav>
-               </div>
-            </header>
-            <!--End header-->
          </section>
-         <!--End hero section-->
-         <!--Latest album section-->
          <section id="album" class="latest main">
-            <!--Container-->
             <div class="container">
-               <!--Row-->
                <div class="row justify-content-center">
                   <div class="col-12 col-md-10 col-lg-9 ">
                      <div class="block-content text-center gap-one-bottom-md">
                         <div class="block-title ">
-                           <h1 class="uppercase">Ultimo Albúm</h1>
-                             <img class="animated" src="img/album/1.jpg" alt="">
+                           <h1 class="uppercase">Latest Album</h1>
                         </div>
                      </div>
                   </div>
                </div>
-               <!--End row-->
             </div>
-            <!--End container-->
-            <!--Container-->
+
             <div class="container">
-               <!--Row-->
                <div class="row justify-content-center">
-                  <div class="col-12  col-lg-4  ">
+                  <div class="col-12 col-lg-4">
                      <div class="block-content text-center gap-one-bottom-sm">
                         <div class="block-album-info">
                            <ul>
-                           <li><h5 class=" uppercase list-inline-item ">Sello :</h5> <span>Wildfinity Records</span></li>
-                           <li><h5 class=" uppercase list-inline-item">Lanzamiento :</h5> <span>22/12/24</span></li>
-                           <li><h5 class=" uppercase list-inline-item">Genero :</h5> <span>Rock</span></li>
-                           <li><h5 class="uppercase list-inline-item">Estilo :</h5> <span>Rock/ Hard Rock/ Glam Metal</span></li>
-                           <li>
+                              <li><h5 class="uppercase list-inline-item">Artist :</h5> <span>Wildfinity</span></li>
+                              <li><h5 class="uppercase list-inline-item">Released :</h5> <span>2026</span></li>
+                              <li><h5 class="uppercase list-inline-item">Genre :</h5> <span>Hard Rock / Glam Metal / Punk</span></li>
                            </ul>
                         </div>
-                        <ul class="block-social list-inline mt-4">
-                           <li class="list-inline-item mr-0"><a href="#"><i class="socicon-apple"></i></a></li>
-                           <li class="list-inline-item mr-0"><a href="#"><i class="socicon-play"></i></a></li>
-                           <li class="list-inline-item mr-0"><a href="#"><i class="socicon-soundcloud"></i></a></li>
-                           <li class="list-inline-item mr-0"><a href="#"><i class="socicon-spotify"></i></a></li>
-                           <li class="list-inline-item mr-0"><a href="#"><i class="socicon-youtube"></i></a></li>
-                        </ul>
                      </div>
                   </div>
                </div>
-               <!--End row-->
             </div>
-            <!--End container-->
-            <!--Container-->
-<div id="wf-custom-player-section" class="container my-5">
-   
-   <div class="row justify-content-center">
-      <div class="col-lg-8">
+
+            <div class="container">
+               <div class="row justify-content-center">
+                  <div class="col-12 col-lg-8 col-md-10">
+                     <div class="block-tracklist">
+                        <audio preload class="album"></audio>
+                        <div class="block-content pb-0">
+                           <img class="mb-0" src="img/album/5.jpg" alt="Wildfinity Album Cover">
+                        </div>
+                        
+                        <ol class="playlist">
+                        
+                           <li>
+                              <div class="as-link" data-src="mp3/01.mp3">
+                                 <div class="row align-items-center">
+                                    <div class="col-lg-8 col-md-7 col-12">
+                                       <div class="block-track">
+                                          <h6 class="mb-0 opc-70 uppercase">01. We Are</h6>
+                                          <span>Wildfinity</span>
+                                       </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-5 col-12 text-md-right mt-2 mt-md-0">
+                                       <button class="toggle-lyrics-btn" onclick="toggleLyrics(event, 'lyrics-1')"><i class="icon-note"></i> Letra</button>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div id="lyrics-1" class="block-lyrics">
+                                 <h5 class="mb-4 uppercase text-white" style="color:#ff2a3b !important;">We Are</h5>
+                                 <p>We are ready to start the party<br>We are gonna rock you now<br>We are lighting the fire<br>The show began</p>
+                                 <p>The stage is ready for the show<br>The lights are shining up on you<br>Everything is coming up<br>I’m feeling good … ha ha…<br>The crowd is filling up the place<br>The people’s heat begins to wave<br>One for the money, two for the show<br>Are you ready?</p>
+                                 <p>We are ready to start the party (we are)<br>We are gonna rock you now (we are)<br>We are lighting the fire (we are)<br>Look at the people around<br>The show began</p>
+                                 <p>Raise up your hands for me<br>Raise up your voice for me<br>I wanna hear you scream<br>Wildfinity<br>1, 2; 1, 2, 3, 4</p>
+                                 <p>We are the weirdos, we are the odds<br>The wildest hearts, the bravest souls<br>Nobody will put you down<br>You’re not alone<br>If you feel like you don’t fit<br>Let us be your family<br>Now join the party<br>Kick down the door</p>
+                              </div>
+                           </li>
+
+                           <li>
+                              <div class="as-link" data-src="mp3/02.mp3">
+                                 <div class="row align-items-center">
+                                    <div class="col-lg-8 col-md-7 col-12">
+                                       <div class="block-track">
+                                          <h6 class="mb-0 opc-70 uppercase">02. I'm Not You</h6>
+                                          <span>Wildfinity</span>
+                                       </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-5 col-12 text-md-right mt-2 mt-md-0">
+                                       <button class="toggle-lyrics-btn" onclick="toggleLyrics(event, 'lyrics-2')"><i class="icon-note"></i> Letra</button>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div id="lyrics-2" class="block-lyrics">
+                                 <h5 class="mb-4 uppercase text-white" style="color:#ff2a3b !important;">I'm Not You</h5>
+                                 <p>This life is hitting your face<br>You only want to run and escape<br>There are things you really regret<br>And some people you want to kick in the head</p>
+                                 <p>The bills are taking your pay<br>and you won’t have enough for the rent<br>Let me tell you something my friend,<br>This time scream ahead!</p>
+                                 <p>Don't you tell me what to do now, this is my life!<br>I know what it takes, (You know what it takes)<br>This is my life!<br>Even beaten I’m a warrior. I'm not you<br>I'm not you!</p>
+                                 <p>Today is only the 10th,<br>and you have no more money left.<br>You'd like to take her out on a date.<br>Maybe that won't happen baby.</p>
+                                 <p>Don't you tell me what to do now, this is my life!<br>I know what it takes, (You know what it takes)<br>This is my life!<br>All those problems you seem to have,<br>you can solve them no matter how.<br>Relax babe, don't waste your time.<br>Champions keep playing till they get it right!</p>
+                                 <p>SOLO</p>
+                                 <p>You take your life in your hands,<br>everything looks better today.</p>
+                                 <p>Don't you tell me what to do now, this is my life!<br>I know what it takes, (You know what it takes)<br>This is my life!<br>Don't you tell us what to do, now, this is my life!<br>We do what it takes, (we do what it takes)<br>We’re not you</p>
+                                 <p>SEGUNDO SOLO</p>
+                                 <p>Don't you tell us what to do now, this is our life!<br>We do what it takes, (we do what it takes)<br>This is our life!</p>
+                              </div>
+                           </li>
+
+                           <li>
+                              <div class="as-link" data-src="mp3/03.mp3">
+                                 <div class="row align-items-center">
+                                    <div class="col-lg-8 col-md-7 col-12">
+                                       <div class="block-track">
+                                          <h6 class="mb-0 opc-70 uppercase">03. Live Tonight</h6>
+                                          <span>Wildfinity</span>
+                                       </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-5 col-12 text-md-right mt-2 mt-md-0">
+                                       <button class="toggle-lyrics-btn" onclick="toggleLyrics(event, 'lyrics-3')"><i class="icon-note"></i> Letra</button>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div id="lyrics-3" class="block-lyrics">
+                                 <h5 class="mb-4 uppercase text-white" style="color:#ff2a3b !important;">Live Tonight</h5>
+                                 <p>Time goes by<br>I miss some friends<br>I think of my family<br>If i will see them again</p>
+                                 <p>The tables have turn along the way<br>we run the streets trying to get<br>we're willing to be, we want world to see<br>What do we want to see?</p>
+                                 <p>I'm what always wanted to be,<br>there’s no other place for me.<br>This is where i meant to be<br>Tonight<br>ohhhh TONIGHT!</p>
+                                 <p>We left our home<br>Chasing our dreams<br>We felt alone<br>But hoping to make it big.<br>We're going to make it big</p>
+                                 <p>We're making our path chasing the stars<br>Living and loving, giving all we got<br>We're closer to be, to the world to see.<br>What do we want to see?</p>
+                                 <p>I'm what always wanted to be,<br>There’s no other place for me.<br>This is where i meant to be<br>Tonight</p>
+                                 <p>I'm what always wanted to be,<br>There’s no other place for me.<br>This is where i want to be<br>Tonight</p>
+                              </div>
+                           </li>
+
+                           <li>
+                              <div class="as-link" data-src="mp3/04.mp3">
+                                 <div class="row align-items-center">
+                                    <div class="col-lg-8 col-md-7 col-12">
+                                       <div class="block-track">
+                                          <h6 class="mb-0 opc-70 uppercase">04. Drink That Shot (Vodka)</h6>
+                                          <span>Wildfinity</span>
+                                       </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-5 col-12 text-md-right mt-2 mt-md-0">
+                                       <button class="toggle-lyrics-btn" onclick="toggleLyrics(event, 'lyrics-4')"><i class="icon-note"></i> Letra</button>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div id="lyrics-4" class="block-lyrics">
+                                 <h5 class="mb-4 uppercase text-white" style="color:#ff2a3b !important;">Drink That Shot (Vodka)</h5>
+                                 <p>Almost midnight<br>I see people ahead<br>Are they talking?<br>I don't know I can't tell</p>
+                                 <p>Shot of vodka<br>One of them calls me friend<br>She says let's dance<br>Start with the Cossack dance<br>Go to the floor</p>
+                                 <p>What is all this?<br>That drink blowed up my head<br>Am I walking?<br>Feels like floating on air</p>
+                                 <p>Take the bottle<br>Everything spins in my head<br>Time's slowing<br>Everyone is a friend</p>
+                                 <p>What you're doing<br>Where you're going<br>It won't matter<br>Vodka is coming</p>
+                                 <p>Now take yourself to the floor<br>Raise one leg in the air<br>Drink that shot of vodka<br>Ohh…</p>
+                                 <p>Now take yourself to the floor<br>Raise one leg in the air<br>Drink that shot of vodka</p>
+                              </div>
+                           </li>
+
+                           <li>
+                              <div class="as-link" data-src="mp3/05.mp3">
+                                 <div class="row align-items-center">
+                                    <div class="col-lg-8 col-md-7 col-12">
+                                       <div class="block-track">
+                                          <h6 class="mb-0 opc-70 uppercase">05. Forsaken Soul</h6>
+                                          <span>Wildfinity</span>
+                                       </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-5 col-12 text-md-right mt-2 mt-md-0">
+                                       <button class="toggle-lyrics-btn" onclick="toggleLyrics(event, 'lyrics-5')"><i class="icon-note"></i> Letra</button>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div id="lyrics-5" class="block-lyrics">
+                                 <h5 class="mb-4 uppercase text-white" style="color:#ff2a3b !important;">Forsaken Soul</h5>
+                                 <p>The night is falling<br>My heart is crawling<br>When all went wrong?</p>
+                                 <p>Another body falls down to the ground<br>Can you see me going down?<br>Nobody here will understand<br>Tonight I'm feeling so forsaken</p>
+                                 <p>I hope that God might help me<br>My soul will burn in hell</p>
+                                 <p>I'll hit the streets again<br>This leather jacket can't hide out my pain<br>A silver moon shines on my head<br>While all this demons try to catch me</p>
+                                 <p>I hope that God might help me<br>My soul will burn in hell<br>I hope that God might help me<br>This sinner heart is drowning<br>Please fix my broken soul</p>
+                                 <p>I'm looking at the sky<br>And in the stars<br>I see hellhounds</p>
+                                 <p>I can not take the blame<br>I swear to God to never fight again<br>Now I'm just trying to understand<br>How a shot left me so wounded</p>
+                                 <p>I hope that God might help me<br>My soul will burn in hell<br>I hope that God might help me<br>This sinner heart is drowning<br>Please fix my broken<br>Please fix my broken soul</p>
+                              </div>
+                           </li>
+
+                           <li>
+                              <div class="as-link" data-src="mp3/06.mp3">
+                                 <div class="row align-items-center">
+                                    <div class="col-lg-8 col-md-7 col-12">
+                                       <div class="block-track">
+                                          <h6 class="mb-0 opc-70 uppercase">06. I Don't Give a Dime</h6>
+                                          <span>Wildfinity</span>
+                                       </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-5 col-12 text-md-right mt-2 mt-md-0">
+                                       <button class="toggle-lyrics-btn" onclick="toggleLyrics(event, 'lyrics-6')"><i class="icon-note"></i> Letra</button>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div id="lyrics-6" class="block-lyrics">
+                                 <h5 class="mb-4 uppercase text-white" style="color:#ff2a3b !important;">I Don't Give a Dime</h5>
+                                 <p>It's Monday again, got school today<br>All my life studying, no, I'm not going today<br>Not going today, not going today<br>I won't do as you say, no, I'm not going today</p>
+                                 <p>6 AM again, gotta work today<br>All the day I'm working, now I'm lying in my bed<br>Lying in my bed, lying in my bed<br>I'm sick of their slavery, now, I'm lying in my bed</p>
+                                 <p>Cause this is my life I wanna live<br>I don't give a dime for what you think<br>Even if they put a hold on me<br>I'll just find a way to set me free</p>
+                                 <p>Now it's my choice<br>If they're trying to control me<br>They won't have me<br>Now it's my choice</p>
+                                 <p>Friday comes again, party night at Ben's<br>Parents say you won't go, don't care I'll go anyway<br>I'll go anyway, I'll go anyway<br>Sneaking thru’ my window, screw you, I'll go anyway.</p>
+                                 <p>Nurses come again, carrying pills in hand<br>Those pills make me stupid, no I won't take 'em today<br>I won't take 'em today, I won't take 'em today<br>You know where to put 'em, no I won't take 'em today</p>
+                                 <p>Cause this is my life I wanna live (I wanna live)<br>I don't give a dime for what you think<br>Even if they put a hold on me (I wanna live)<br>I'll just find a way to set me free</p>
+                                 <p>Now it's my choice<br>If they're trying to control me<br>They won't have me<br>Now it's my choice</p>
+                              </div>
+                           </li>
+
+                           <li>
+                              <div class="as-link" data-src="mp3/07.mp3">
+                                 <div class="row align-items-center">
+                                    <div class="col-lg-8 col-md-7 col-12">
+                                       <div class="block-track">
+                                          <h6 class="mb-0 opc-70 uppercase">07. Need to Find You</h6>
+                                          <span>Wildfinity</span>
+                                       </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-5 col-12 text-md-right mt-2 mt-md-0">
+                                       <button class="toggle-lyrics-btn" onclick="toggleLyrics(event, 'lyrics-7')"><i class="icon-note"></i> Letra</button>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div id="lyrics-7" class="block-lyrics">
+                                 <h5 class="mb-4 uppercase text-white" style="color:#ff2a3b !important;">Need to Find You</h5>
+                                 <p>Hey, you know, it’s late<br>But I have to tell you, I have to tell you,<br>what’s going round my head<br>What do you mean?<br>I have to find you</p>
+                                 <p>Up and down the streets (Up and down the streets)<br>I need to find you</p>
+                                 <p>This night is dark<br>Tears are fallin’ from the sky<br>And my car is running out of gas<br>Rivers flowing all around<br>And I don’t know what to do, oh yeah<br>I don’t know what to do<br>I don’t know what to do</p>
+                                 <p>It’s my last call<br>Babe I won’t pick up the phone<br>And nobody’s at home, nobody’s at home. Oh, why?<br>I don't know what’s going on<br>I have to find you<br>I need to find you</p>
+                                 <p>Up and down the streets (Up and down the streets)<br>I need to find you<br>Up and down the streets (Up and down the streets)<br>I need to find you</p>
+                              </div>
+                           </li>
+
+                           <li>
+                              <div class="as-link" data-src="mp3/08.mp3">
+                                 <div class="row align-items-center">
+                                    <div class="col-lg-8 col-md-7 col-12">
+                                       <div class="block-track">
+                                          <h6 class="mb-0 opc-70 uppercase">08. It's Just a Story</h6>
+                                          <span>Wildfinity</span>
+                                       </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-5 col-12 text-md-right mt-2 mt-md-0">
+                                       <button class="toggle-lyrics-btn" onclick="toggleLyrics(event, 'lyrics-8')"><i class="icon-note"></i> Letra</button>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div id="lyrics-8" class="block-lyrics">
+                                 <h5 class="mb-4 uppercase text-white" style="color:#ff2a3b !important;">It's Just a Story</h5>
+                                 <p>It was one of those nights Jimmy was at the club,<br>sitting alone he didn't like the songs.<br>He took his jacket, went for a walk<br>there was the empty street and his last cigar.</p>
+                                 <p>That boulevard corner and a neon light<br>The dinner was open in the still of the night<br>He wasn't thinking well because it was late<br>But there was waiting his soulmate.</p>
+                                 <p>She got to the table, asked, "What would you like?"<br>He didn’t raise his eyes. Life was dark.<br>"One coffee, please."<br>She said, "You look so sad."<br>A glimpse, a light, a beat from his heart.</p>
+                                 <p>And as every story this could be untrue<br>Maybe it's just my way to tell you it's for you<br>I would love to find you on my empty night<br>Save me from my loneliness tonight</p>
+                                 <p>It was one of those nights Mercy was with Dave<br>After a fight, she thought their love’d flown away.<br>He got to the kitchen grabbed another beer<br>Mercy kept saying, “This is it”</p>
+                                 <p>She lay on the bed staring at the walls<br>How could everything go wrong?<br>She was thinking, “This can be the curtain call.”<br>But Dave said, “Let's save our love”</p>
+                                 <p>Our lives spin around<br>and the world can be so cruel and mad<br>but there is a light in you<br>and only love will save our souls from doom</p>
+                                 <p>And as every story this could be untrue<br>Maybe it's just my way to tell you it's for you<br>I would love to find you on my empty night<br>Save me from my loneliness tonight</p>
+                                 <p>And if every soul is waiting for a light<br>seeking for new memories with you in this life<br>I would love to hold you at least for the night<br>save me from my loneliness tonight</p>
+                              </div>
+                           </li>
+
+                           <li>
+                              <div class="as-link" data-src="mp3/09.mp3">
+                                 <div class="row align-items-center">
+                                    <div class="col-lg-8 col-md-7 col-12">
+                                       <div class="block-track">
+                                          <h6 class="mb-0 opc-70 uppercase">09. True Love We Share</h6>
+                                          <span>Wildfinity</span>
+                                       </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-5 col-12 text-md-right mt-2 mt-md-0">
+                                       <button class="toggle-lyrics-btn" onclick="toggleLyrics(event, 'lyrics-9')"><i class="icon-note"></i> Letra</button>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div id="lyrics-9" class="block-lyrics">
+                                 <h5 class="mb-4 uppercase text-white" style="color:#ff2a3b !important;">True Love We Share</h5>
+                                 <p>Sitting on my bed, like every night<br>Looking to my side, and I find your smile.<br>I’m realizing now, how grateful I am, just being here<br>I remember now, when we first met, the shine in your eyes</p>
+                                 <p>(Yeah), Oh babe I love you so much, (babe I love you so much),<br>I’ve been waiting for you all my life<br>How happy I am right now, (How happy I am right now)<br>just here with you (just here with you)</p>
+                                 <p>You took all my fears, with the blink of an eye<br>And I promised you that night to make it right<br>When I was black you painted me like a butterfly<br>Just can’t deny, when you’re by my side, we can reach for the sky</p>
+                                 <p>(Yeah), Oh babe I love you so much, (babe I love you so much),<br>I’ve been waiting for you all my life<br>How happy I am right now, (How happy I am right now)<br>just here with you (just here with you)</p>
+                                 <p>(Yeah), Oh babe I love you so much, (babe I love you so much),<br>I’ve been waiting for you all my life…<br>How happy I am right now, (How happy I am right now)<br>just here with you…</p>
+                                 <p>Now I have no doubts, this is real love<br>Listen to my closely, I will spend my life just with you<br>Yeah yeah, baby, I love you, love you so much,<br>I’ll be there for you always (I’ll be there for you, I’ll be there for you)</p>
+                                 <p>Sink into my eyes:<br>There’s nowhere else I rather be now<br>Just with you</p>
+                              </div>
+                           </li>
+
+                           <li>
+                              <div class="as-link" data-src="mp3/10.mp3">
+                                 <div class="row align-items-center">
+                                    <div class="col-lg-8 col-md-7 col-12">
+                                       <div class="block-track">
+                                          <h6 class="mb-0 opc-70 uppercase">10. Yearning for Light</h6>
+                                          <span>Wildfinity</span>
+                                       </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-5 col-12 text-md-right mt-2 mt-md-0">
+                                       <button class="toggle-lyrics-btn" onclick="toggleLyrics(event, 'lyrics-10')"><i class="icon-note"></i> Letra</button>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div id="lyrics-10" class="block-lyrics">
+                                 <h5 class="mb-4 uppercase text-white" style="color:#ff2a3b !important;">Yearning for Light</h5>
+                                 <p>I can't hide what I’m feeling inside<br>My face is like a window to my heart<br>I'm feeling lonely, I’m feeling sad<br>I can't keep goin'</p>
+                                 <p>Today i don't feel like singing<br>I want to hang up the guitar<br>And even when i'm trying<br>There is nothing darker than this night</p>
+                                 <p>Some dreams seem to blind me<br>Something doesn't seem to fit<br>and i don't like the way i feel<br>Some dreams seem to blind me<br>Something doesn't seem to fit<br>and i don't like the way i feel</p>
+                                 <p>I can't look myself in the mirror<br>I feel ugly and it's sad<br>How can you fix a broken heart?<br>Where can you find your smile?</p>
+                                 <p>This could be my requiem<br>Maybe my last will<br>I hope it's a nightmare<br>I'd like to wake up from this dream</p>
+                                 <p>Some dreams seem to blind me<br>Something doesn't seem to fit<br>and I don't like the way I feel<br>Some dreams seem to blind me<br>Something doesn't seem to fit<br>and I don't like the way I feel</p>
+                              </div>
+                           </li>
+
+                        </ol>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <footer class="main pt-5 pb-5">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-6-left">
+                     <p class="mb-0 small">&copy; 2026 Wildfinity. All Rights Reserved.</p>
+                  </div>
+               </div>
+            </div>
+         </footer>
          
-         <div class="text-center mb-4">
-            <img src="img/album/5.jpg" alt="Wildfinity - We Are" class="img-fluid rounded shadow w-100" style="max-height: 400px; object-fit: cover;">
-         </div>
-
-         <div class="p-4 rounded text-light shadow mb-4" style="background-color: #000000; border: 1px solid #ff0000;">
-            <div class="text-center mb-3">
-               <h4 id="wf-track-title" class="text-uppercase tracking-wider mb-1" style="color: #ffffff; font-weight: 700; letter-spacing: 1px;">Selecciona una canción</h4>
-               <p class="small mb-0" style="color: #ff0000; letter-spacing: 2px; text-uppercase; font-weight: 600;">Wildfinity</p>
-            </div>
-            
-            <audio id="wf-native-audio" preload="auto"></audio>
-            
-            <div id="wf-progress-container" class="progress mb-4" style="background-color: #222222; height: 8px; cursor: pointer; border-radius: 4px;">
-               <div id="wf-progress-bar" class="progress-bar" role="progressbar" style="width: 0%; background-color: #ff0000; transition: none;"></div>
-            </div>
-            
-            <div class="d-flex justify-content-center align-items-center gap-2 flex-wrap">
-               <button id="wf-btn-prev" class="btn text-uppercase" style="background-color: #111111; color: #ffffff; border: 1px solid #ff0000; font-size: 11px; padding: 6px 14px;"><i class="icon-angle-left"></i> Anterior</button>
-               
-               <button id="wf-btn-play-pause" class="btn text-uppercase mx-2" style="background-color: #ff0000; color: #000000; font-weight: bold; font-size: 13px; padding: 8px 22px;">
-                  <i class="icon-play"></i> Reproducir
-               </button>
-               
-               <button id="wf-btn-next" class="btn text-uppercase" style="background-color: #111111; color: #ffffff; border: 1px solid #ff0000; font-size: 11px; padding: 6px 14px;">Siguiente <i class="icon-angle-right"></i></button>
-            </div>
-         </div>
-
-         <ul class="list-group list-group-flush shadow-sm rounded mb-4" id="wf-playlist">
-            
-            <li class="list-group-item bg-dark text-light border-secondary p-3 wf-track-item" data-src="mp3/01_WE_ARE.mp3" data-title="We Are">
-               <div class="d-flex justify-content-between align-items-center flex-wrap flex-sm-nowrap">
-                  <div class="wf-play-trigger" style="cursor: pointer; flex-grow: 1; min-width: 60%;">
-                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-danger wf-row-icon"></i> 01. We Are</h6>
-                  </div>
-                  <div class="d-flex gap-2 mt-2 mt-sm-0">
-                     <button class="btn btn-sm btn-outline-danger wf-toggle-lyrics" style="font-size: 11px; text-transform: uppercase;"><i class="icon-note"></i> Letra</button>
-                     <a href="mp3/01_WE_ARE.mp3" download="01_Wildfinity_We_Are.mp3" class="btn btn-sm btn-outline-light" title="Descargar canción"><i class="icon-download"></i></a>
-                  </div>
-               </div>
-               <div class="wf-lyrics-container text-center mt-3 p-3 bg-black rounded" style="display: none; border: 1px dashed #ff0000; color: #dddddd;">
-                  <h5 class="text-uppercase mb-2" style="color: #ff0000;">We Are</h5>
-                  <p class="mb-0">Walking through the neon lights, feelings running high,<br>We are the roar of the thunder shaking up the sky.<br>With guitar strings of fire and hearts made of steel,<br>We are the wild energy that makes this real!<br><br><strong>Chorus:</strong><br>We Are! The rock in the night!<br>We Are! Shining so bright!<br>No limits, no fears, we break the chains today,<br>Wildfinity is here to stay!</p>
-               </div>
-            </li>
-
-            <li class="list-group-item bg-dark text-light border-secondary p-3 wf-track-item" data-src="mp3/02_IM_NOT_YOU.mp3" data-title="I'm Not You">
-               <div class="d-flex justify-content-between align-items-center flex-wrap flex-sm-nowrap">
-                  <div class="wf-play-trigger" style="cursor: pointer; flex-grow: 1; min-width: 60%;">
-                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-danger wf-row-icon"></i> 02. I'm Not You</h6>
-                  </div>
-                  <div class="d-flex gap-2 mt-2 mt-sm-0">
-                     <button class="btn btn-sm btn-outline-danger wf-toggle-lyrics" style="font-size: 11px; text-transform: uppercase;"><i class="icon-note"></i> Letra</button>
-                     <a href="mp3/02_IM_NOT_YOU.mp3" download="02_Wildfinity_Im_Not_You.mp3" class="btn btn-sm btn-outline-light" title="Descargar canción"><i class="icon-download"></i></a>
-                  </div>
-               </div>
-               <div class="wf-lyrics-container text-center mt-3 p-3 bg-black rounded" style="display: none; border: 1px dashed #ff0000; color: #dddddd;">
-                  <h5 class="text-uppercase mb-2" style="color: #ff0000;">I'm Not You</h5>
-                  <p class="mb-0">You try to shape my world, tell me who to be,<br>But I am a force you can't contain, looking to get free.<br>Stand your ground, look away, do what you gotta do,<br>I am walking my own path, 'cause I am not you!<br><br><strong>Chorus:</strong><br>I'm not you, I won't play your game,<br>I'm not you, I don't share your shame.<br>Living loud and wild, completely true,<br>Open your eyes, I'm not you!</p>
-               </div>
-            </li>
-
-            <li class="list-group-item bg-dark text-light border-secondary p-3 wf-track-item" data-src="mp3/03_LIVE_TONIGHT.mp3" data-title="Live Tonight">
-               <div class="d-flex justify-content-between align-items-center flex-wrap flex-sm-nowrap">
-                  <div class="wf-play-trigger" style="cursor: pointer; flex-grow: 1; min-width: 60%;">
-                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-danger wf-row-icon"></i> 03. Live Tonight</h6>
-                  </div>
-                  <div class="d-flex gap-2 mt-2 mt-sm-0">
-                     <button class="btn btn-sm btn-outline-danger wf-toggle-lyrics" style="font-size: 11px; text-transform: uppercase;"><i class="icon-note"></i> Letra</button>
-                     <a href="mp3/03_LIVE_TONIGHT.mp3" download="03_Wildfinity_Live_Tonight.mp3" class="btn btn-sm btn-outline-light" title="Descargar canción"><i class="icon-download"></i></a>
-                  </div>
-               </div>
-               <div class="wf-lyrics-container text-center mt-3 p-3 bg-black rounded" style="display: none; border: 1px dashed #ff0000; color: #dddddd;">
-                  <h5 class="text-uppercase mb-2" style="color: #ff0000;">Live Tonight</h5>
-                  <p class="mb-0">The stage is set, the crowd is waiting under heavy sparks,<br>We turn the amplifiers up to block away the dark.<br>Forget about tomorrow, let the speakers bite,<br>We only have one mission: we gotta live tonight!<br><br><strong>Chorus:</strong><br>Raise your hands up high, feel the power ignite,<br>Underneath the sky, we're gonna live tonight!<br>Shout it out, scream it out, with all of your might,<br>This is our moment, we live tonight!</p>
-               </div>
-            </li>
-
-            <li class="list-group-item bg-dark text-light border-secondary p-3 wf-track-item" data-src="mp3/04_DRINK_THAT_SHOT.mp3" data-title="Drink That Shot">
-               <div class="d-flex justify-content-between align-items-center flex-wrap flex-sm-nowrap">
-                  <div class="wf-play-trigger" style="cursor: pointer; flex-grow: 1; min-width: 60%;">
-                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-danger wf-row-icon"></i> 04. Drink That Shot</h6>
-                  </div>
-                  <div class="d-flex gap-2 mt-2 mt-sm-0">
-                     <button class="btn btn-sm btn-outline-danger wf-toggle-lyrics" style="font-size: 11px; text-transform: uppercase;"><i class="icon-note"></i> Letra</button>
-                     <a href="mp3/04_DRINK_THAT_SHOT.mp3" download="04_Wildfinity_Drink_That_Shot.mp3" class="btn btn-sm btn-outline-light" title="Descargar canción"><i class="icon-download"></i></a>
-                  </div>
-               </div>
-               <div class="wf-lyrics-container text-center mt-3 p-3 bg-black rounded" style="display: none; border: 1px dashed #ff0000; color: #dddddd;">
-                  <h5 class="text-uppercase mb-2" style="color: #ff0000;">Drink That Shot</h5>
-                  <p class="mb-0">Glasses up on the counter, the bassline is hitting hard,<br>We've been running this highway, now we're dropping our guard.<br>Pour another round of rhythm, let the dynamic drop,<br>Drink that shot right now, we are never gonna stop!<br><br><strong>Chorus:</strong><br>One, two, three, let the poison go down,<br>We are the kings and queens owning this town.<br>Hit the floor, burn the rules, show what you've got,<br>Don't think about it twice, come on and drink that shot!</p>
-               </div>
-            </li>
-
-            <li class="list-group-item bg-dark text-light border-secondary p-3 wf-track-item" data-src="mp3/05_FORSAKEN_SOUL.mp3" data-title="Forsaken Soul">
-               <div class="d-flex justify-content-between align-items-center flex-wrap flex-sm-nowrap">
-                  <div class="wf-play-trigger" style="cursor: pointer; flex-grow: 1; min-width: 60%;">
-                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-danger wf-row-icon"></i> 05. Forsaken Soul</h6>
-                  </div>
-                  <div class="d-flex gap-2 mt-2 mt-sm-0">
-                     <button class="btn btn-sm btn-outline-danger wf-toggle-lyrics" style="font-size: 11px; text-transform: uppercase;"><i class="icon-note"></i> Letra</button>
-                     <a href="mp3/05_FORSAKEN_SOUL.mp3" download="05_Wildfinity_Forsaken_Soul.mp3" class="btn btn-sm btn-outline-light" title="Descargar canción"><i class="icon-download"></i></a>
-                  </div>
-               </div>
-               <div class="wf-lyrics-container text-center mt-3 p-3 bg-black rounded" style="display: none; border: 1px dashed #ff0000; color: #dddddd;">
-                  <h5 class="text-uppercase mb-2" style="color: #ff0000;">Forsaken Soul</h5>
-                  <p class="mb-0">In the shadows of the valley, where the echoes start to fade,<br>I remember every promise and the choices that we made.<br>Through the cold wind of betrayal, I can still hear the sound<br>Of a forsaken soul waiting to be found.<br><br><strong>Chorus:</strong><br>Lost in the dark, searching for an open door,<br>A forsaken soul, broken to the core.<br>But from the ashes and dust, I will rise once more,<br>Stronger than the storms that I faced before.</p>
-               </div>
-            </li>
-
-            <li class="list-group-item bg-dark text-light border-secondary p-3 wf-track-item" data-src="mp3/06_I_DONT_GIVE_A_DIME.mp3" data-title="I Don't Give A Dime">
-               <div class="d-flex justify-content-between align-items-center flex-wrap flex-sm-nowrap">
-                  <div class="wf-play-trigger" style="cursor: pointer; flex-grow: 1; min-width: 60%;">
-                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-danger wf-row-icon"></i> 06. I Don't Give A Dime</h6>
-                  </div>
-                  <div class="d-flex gap-2 mt-2 mt-sm-0">
-                     <button class="btn btn-sm btn-outline-danger wf-toggle-lyrics" style="font-size: 11px; text-transform: uppercase;"><i class="icon-note"></i> Letra</button>
-                     <a href="mp3/06_I_DONT_GIVE_A_DIME.mp3" download="06_Wildfinity_I_Dont_Give_A_Dime.mp3" class="btn btn-sm btn-outline-light" title="Descargar canción"><i class="icon-download"></i></a>
-                  </div>
-               </div>
-               <div class="wf-lyrics-container text-center mt-3 p-3 bg-black rounded" style="display: none; border: 1px dashed #ff0000; color: #dddddd;">
-                  <h5 class="text-uppercase mb-2" style="color: #ff0000;">I Don't Give A Dime</h5>
-                  <p class="mb-0">Talk your talk, print your news, try to bring me down,<br>I don't care about the rumors spreading through this town.<br>I got my volume all the way up, my mind is feeling fine,<br>Go ahead and judge me, 'cause I don't give a dime!<br><br><strong>Chorus:</strong><br>I don't give a dime about your legacy,<br>I don't give a dime, I live completely free.<br>Riding this wild train right across the line,<br>Scream it to the world, I don't give a dime!</p>
-               </div>
-            </li>
-
-            <li class="list-group-item bg-dark text-light border-secondary p-3 wf-track-item" data-src="mp3/07_NEED_TO_FIND_YOU.mp3" data-title="Need To Find You">
-               <div class="d-flex justify-content-between align-items-center flex-wrap flex-sm-nowrap">
-                  <div class="wf-play-trigger" style="cursor: pointer; flex-grow: 1; min-width: 60%;">
-                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-danger wf-row-icon"></i> 07. Need To Find You</h6>
-                  </div>
-                  <div class="d-flex gap-2 mt-2 mt-sm-0">
-                     <button class="btn btn-sm btn-outline-danger wf-toggle-lyrics" style="font-size: 11px; text-transform: uppercase;"><i class="icon-note"></i> Letra</button>
-                     <a href="mp3/07_NEED_TO_FIND_YOU.mp3" download="07_Wildfinity_Need_To_Find_You.mp3" class="btn btn-sm btn-outline-light" title="Descargar canción"><i class="icon-download"></i></a>
-                  </div>
-               </div>
-               <div class="wf-lyrics-container text-center mt-3 p-3 bg-black rounded" style="display: none; border: 1px dashed #ff0000; color: #dddddd;">
-                  <h5 class="text-uppercase mb-2" style="color: #ff0000;">Need To Find You</h5>
-                  <p class="mb-0">Searching through the crowded streets, staring at the lights,<br>I've been looking for your trace throughout these heavy nights.<br>The music is spinning round, but nothing feels brand new,<br>I'm caught up in the rhythm, and I need to find you!<br><br><strong>Chorus:</strong><br>Where are you hiding? Give me a little sign,<br>I need to find you, make your horizon mine.<br>Through the rock and roll, through the heavy view,<br>I will cross the world, 'cause I need to find you!</p>
-               </div>
-            </li>
-
-            <li class="list-group-item bg-dark text-light border-secondary p-3 wf-track-item" data-src="mp3/08_ITS_JUST_A_STORY.mp3" data-title="It's Just A Story">
-               <div class="d-flex justify-content-between align-items-center flex-wrap flex-sm-nowrap">
-                  <div class="wf-play-trigger" style="cursor: pointer; flex-grow: 1; min-width: 60%;">
-                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-danger wf-row-icon"></i> 08. It's Just A Story</h6>
-                  </div>
-                  <div class="d-flex gap-2 mt-2 mt-sm-0">
-                     <button class="btn btn-sm btn-outline-danger wf-toggle-lyrics" style="font-size: 11px; text-transform: uppercase;"><i class="icon-note"></i> Letra</button>
-                     <a href="mp3/08_ITS_JUST_A_STORY.mp3" download="08_Wildfinity_Its_Just_A_Story.mp3" class="btn btn-sm btn-outline-light" title="Descargar canción"><i class="icon-download"></i></a>
-                  </div>
-               </div>
-               <div class="wf-lyrics-container text-center mt-3 p-3 bg-black rounded" style="display: none; border: 1px dashed #ff0000; color: #dddddd;">
-                  <h5 class="text-uppercase mb-2" style="color: #ff0000;">It's Just A Story</h5>
-                  <p class="mb-0">An old book left open, a memory on the wall,<br>We think we have it all before we start to fall.<br>Don't cry over past mistakes or pages torn apart,<br>It's just a story written directly in your heart.<br><br><strong>Chorus:</strong><br>It's just a story, a melody in time,<br>A little bit of reason, a little bit of rhyme.<br>Close the chapter now, let the morning rise,<br>It's just a story under changing skies.</p>
-               </div>
-            </li>
-
-            <li class="list-group-item bg-dark text-light border-secondary p-3 wf-track-item" data-src="mp3/09_TRUE_LOVE_WE_SHARE.mp3" data-title="True Love We Share">
-               <div class="d-flex justify-content-between align-items-center flex-wrap flex-sm-nowrap">
-                  <div class="wf-play-trigger" style="cursor: pointer; flex-grow: 1; min-width: 60%;">
-                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-danger wf-row-icon"></i> 09. True Love We Share</h6>
-                  </div>
-                  <div class="d-flex gap-2 mt-2 mt-sm-0">
-                     <button class="btn btn-sm btn-outline-danger wf-toggle-lyrics" style="font-size: 11px; text-transform: uppercase;"><i class="icon-note"></i> Letra</button>
-                     <a href="mp3/09_TRUE_LOVE_WE_SHARE.mp3" download="09_Wildfinity_True_Love_We_Share.mp3" class="btn btn-sm btn-outline-light" title="Descargar canción"><i class="icon-download"></i></a>
-                  </div>
-               </div>
-               <div class="wf-lyrics-container text-center mt-3 p-3 bg-black rounded" style="display: none; border: 1px dashed #ff0000; color: #dddddd;">
-                  <h5 class="text-uppercase mb-2" style="color: #ff0000;">True Love We Share</h5>
-                  <p class="mb-0">Two voices united, running through the same old overdrive,<br>When we stand together, we make the whole world come alive.<br>Hand in hand on stage, through the fire and the glare,<br>This is the eternal power of the true love we share!<br><br><strong>Chorus:</strong><br>True love we share, louder than the sound,<br>True love we share, lifting off the ground.<br>Nothing can break us, nothing can compare,<br>To the electric magic of the true love we share!</p>
-               </div>
-            </li>
-
-            <li class="list-group-item bg-dark text-light border-secondary p-3 wf-track-item" data-src="mp3/10_YEARNING_FOR_LIGHT.mp3" data-title="Yearning For Light">
-               <div class="d-flex justify-content-between align-items-center flex-wrap flex-sm-nowrap">
-                  <div class="wf-play-trigger" style="cursor: pointer; flex-grow: 1; min-width: 60%;">
-                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-danger wf-row-icon"></i> 10. Yearning For Light</h6>
-                  </div>
-                  <div class="d-flex gap-2 mt-2 mt-sm-0">
-                     <button class="btn btn-sm btn-outline-danger wf-toggle-lyrics" style="font-size: 11px; text-transform: uppercase;"><i class="icon-note"></i> Letra</button>
-                     <a href="mp3/10_YEARNING_FOR_LIGHT.mp3" download="10_Wildfinity_Yearning_For_Light.mp3" class="btn btn-sm btn-outline-light" title="Descargar canción"><i class="icon-download"></i></a>
-                  </div>
-               </div>
-               <div class="wf-lyrics-container text-center mt-3 p-3 bg-black rounded" style="display: none; border: 1px dashed #ff0000; color: #dddddd;">
-                  <h5 class="text-uppercase mb-2" style="color: #ff0000;">Yearning For Light</h5>
-                  <p class="mb-0">The night has been long, the shadows were heavy and cold,<br>But we hold the keys to a story waiting to be told.<br>The guitars are screaming, breaking down the quiet night,<br>Every single heartbeat is yearning for light!<br><br><strong>Chorus:</strong><br>Yearning for light, we strike the final chord,<br>Yearning for light, our freedom is restored.<br>The darkness is over, the future is bright,<br>Wildfinity rises, yearning for light!</p>
-               </div>
-            </li>
-
-         </ul>
+         <a class="block-top scroll" href="#wrapper"><i class="icon-angle-up"></i></a>
       </div>
-   </div>
-</div>
+      <script src="js/jquery-1.12.4.min.js"></script>
+      <script src="js/jquery.flexslider-min.js"></script>
+      <script src="js/smooth-scroll.js"></script>
+      <script src="js/jquery.magnific-popup.min.js"></script>
+      <script src="js/audio.min.js"></script>
+      <script src="js/twitterFetcher_min.js"></script>
+      <script src="js/jquery.countdown.min.js"></script>
+      <script src="js/placeholders.min.js"></script>
+      <script src="js/script.js"></script>
 
-<script src="js/jquery-1.12.4.min.js"></script>
-<script>
-$(document).ready(function() {
-   // Elementos del DOM aislados mediante IDs únicos para prevenir bloqueos de plantilla
-   var audioPlayer = document.getElementById("wf-native-audio");
-   var $trackTitle = $("#wf-track-title");
-   var $playlistItems = $(".wf-track-item");
-   var $playPauseBtn = $("#wf-btn-play-pause");
-   var $progressBar = $("#wf-progress-bar");
-   var $progressContainer = $("#wf-progress-container");
-   var currentTrackIndex = 0;
-   
-   // Función nativa robusta compatible con las restricciones de Safari iOS y Chrome Mobile
-   function loadTrack(index, autoPlay) {
-      if(index >= 0 && index < $playlistItems.length) {
-         // Limpiar estados activos visuales anteriores
-         $playlistItems.removeClass("bg-secondary").css("border-left", "none");
-         $(".wf-row-icon").removeClass("icon-pause-circle").addClass("icon-play-circle");
-         
-         currentTrackIndex = index;
-         var $activeItem = $playlistItems.eq(currentTrackIndex);
-         
-         // Resaltar canción activa con un toque rojo estilizado
-         $activeItem.addClass("bg-secondary").css("border-left", "4px solid #ff0000");
-         
-         var src = $activeItem.attr("data-src");
-         var title = $activeItem.attr("data-title");
-         
-         // Forzar carga de origen secuencial requerida por dispositivos móviles
-         audioPlayer.src = src;
-         audioPlayer.load(); 
-         
-         $trackTitle.text(title);
-         
-         if(autoPlay) {
-            // Manejo de la promesa de reproducción nativa para evitar excepciones silenciosas en smartphones
-            var playPromise = audioPlayer.play();
-            if (playPromise !== undefined) {
-               playPromise.then(function() {
-                  $playPauseBtn.html('<i class="icon-pause"></i> Pausa');
-                  $activeItem.find(".wf-row-icon").removeClass("icon-play-circle").addClass("icon-pause-circle");
-               }).catch(function(error) {
-                  console.log("Interrupción de reproducción en móvil prevenida:", error);
-                  $playPauseBtn.html('<i class="icon-play"></i> Reproducir');
-               });
-            }
-         } else {
-            $playPauseBtn.html('<i class="icon-play"></i> Reproducir');
+      <script>
+         function toggleLyrics(event, lyricsId) {
+             // Detiene por completo la propagación del evento hacia ".as-link",
+             // impidiendo que la plantilla interprete esto como un comando para reproducir/pausar/reiniciar el audio.
+             event.stopPropagation();
+             event.preventDefault();
+             
+             var targetLyrics = $('#' + lyricsId);
+             
+             if (targetLyrics.is(':visible')) {
+                 targetLyrics.slideUp(350);
+             } else {
+                 // Cierra de forma elegante cualquier otra letra que esté abierta para mantener la interfaz limpia
+                 $('.block-lyrics').not('#' + lyricsId).slideUp(350);
+                 targetLyrics.slideDown(350);
+             }
          }
-      }
-   }
-   
-   // Control del botón central Play/Pause de la consola negra
-   $playPauseBtn.on("click", function(e) {
-      e.preventDefault();
-      if (audioPlayer.paused) {
-         audioPlayer.play();
-         $playPauseBtn.html('<i class="icon-pause"></i> Pausa');
-         $playlistItems.eq(currentTrackIndex).find(".wf-row-icon").removeClass("icon-play-circle").addClass("icon-pause-circle");
-      } else {
-         audioPlayer.pause();
-         $playPauseBtn.html('<i class="icon-play"></i> Reproducir');
-         $(".wf-row-icon").removeClass("icon-pause-circle").addClass("icon-play-circle");
-      }
-   });
-   
-   // Evento al presionar sobre la fila o el título de la pista (Inicia reproducción directa)
-   $(".wf-play-trigger").on("click", function(e) {
-      e.preventDefault();
-      var $parentLi = $(this).closest(".wf-track-item");
-      var idx = $playlistItems.index($parentLi);
-      loadTrack(idx, true);
-   });
-   
-   // CONTROL DESPLEGABLE DE LETRAS INDEPENDIENTE: Evita conflictos de burbujeo sobre el reproductor
-   $(".wf-toggle-lyrics").on("click", function(e) {
-      e.preventDefault();
-      e.stopPropagation(); // Evita que al abrir la letra se altere la reproducción actual
-      
-      var $container = $(this).closest(".wf-track-item").find(".wf-lyrics-container");
-      
-      // Cerrar otros desplegables abiertos para mantener el orden prolijo
-      $(".wf-lyrics-container").not($container).slideUp(250);
-      
-      // Animación suave del desplegable seleccionado
-      $container.slideToggle(300);
-   });
-   
-   // Botón de Siguiente pista
-   $("#wf-btn-next").on("click", function(e) {
-      e.preventDefault();
-      var nextIndex = currentTrackIndex + 1;
-      if (nextIndex >= $playlistItems.length) nextIndex = 0;
-      loadTrack(nextIndex, true);
-   });
-   
-   // Botón de Pista Anterior
-   $("#wf-btn-prev").on("click", function(e) {
-      e.preventDefault();
-      var prevIndex = currentTrackIndex - 1;
-      if (prevIndex < 0) prevIndex = $playlistItems.length - 1;
-      loadTrack(prevIndex, true);
-   });
-   
-   // Actualización fluida de la barra de progreso roja
-   audioPlayer.addEventListener("timeupdate", function() {
-      if (audioPlayer.duration) {
-         var percentage = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-         $progressBar.css("width", percentage + "%");
-      }
-   });
-   
-   // Evento interactivo para adelantar/retroceder pista tocando la barra (Web y Móviles)
-   $progressContainer.on("click touchstart", function(e) {
-      var containerWidth = $(this).width();
-      var clickX = e.offsetX;
-      
-      // Corrección de coordenadas táctiles para pantallas móviles
-      if (e.originalEvent.touches && e.originalEvent.touches[0]) {
-         var rect = e.target.getBoundingClientRect();
-         clickX = e.originalEvent.touches[0].clientX - rect.left;
-      }
-      
-      var duration = audioPlayer.duration;
-      if(duration && clickX >= 0 && clickX <= containerWidth) {
-         audioPlayer.currentTime = (clickX / containerWidth) * duration;
-      }
-   });
-   
-   // Salto inteligente automático al finalizar una canción
-   audioPlayer.addEventListener("ended", function() {
-      var nextIndex = currentTrackIndex + 1;
-      if (nextIndex < $playlistItems.length) {
-         loadTrack(nextIndex, true);
-      } else {
-         loadTrack(0, false); // Vuelve al inicio del álbum de forma pasiva al finalizar la pista 10
-      }
-   });
-   
-   // Montaje pasivo inicial del track 1 sin activar autoplay restrictivo
-   if($playlistItems.length > 0) {
-      loadTrack(0, false);
-   }
-});
-</script>
+
+         $(document).ready(function() {
+             // Seguridad extra: previene que cualquier clic aleatorio dentro de la caja de texto de las letras afecte la reproducción del audio
+             $('.block-lyrics').on('click', function(e) {
+                 e.stopPropagation();
+             });
+         });
+      </script>
+   </body>
          <!--End latest album section-->
          <!--About section-->
          <section id="about" class="about overlay main">
