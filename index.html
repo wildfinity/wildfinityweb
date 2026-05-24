@@ -387,95 +387,119 @@
       <script src="js/placeholders.min.js"></script>
       <script src="js/script.js"></script>
 
-      <script>
-         $(window).on('load ready', function() {
-             // LÍNEA FAILSAFE: Destruimos rastros del motor antiguo de audio de la plantilla si existiera en memoria
-             if (window.audiojs) { window.audiojs.instance = null; }
+     <script>
+$(document).ready(function () {
 
-             var audioPlayer = document.getElementById("wildfinity-custom-audio");
-             var $trackTitle = $("#current-track-title");
-             var currentTrackIndex = 0;
+    // Desactivar posible reproductor viejo de la plantilla
+    if (window.audiojs) {
+        window.audiojs.instance = null;
+    }
 
-             function loadTrack(index, shouldPlay) {
-                 var $playlistItems = $(".wf-track-item");
-                 if(index >= 0 && index < $playlistItems.length) {
-                     $playlistItems.removeClass("active-track");
-                     currentTrackIndex = index;
-                     
-                     var $activeItem = $playlistItems.eq(currentTrackIndex);
-                     $activeItem.addClass("active-track");
-                     
-                     var src = $activeItem.attr("data-src");
-                     var title = $activeItem.attr("data-title");
-                     
-                     // Forzamos nativamente al elemento HTML5
-                     audioPlayer.pause();
-                     audioPlayer.setAttribute("src", src);
-                     audioPlayer.load();
-                     $trackTitle.text(title);
-                     
-                     if (shouldPlay) {
-                         // Usar un pequeño timeout asegura que el navegador procese el cambio de src antes del play
-                         setTimeout(function() {
-                             audioPlayer.play().catch(function(err) {
-                                 console.log("Interacción requerida por navegador para reproducir:", err);
-                             });
-                         }, 50);
-                     }
-                 }
-             }
+    const audioPlayer = document.getElementById("wildfinity-custom-audio");
+    const $trackTitle = $("#current-track-title");
+    const $playlistItems = $(".wf-track-item");
 
-             // SOLUCIÓN DEFINITIVA AL BLOQUEO DE CLICS: Delegación global absoluta en el 'document'
-             $(document).on("click", ".wf-track-item", function(e) {
-                 // Si hacen clic en el enlace de descarga, dejamos que descargue normalmente
-                 if ($(e.target).closest('a[download]').length) {
-                     return; 
-                 }
-                 e.preventDefault();
-                 e.stopPropagation(); // Frenamos en seco que el script viejo de la plantilla se entere del clic
-                 
-                 var $playlistItems = $(".wf-track-item");
-                 var idx = $playlistItems.index(this);
-                 loadTrack(idx, true);
-             });
+    let currentTrackIndex = 0;
 
-             // Evento Botón Anterior Forzado
-             $(document).on("click", "#btn-prev", function(e) {
-                 e.preventDefault();
-                 e.stopPropagation();
-                 var $playlistItems = $(".wf-track-item");
-                 var nextIdx = currentTrackIndex - 1;
-                 if(nextIdx < 0) {
-                     nextIdx = $playlistItems.length - 1;
-                 }
-                 loadTrack(nextIdx, true);
-             });
+    function loadTrack(index, autoplay = true) {
 
-             // Evento Botón Siguiente Forzado
-             $(document).on("click", "#btn-next", function(e) {
-                 e.preventDefault();
-                 e.stopPropagation();
-                 var $playlistItems = $(".wf-track-item");
-                 var nextIdx = currentTrackIndex + 1;
-                 if(nextIdx >= $playlistItems.length) {
-                     nextIdx = 0;
-                 }
-                 loadTrack(nextIdx, true);
-             });
+        // bucle circular playlist
+        if (index < 0) {
+            index = $playlistItems.length - 1;
+        }
 
-             // Salto continuo al terminar la pista actual
-             if(audioPlayer) {
-                 audioPlayer.addEventListener("ended", function() {
-                     var $playlistItems = $(".wf-track-item");
-                     var nextIdx = currentTrackIndex + 1;
-                     if(nextIdx >= $playlistItems.length) {
-                         nextIdx = 0;
-                     }
-                     loadTrack(nextIdx, true);
-                 });
-             }
-         });
-      </script>
+        if (index >= $playlistItems.length) {
+            index = 0;
+        }
+
+        currentTrackIndex = index;
+
+        const $activeItem = $playlistItems.eq(index);
+
+        const src = $activeItem.data("src");
+        const title = $activeItem.data("title");
+
+        console.log("Cargando:", title, src);
+
+        // actualizar UI
+        $playlistItems.removeClass("active-track");
+        $activeItem.addClass("active-track");
+
+        // detener audio actual
+        audioPlayer.pause();
+
+        // cambiar canción
+        audioPlayer.src = src;
+
+        // refrescar reproductor
+        audioPlayer.load();
+
+        // actualizar título
+        $trackTitle.text(title);
+
+        // reproducir automáticamente
+        if (autoplay) {
+
+            const playPromise = audioPlayer.play();
+
+            if (playPromise !== undefined) {
+                playPromise.catch(function(err){
+                    console.log("Play bloqueado:", err);
+                });
+            }
+        }
+    }
+
+    // CLICK EN CANCIONES
+    $playlistItems.on("click", function(e){
+
+        // permitir descargar normalmente
+        if ($(e.target).closest("a[download]").length) {
+            return;
+        }
+
+        e.preventDefault();
+
+        const index = $playlistItems.index(this);
+
+        loadTrack(index, true);
+
+    });
+
+    // BOTÓN SIGUIENTE
+    $("#btn-next").on("click", function(e){
+
+        e.preventDefault();
+
+        loadTrack(currentTrackIndex + 1, true);
+
+    });
+
+    // BOTÓN ANTERIOR
+    $("#btn-prev").on("click", function(e){
+
+        e.preventDefault();
+
+        loadTrack(currentTrackIndex - 1, true);
+
+    });
+
+    // AUTO NEXT AL TERMINAR
+    audioPlayer.addEventListener("ended", function(){
+
+        loadTrack(currentTrackIndex + 1, true);
+
+    });
+
+    // DEBUG SI FALLA UN MP3
+    audioPlayer.addEventListener("error", function(){
+
+        console.log("ERROR DE AUDIO:", audioPlayer.src);
+
+    });
+
+});
+</script>
    </body>
          <!--End latest album section-->
          <!--About section-->
