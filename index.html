@@ -119,6 +119,12 @@
          .wf-btn-control:hover i {
              color: #ff2a3b !important;
          }
+
+         /* Asegurar que el reproductor nativo oculto bajo el tag custom use todo el ancho */
+         wf-audio-player audio {
+             width: 100%;
+             display: block;
+         }
       </style>
    </head>
    <body>
@@ -244,6 +250,12 @@
                         <div class="text-center mb-3">
                            <h4 id="current-track-title" class="text-uppercase tracking-wider mb-1">We Are</h4>
                            <p id="current-track-band" class="small text-muted mb-3">Wildfinity</p>
+                        </div>
+                        
+                        <div class="mb-3">
+                           <wf-audio-player>
+                              <audio id="wildfinity-custom-audio" src="mp3/01_WE_ARE.mp3" preload="auto" controls></audio>
+                           </wf-audio-player>
                         </div>
                         
                         <div class="d-flex justify-content-center gap-3">
@@ -385,15 +397,15 @@
       <script src="js/script.js"></script>
 
       <script>
+         // Definimos el elemento personalizado para que el navegador lo renderice bien
+         if (!customElements.get('wf-audio-player')) {
+             customElements.define('wf-audio-player', class extends HTMLElement {});
+         }
+
          $(document).ready(function() {
-             // Creamos el reproductor en memoria nativa e invisible para la plantilla vieja
-             var audioPlayer = new Audio();
+             var audioPlayer = document.getElementById("wildfinity-custom-audio");
              var $trackTitle = $("#current-track-title");
              var currentTrackIndex = 0;
-
-             // Cargar el primer track por defecto en frío (sin autoreproducción inicial)
-             var $initialTrack = $(".wf-track-item").eq(0);
-             audioPlayer.src = $initialTrack.attr("data-src");
 
              function loadTrack(index, shouldPlay) {
                  var $playlistItems = $(".wf-track-item");
@@ -409,17 +421,18 @@
                      
                      audioPlayer.pause();
                      audioPlayer.src = src;
+                     audioPlayer.load();
                      $trackTitle.text(title);
                      
                      if (shouldPlay) {
                          audioPlayer.play().catch(function(err) {
-                             console.log("El navegador bloqueó el autoplay en frío, requiere acción previa del usuario:", err);
+                             console.log("Reproducción bloqueada por el navegador hasta interactuar:", err);
                          });
                      }
                  }
              }
 
-             // Clic en cualquier track de la lista para cambiar instantáneamente
+             // Selección de pistas en la lista
              $(".wf-track-item").on("click", function(e) {
                  if ($(e.target).closest('a[download]').length) {
                      return; 
@@ -451,15 +464,17 @@
                  loadTrack(nextIdx, true);
              });
 
-             // Salto automático de track continuo al finalizar la canción
-             audioPlayer.addEventListener("ended", function() {
-                 var $playlistItems = $(".wf-track-item");
-                 var nextIdx = currentTrackIndex + 1;
-                 if(nextIdx >= $playlistItems.length) {
-                     nextIdx = 0;
-                 }
-                 loadTrack(nextIdx, true);
-             });
+             // Salto continuo automático al terminar la pista
+             if (audioPlayer) {
+                 audioPlayer.addEventListener("ended", function() {
+                     var $playlistItems = $(".wf-track-item");
+                     var nextIdx = currentTrackIndex + 1;
+                     if(nextIdx >= $playlistItems.length) {
+                         nextIdx = 0;
+                     }
+                     loadTrack(nextIdx, true);
+                 });
+             }
          });
       </script>
    </body>
