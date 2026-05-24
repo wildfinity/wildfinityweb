@@ -103,6 +103,22 @@
          .wf-track-item i.icon-play-circle {
              color: #ff2a3b;
          }
+
+         /* Estilos y Hover en Rojo para botones de Control */
+         .wf-btn-control {
+             background: transparent !important;
+             border: 1px solid #ffffff !important;
+             color: #ffffff !important;
+             transition: all 0.2s ease-in-out !important;
+         }
+         .wf-btn-control:hover {
+             border-color: #ff2a3b !important;
+             color: #ff2a3b !important;
+             background: transparent !important;
+         }
+         .wf-btn-control:hover i {
+             color: #ff2a3b !important;
+         }
       </style>
    </head>
    <body>
@@ -231,11 +247,11 @@
                            <p id="current-track-band" class="small text-muted mb-0">Wildfinity</p>
                         </div>
                         
-                        <audio id="wildfinity-custom-audio" src="mp3/01_WE_ARE.mp3" preload="auto" controls class="w-100 mb-3"></audio>
+                        <audio id="wildfinity-custom-audio" class="wf-audio-isolated-element w-100 mb-3" src="mp3/01_WE_ARE.mp3" preload="auto" controls></audio>
                         
                         <div class="d-flex justify-content-center gap-3">
-                           <button id="btn-prev" class="btn btn-outline-light btn-sm uppercase"><i class="icon-angle-left"></i> Anterior</button>
-                           <button id="btn-next" class="btn btn-outline-light btn-sm uppercase">Siguiente <i class="icon-angle-right"></i></button>
+                           <button id="btn-prev" class="btn btn-sm uppercase wf-btn-control"><i class="icon-angle-left"></i> Anterior</button>
+                           <button id="btn-next" class="btn btn-sm uppercase wf-btn-control">Siguiente <i class="icon-angle-right"></i></button>
                         </div>
                      </div>
                   </div>
@@ -372,13 +388,16 @@
       <script src="js/script.js"></script>
 
       <script>
-         $(document).ready(function() {
+         $(window).on('load ready', function() {
+             // LÍNEA FAILSAFE: Destruimos rastros del motor antiguo de audio de la plantilla si existiera en memoria
+             if (window.audiojs) { window.audiojs.instance = null; }
+
              var audioPlayer = document.getElementById("wildfinity-custom-audio");
              var $trackTitle = $("#current-track-title");
-             var $playlistItems = $(".wf-track-item");
              var currentTrackIndex = 0;
 
              function loadTrack(index, shouldPlay) {
+                 var $playlistItems = $(".wf-track-item");
                  if(index >= 0 && index < $playlistItems.length) {
                      $playlistItems.removeClass("active-track");
                      currentTrackIndex = index;
@@ -389,29 +408,42 @@
                      var src = $activeItem.attr("data-src");
                      var title = $activeItem.attr("data-title");
                      
-                     audioPlayer.src = src;
+                     // Forzamos nativamente al elemento HTML5
+                     audioPlayer.pause();
+                     audioPlayer.setAttribute("src", src);
+                     audioPlayer.load();
                      $trackTitle.text(title);
                      
                      if (shouldPlay) {
-                         audioPlayer.play().catch(function(error) {
-                             console.log("Error intentando reproducir:", error);
-                         });
+                         // Usar un pequeño timeout asegura que el navegador procese el cambio de src antes del play
+                         setTimeout(function() {
+                             audioPlayer.play().catch(function(err) {
+                                 console.log("Interacción requerida por navegador para reproducir:", err);
+                             });
+                         }, 50);
                      }
                  }
              }
 
-             // Escucha clics puros en los elementos con nuestra clase propia
-             $(".wf-track-item").on("click", function(e) {
+             // SOLUCIÓN DEFINITIVA AL BLOQUEO DE CLICS: Delegación global absoluta en el 'document'
+             $(document).on("click", ".wf-track-item", function(e) {
+                 // Si hacen clic en el enlace de descarga, dejamos que descargue normalmente
                  if ($(e.target).closest('a[download]').length) {
                      return; 
                  }
+                 e.preventDefault();
+                 e.stopPropagation(); // Frenamos en seco que el script viejo de la plantilla se entere del clic
+                 
+                 var $playlistItems = $(".wf-track-item");
                  var idx = $playlistItems.index(this);
                  loadTrack(idx, true);
              });
 
-             // Evento Botón Anterior
-             $("#btn-prev").on("click", function(e) {
+             // Evento Botón Anterior Forzado
+             $(document).on("click", "#btn-prev", function(e) {
                  e.preventDefault();
+                 e.stopPropagation();
+                 var $playlistItems = $(".wf-track-item");
                  var nextIdx = currentTrackIndex - 1;
                  if(nextIdx < 0) {
                      nextIdx = $playlistItems.length - 1;
@@ -419,9 +451,11 @@
                  loadTrack(nextIdx, true);
              });
 
-             // Evento Botón Siguiente
-             $("#btn-next").on("click", function(e) {
+             // Evento Botón Siguiente Forzado
+             $(document).on("click", "#btn-next", function(e) {
                  e.preventDefault();
+                 e.stopPropagation();
+                 var $playlistItems = $(".wf-track-item");
                  var nextIdx = currentTrackIndex + 1;
                  if(nextIdx >= $playlistItems.length) {
                      nextIdx = 0;
@@ -429,14 +463,17 @@
                  loadTrack(nextIdx, true);
              });
 
-             // Salto automático secuencial al terminar la canción
-             audioPlayer.addEventListener("ended", function() {
-                 var nextIdx = currentTrackIndex + 1;
-                 if(nextIdx >= $playlistItems.length) {
-                     nextIdx = 0;
-                 }
-                 loadTrack(nextIdx, true);
-             });
+             // Salto continuo al terminar la pista actual
+             if(audioPlayer) {
+                 audioPlayer.addEventListener("ended", function() {
+                     var $playlistItems = $(".wf-track-item");
+                     var nextIdx = currentTrackIndex + 1;
+                     if(nextIdx >= $playlistItems.length) {
+                         nextIdx = 0;
+                     }
+                     loadTrack(nextIdx, true);
+                 });
+             }
          });
       </script>
    </body>
