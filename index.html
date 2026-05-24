@@ -89,11 +89,13 @@
              padding-bottom: 10px !important;
          }
 
+         /* Clase de resaltado para la pista activa */
          .track-item.active-track {
              background-color: #ff2a3b !important;
              color: #ffffff !important;
          }
-         .track-item.active-track h6, .track-item.active-track i {
+         .track-item.active-track h6, 
+         .track-item.active-track i {
              color: #ffffff !important;
          }
       </style>
@@ -224,7 +226,7 @@
                            <p id="current-track-band" class="small text-muted mb-0">Wildfinity</p>
                         </div>
                         
-                        <audio id="main-audio" controls class="w-100 mb-3"></audio>
+                        <audio id="main-audio" src="mp3/01_WE_ARE.mp3" preload="auto" controls class="w-100 mb-3"></audio>
                         
                         <div class="d-flex justify-content-center gap-3">
                            <button id="btn-prev" class="btn btn-outline-light btn-sm uppercase"><i class="icon-angle-left"></i> Anterior</button>
@@ -238,7 +240,7 @@
                   <div class="col-lg-8">
                      <ul class="list-group list-group-flush shadow-sm rounded mb-4" id="playlist">
                         
-                        <li class="list-group-item bg-dark text-light border-secondary p-3 track-item" data-src="mp3/01_WE_ARE.mp3" data-title="We Are">
+                        <li class="list-group-item bg-dark text-light border-secondary p-3 track-item active-track" data-src="mp3/01_WE_ARE.mp3" data-title="We Are">
                            <div class="d-flex justify-content-between align-items-center">
                               <div class="play-trigger" style="cursor: pointer; flex-grow: 1;">
                                  <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-primary"></i> 01. We Are</h6>
@@ -359,7 +361,6 @@
       <script src="js/jquery.flexslider-min.js"></script>
       <script src="js/smooth-scroll.js"></script>
       <script src="js/jquery.magnific-popup.min.js"></script>
-      <script src="js/audio.min.js"></script>
       <script src="js/twitterFetcher_min.js"></script>
       <script src="js/jquery.countdown.min.js"></script>
       <script src="js/placeholders.min.js"></script>
@@ -372,10 +373,9 @@
              var $playlistItems = $(".track-item");
              var currentTrackIndex = 0;
 
-             // Función para cargar y opcionalmente reproducir una pista
              function loadTrack(index, shouldPlay) {
                  if(index >= 0 && index < $playlistItems.length) {
-                     $playlistItems.removeClass("active-track bg-secondary");
+                     $playlistItems.removeClass("active-track");
                      currentTrackIndex = index;
                      
                      var $activeItem = $playlistItems.eq(currentTrackIndex);
@@ -388,15 +388,14 @@
                      $trackTitle.text(title);
                      
                      if (shouldPlay) {
-                         audioPlayer.play();
+                         audioPlayer.play().catch(function(error) {
+                             console.log("La reproducción automática requiere interacción previa del usuario:", error);
+                         });
                      }
                  }
              }
 
-             // Inicializa el reproductor con el Track 1 listo sin auto-play molesto, pero ya cargado.
-             loadTrack(0, false);
-
-             // Evento para cliquear directo en la lista de canciones
+             // Evento para cliquear directo en el disparador de reproducción de la lista
              $(".play-trigger").on("click", function() {
                  var pItem = $(this).closest(".track-item");
                  var idx = $playlistItems.index(pItem);
@@ -407,7 +406,7 @@
              $("#btn-prev").on("click", function() {
                  var nextIdx = currentTrackIndex - 1;
                  if(nextIdx < 0) {
-                     nextIdx = $playlistItems.length - 1; // va al último si está al inicio
+                     nextIdx = $playlistItems.length - 1;
                  }
                  loadTrack(nextIdx, true);
              });
@@ -416,7 +415,7 @@
              $("#btn-next").on("click", function() {
                  var nextIdx = currentTrackIndex + 1;
                  if(nextIdx >= $playlistItems.length) {
-                     nextIdx = 0; // bucle al primero
+                     nextIdx = 0;
                  }
                  loadTrack(nextIdx, true);
              });
@@ -428,6 +427,8 @@
          });
       </script>
    </body>
+</html>
+<html>
          <!--End latest album section-->
          <!--About section-->
          <section id="about" class="about overlay main">
