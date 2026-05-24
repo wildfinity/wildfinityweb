@@ -16,7 +16,7 @@
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,300,400,400i,600,700,800" rel="stylesheet" type="text/all">
 
       <style>
-         /* Forzar visibilidad permanente y correcta de la barra de navegación superior en PC, Móviles y Tablets */
+         /* Forzar visibilidad de la barra de navegación superior */
          header.header.default {
              position: fixed !important;
              top: 0 !important;
@@ -33,54 +33,8 @@
              opacity: 1 !important;
          }
          
-         /* Evitar que el contenido superior quede oculto debajo de la barra fija */
          body {
              padding-top: 75px !important;
-         }
-
-         /* Estilos optimizados para los bloques desplegables de las letras musicales */
-         .block-lyrics {
-             display: none;
-             background: rgba(10, 13, 16, 0.95);
-             padding: 25px;
-             border-radius: 6px;
-             margin-top: 15px;
-             margin-bottom: 15px;
-             text-align: center;
-             border-left: 4px solid #ff2a3b;
-             border-right: 4px solid #ff2a3b;
-             max-height: 400px;
-             overflow-y: auto;
-             width: 100%;
-         }
-
-         .block-lyrics p {
-             color: #dbdbdb !important;
-             font-size: 14px !important;
-             line-height: 1.8 !important;
-             margin-bottom: 12px !important;
-         }
-
-         .toggle-lyrics-btn {
-             background-color: #ff2a3b !important;
-             color: #ffffff !important;
-             border: none !important;
-             padding: 6px 16px !important;
-             cursor: pointer !important;
-             font-size: 12px !important;
-             text-transform: uppercase !important;
-             font-weight: 700 !important;
-             letter-spacing: 1px;
-             display: inline-flex !important;
-             align-items: center;
-             gap: 6px;
-             border-radius: 3px;
-             transition: all 0.2s ease-in-out;
-         }
-
-         .toggle-lyrics-btn:hover {
-             background-color: #ffffff !important;
-             color: #ff2a3b !important;
          }
 
          .wf-playlist li {
@@ -89,7 +43,7 @@
              padding-bottom: 10px !important;
          }
 
-         /* Clase de resaltado dinámico para la pista activa */
+         /* Resaltado de la pista activa en el color rojo de la banda */
          .wf-track-item.active-track {
              background-color: #ff2a3b !important;
              color: #ffffff !important;
@@ -99,12 +53,11 @@
              color: #ffffff !important;
          }
          
-         /* Icono play por defecto */
          .wf-track-item i.icon-play-circle {
              color: #ff2a3b;
          }
 
-         /* Botones de control con iluminación e iconos en el ROJO de la banda al hacer Hover */
+         /* Botones Anterior/Siguiente estilizados en rojo al hacer hover */
          .wf-btn-control {
              background: transparent !important;
              border: 1px solid #ffffff !important;
@@ -120,10 +73,13 @@
              color: #ff2a3b !important;
          }
 
-         /* Asegurar que el reproductor nativo oculto bajo el tag custom use todo el ancho */
-         wf-audio-player audio {
+         /* Contenedor donde PlayerJS se va a renderizar */
+         #playerjs-container {
              width: 100%;
-             display: block;
+             margin: 0 auto;
+             background: #1a1f24;
+             border-radius: 4px;
+             overflow: hidden;
          }
       </style>
    </head>
@@ -221,22 +177,6 @@
                </div>
             </div>
 
-            <div class="container">
-               <div class="row justify-content-center">
-                  <div class="col-12 col-lg-4">
-                     <div class="block-content text-center gap-one-bottom-sm">
-                        <div class="block-album-info">
-                           <ul>
-                              <li><h5 class="uppercase list-inline-item">Artist :</h5> <span>Wildfinity</span></li>
-                              <li><h5 class="uppercase list-inline-item">Released :</h5> <span>2026</span></li>
-                              <li><h5 class="uppercase list-inline-item">Genre :</h5> <span>Hard Rock / Glam Metal / Punk</span></li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-
             <div class="album-player-container container my-5">
                <div class="row mb-4 justify-content-center">
                   <div class="col-12 col-sm-8 col-md-5 col-lg-4 text-center">
@@ -252,10 +192,8 @@
                            <p id="current-track-band" class="small text-muted mb-3">Wildfinity</p>
                         </div>
                         
-                        <div class="mb-3">
-                           <wf-audio-player>
-                              <audio id="wildfinity-custom-audio" src="mp3/01_WE_ARE.mp3" preload="auto" controls></audio>
-                           </wf-audio-player>
+                        <div class="mb-4">
+                           <div id="playerjs-container"></div>
                         </div>
                         
                         <div class="d-flex justify-content-center gap-3">
@@ -396,19 +334,23 @@
       <script src="js/placeholders.min.js"></script>
       <script src="js/script.js"></script>
 
+      <script src="js/playerjs.js"></script>
+
       <script>
-         // Definimos el elemento personalizado para que el navegador lo renderice bien
-         if (!customElements.get('wf-audio-player')) {
-             customElements.define('wf-audio-player', class extends HTMLElement {});
-         }
-
          $(document).ready(function() {
-             var audioPlayer = document.getElementById("wildfinity-custom-audio");
-             var $trackTitle = $("#current-track-title");
              var currentTrackIndex = 0;
+             var $playlistItems = $(".wf-track-item");
+             var $trackTitle = $("#current-track-title");
 
+             // 1. Inicializamos PlayerJS apuntando a nuestro div contenedor
+             // Cargamos la primera canción ('mp3/01_WE_ARE.mp3') de inicio
+             var player = new Playerjs({
+                 id: "playerjs-container",
+                 file: "mp3/01_WE_ARE.mp3"
+             });
+
+             // 2. Función para cambiar de pista mandando la orden directa a PlayerJS
              function loadTrack(index, shouldPlay) {
-                 var $playlistItems = $(".wf-track-item");
                  if(index >= 0 && index < $playlistItems.length) {
                      $playlistItems.removeClass("active-track");
                      currentTrackIndex = index;
@@ -419,33 +361,40 @@
                      var src = $activeItem.attr("data-src");
                      var title = $activeItem.attr("data-title");
                      
-                     audioPlayer.pause();
-                     audioPlayer.src = src;
-                     audioPlayer.load();
                      $trackTitle.text(title);
                      
+                     // Usamos la API de PlayerJS para cambiar el archivo sobre la marcha
                      if (shouldPlay) {
-                         audioPlayer.play().catch(function(err) {
-                             console.log("Reproducción bloqueada por el navegador hasta interactuar:", err);
-                         });
+                         player.api("play", src);
+                     } else {
+                         player.api("file", src);
                      }
                  }
              }
 
-             // Selección de pistas en la lista
+             // 3. Capturar el evento 'end' de PlayerJS para saltar automáticamente al terminar el tema
+             window.PlayerjsEvents = function(event, id, info) {
+                 if (event == "end" && id == "playerjs-container") {
+                     var nextIdx = currentTrackIndex + 1;
+                     if(nextIdx >= $playlistItems.length) {
+                         nextIdx = 0; // Bucle al primer tema si termina el disco
+                     }
+                     loadTrack(nextIdx, true);
+                 }
+             };
+
+             // 4. Hacer clic en cualquier fila de la playlist abajo cambia y reproduce el tema
              $(".wf-track-item").on("click", function(e) {
                  if ($(e.target).closest('a[download]').length) {
-                     return; 
+                     return; // Permitir que la descarga funcione independientemente
                  }
-                 var $playlistItems = $(".wf-track-item");
                  var idx = $playlistItems.index(this);
                  loadTrack(idx, true);
              });
 
-             // Botón Anterior
+             // 5. Botón Anterior externo
              $("#btn-prev").on("click", function(e) {
                  e.preventDefault();
-                 var $playlistItems = $(".wf-track-item");
                  var nextIdx = currentTrackIndex - 1;
                  if(nextIdx < 0) {
                      nextIdx = $playlistItems.length - 1;
@@ -453,28 +402,15 @@
                  loadTrack(nextIdx, true);
              });
 
-             // Botón Siguiente
+             // 6. Botón Siguiente externo
              $("#btn-next").on("click", function(e) {
                  e.preventDefault();
-                 var $playlistItems = $(".wf-track-item");
                  var nextIdx = currentTrackIndex + 1;
                  if(nextIdx >= $playlistItems.length) {
                      nextIdx = 0;
                  }
                  loadTrack(nextIdx, true);
              });
-
-             // Salto continuo automático al terminar la pista
-             if (audioPlayer) {
-                 audioPlayer.addEventListener("ended", function() {
-                     var $playlistItems = $(".wf-track-item");
-                     var nextIdx = currentTrackIndex + 1;
-                     if(nextIdx >= $playlistItems.length) {
-                         nextIdx = 0;
-                     }
-                     loadTrack(nextIdx, true);
-                 });
-             }
          });
       </script>
    </body>
