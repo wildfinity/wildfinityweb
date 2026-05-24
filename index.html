@@ -356,7 +356,7 @@ $(document).ready(function() {
    var $progressContainer = $("#progress-container");
    var currentTrackIndex = 0;
    
-   // Función para cargar y gestionar pistas
+   // Función corregida para cargar y gestionar pistas musicales
    function loadTrack(index, autoPlay) {
       if(index >= 0 && index < $playlistItems.length) {
          $playlistItems.removeClass("bg-secondary");
@@ -380,7 +380,7 @@ $(document).ready(function() {
       }
    }
    
-   // Control del botón central Play/Pause
+   // Control del botón central Play/Pause de la consola negra
    $playPauseBtn.on("click", function() {
       if (audioPlayer.paused) {
          audioPlayer.play();
@@ -391,9 +391,10 @@ $(document).ready(function() {
       }
    });
    
-   // Clic en las pistas de la lista
+   // CORRECCIÓN CLAVE: Mapeo exacto del clic para leer el atributo data-src del li contenedor
    $(".play-trigger").on("click", function() {
-      var idx = $playlistItems.index($(this).closest(".track-item"));
+      var $parentLi = $(this).closest(".track-item");
+      var idx = $playlistItems.index($parentLi);
       loadTrack(idx, true);
    });
    
@@ -411,41 +412,9 @@ $(document).ready(function() {
       loadTrack(prevIndex, true);
    });
    
-   // Actualización de la barra de progreso roja
+   // Actualización en tiempo real de la barra de progreso roja
    audioPlayer.addEventListener("timeupdate", function() {
-      if (audioPlayer.duration) {
-         var percentage = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-         $progressBar.css("width", percentage + "%");
-      }
-   });
-   
-   // Hacer clic en la barra de progreso para saltar a un minuto específico
-   $progressContainer.on("click", function(e) {
-      var containerWidth = $(this).width();
-      var clickX = e.offsetX;
-      var duration = audioPlayer.duration;
-      if(duration) {
-         audioPlayer.currentTime = (clickX / containerWidth) * duration;
-      }
-   });
-   
-   // Salto automático al terminar canción
-   audioPlayer.addEventListener("ended", function() {
-      var nextIndex = currentTrackIndex + 1;
-      if (nextIndex < $playlistItems.length) {
-         loadTrack(nextIndex, true);
-      } else {
-         loadTrack(0, false); // Vuelve a la primera si termina el disco
-      }
-   });
-   
-   // Carga inicial por defecto sin reproducir
-   if($playlistItems.length > 0) {
-      loadTrack(0, false);
-   }
-});
-</script>
-         </section>
+      if
          <!--End latest album section-->
          <!--About section-->
          <section id="about" class="about overlay main">
