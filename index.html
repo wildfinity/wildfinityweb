@@ -12,8 +12,8 @@
       <link href="css/magnific-popup.css" rel="stylesheet" type="text/css"  media="all" />
       <link href="css/fonts.css" rel="stylesheet" type="text/css"  media="all" />
       <link href="http://fonts.googleapis.com/css?family=Dosis:100,300,400,600,700" rel="stylesheet" type="text/css">
-      <link href="https://fonts.googleapis.com/css?family=Raleway:100,400,500,600,700" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,300,400,400i,600,700,800" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Raleway:100,400,500,600,700" rel="stylesheet" type="text/">
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,300,400,400i,600,700,800" rel="stylesheet" type="text/">
 
       <style>
          /* Forzar visibilidad permanente y correcta de la barra de navegación superior en PC, Móviles y Tablets */
@@ -98,6 +98,23 @@
             </svg>
          </div>
       </div>
+      
+      <script>
+         // Tan pronto como la web procese el HTML, se activa un temporizador de seguridad
+         document.addEventListener("DOMContentLoaded", function() {
+             setTimeout(function() {
+                 var loader = document.querySelector('.loader');
+                 if (loader && window.getComputedStyle(loader).display !== 'none') {
+                     console.log("Failsafe: Forzando la ocultación del preloader colgado.");
+                     loader.style.transition = "opacity 0.4s ease";
+                     loader.style.opacity = "0";
+                     setTimeout(function() {
+                         loader.style.display = "none";
+                     }, 400);
+                 }
+             }, 1000); // 1 segundo máximo de espera; luego se quita sí o sí
+         });
+      </script>
       <div class="wrapper" id="wrapper">
       
          <header class="header default">
@@ -201,7 +218,7 @@
                                  </div>
                               </div>
                               <div id="lyrics-1" class="block-lyrics">
-                                 <h5 class="mb-4 uppercase text-white" style="color:#ff2a3b !important;">We Are</h5>
+                                 <h5 class="mb-4 uppercase" style="color:#ff2a3b !important;">We Are</h5>
                                  <p>We are ready to start the party<br>We are gonna rock you now<br>We are lighting the fire<br>The show began</p>
                                  <p>The stage is ready for the show<br>The lights are shining up on you<br>Everything is coming up<br>I’m feeling good … ha ha…<br>The crowd is filling up the place<br>The people’s heat begins to wave<br>One for the money, two for the show<br>Are you ready?</p>
                                  <p>We are ready to start the party (we are)<br>We are gonna rock you now (we are)<br>We are lighting the fire (we are)<br>Look at the people around<br>The show began</p>
@@ -225,7 +242,7 @@
                                  </div>
                               </div>
                               <div id="lyrics-2" class="block-lyrics">
-                                 <h5 class="mb-4 uppercase text-white" style="color:#ff2a3b !important;">I'm Not You</h5>
+                                 <h5 class="mb-4 uppercase" style="color:#ff2a3b !important;">I'm Not You</h5>
                                  <p>This life is hitting your face<br>You only want to run and escape<br>There are things you really regret<br>And some people you want to kick in the head</p>
                                  <p>The bills are taking your pay<br>and you won’t have enough for the rent<br>Let me tell you something my friend,<br>This time scream ahead!</p>
                                  <p>Don't you tell me what to do now, this is my life!<br>I know what it takes, (You know what it takes)<br>This is my life!<br>Even beaten I’m a warrior. I'm not you<br>I'm not you!</p>
@@ -254,7 +271,7 @@
                                  </div>
                               </div>
                               <div id="lyrics-3" class="block-lyrics">
-                                 <h5 class="mb-4 uppercase text-white" style="color:#ff2a3b !important;">Live Tonight</h5>
+                                 <h5 class="mb-4 uppercase" style="color:#ff2a3b !important;">Live Tonight</h5>
                                  <p>Time goes by<br>I miss some friends<br>I think of my family<br>If i will see them again</p>
                                  <p>The tables have turn along the way<br>we run the streets trying to get<br>we're willing to be, we want world to see<br>What do we want to see?</p>
                                  <p>I'm what always wanted to be,<br>there’s no other place for me.<br>This is where i meant to be<br>Tonight<br>ohhhh TONIGHT!</p>
@@ -280,7 +297,7 @@
                                  </div>
                               </div>
                               <div id="lyrics-4" class="block-lyrics">
-                                 <h5 class="mb-4 uppercase text-white" style="color:#ff2a3b !important;">Drink That Shot (Vodka)</h5>
+                                 <h5 class="mb-4 uppercase" style="color:#ff2a3b !important;">Drink That Shot (Vodka)</h5>
                                  <p>Almost midnight<br>I see people ahead<br>Are they talking?<br>I don't know I can't tell</p>
                                  <p>Shot of vodka<br>One of them calls me friend<br>She says let's dance<br>Start with the Cossack dance<br>Go to the floor</p>
                                  <p>What is all this?<br>That drink blowed up my head<br>Am I walking?<br>Feels like floating on air</p>
@@ -306,7 +323,7 @@
                                  </div>
                               </div>
                               <div id="lyrics-5" class="block-lyrics">
-                                 <h5 class="mb-4 uppercase text-white" style="color:#ff2a3b !important;">Forsaken Soul</h5>
+                                 <h5 class="mb-4 uppercase" style="color:#ff2a3b !important;">Forsaken Soul</h5>
                                  <p>The night is falling<br>My heart is crawling<br>When all went wrong?</p>
                                  <p>Another body falls down to the ground<br>Can you see me going down?<br>Nobody here will understand<br>Tonight I'm feeling so forsaken</p>
                                  <p>I hope that God might help me<br>My soul will burn in hell</p>
@@ -333,7 +350,7 @@
                                  </div>
                               </div>
                               <div id="lyrics-6" class="block-lyrics">
-                                 <h5 class="mb-4 uppercase text-white" style="color:#ff2a3b !important;">I Don't Give a Dime</h5>
+                                 <h5 class="mb-4 uppercase" style="color:#ff2a3b !important;">I Don't Give a Dime</h5>
                                  <p>It's Monday again, got school today<br>All my life studying, no, I'm not going today<br>Not going today, not going today<br>I won't do as you say, no, I'm not going today</p>
                                  <p>6 AM again, gotta work today<br>All the day I'm working, now I'm lying in my bed<br>Lying in my bed, lying in my bed<br>I'm sick of their slavery, now, I'm lying in my bed</p>
                                  <p>Cause this is my life I wanna live<br>I don't give a dime for what you think<br>Even if they put a hold on me<br>I'll just find a way to set me free</p>
@@ -360,7 +377,7 @@
                                  </div>
                               </div>
                               <div id="lyrics-7" class="block-lyrics">
-                                 <h5 class="mb-4 uppercase text-white" style="color:#ff2a3b !important;">Need to Find You</h5>
+                                 <h5 class="mb-4 uppercase" style="color:#ff2a3b !important;">Need to Find You</h5>
                                  <p>Hey, you know, it’s late<br>But I have to tell you, I have to tell you,<br>what’s going round my head<br>What do you mean?<br>I have to find you</p>
                                  <p>Up and down the streets (Up and down the streets)<br>I need to find you</p>
                                  <p>This night is dark<br>Tears are fallin’ from the sky<br>And my car is running out of gas<br>Rivers flowing all around<br>And I don’t know what to do, oh yeah<br>I don’t know what to do<br>I don’t know what to do</p>
@@ -384,7 +401,7 @@
                                  </div>
                               </div>
                               <div id="lyrics-8" class="block-lyrics">
-                                 <h5 class="mb-4 uppercase text-white" style="color:#ff2a3b !important;">It's Just a Story</h5>
+                                 <h5 class="mb-4 uppercase" style="color:#ff2a3b !important;">It's Just a Story</h5>
                                  <p>It was one of those nights Jimmy was at the club,<br>sitting alone he didn't like the songs.<br>He took his jacket, went for a walk<br>there was the empty street and his last cigar.</p>
                                  <p>That boulevard corner and a neon light<br>The dinner was open in the still of the night<br>He wasn't thinking well because it was late<br>But there was waiting his soulmate.</p>
                                  <p>She got to the table, asked, "What would you like?"<br>He didn’t raise his eyes. Life was dark.<br>"One coffee, please."<br>She said, "You look so sad."<br>A glimpse, a light, a beat from his heart.</p>
@@ -412,7 +429,7 @@
                                  </div>
                               </div>
                               <div id="lyrics-9" class="block-lyrics">
-                                 <h5 class="mb-4 uppercase text-white" style="color:#ff2a3b !important;">True Love We Share</h5>
+                                 <h5 class="mb-4 uppercase" style="color:#ff2a3b !important;">True Love We Share</h5>
                                  <p>Sitting on my bed, like every night<br>Looking to my side, and I find your smile.<br>I’m realizing now, how grateful I am, just being here<br>I remember now, when we first met, the shine in your eyes</p>
                                  <p>(Yeah), Oh babe I love you so much, (babe I love you so much),<br>I’ve been waiting for you all my life<br>How happy I am right now, (How happy I am right now)<br>just here with you (just here with you)</p>
                                  <p>You took all my fears, with the blink of an eye<br>And I promised you that night to make it right<br>When I was black you painted me like a butterfly<br>Just can’t deny, when you’re by my side, we can reach for the sky</p>
@@ -438,7 +455,7 @@
                                  </div>
                               </div>
                               <div id="lyrics-10" class="block-lyrics">
-                                 <h5 class="mb-4 uppercase text-white" style="color:#ff2a3b !important;">Yearning for Light</h5>
+                                 <h5 class="mb-4 uppercase" style="color:#ff2a3b !important;">Yearning for Light</h5>
                                  <p>I can't hide what I’m feeling inside<br>My face is like a window to my heart<br>I'm feeling lonely, I’m feeling sad<br>I can't keep goin'</p>
                                  <p>Today i don't feel like singing<br>I want to hang up the guitar<br>And even when i'm trying<br>There is nothing darker than this night</p>
                                  <p>Some dreams seem to blind me<br>Something doesn't seem to fit<br>and i don't like the way i feel<br>Some dreams seem to blind me<br>Something doesn't seem to fit<br>and i don't like the way i feel</p>
@@ -478,8 +495,7 @@
 
       <script>
          function toggleLyrics(event, lyricsId) {
-             // Detiene por completo la propagación del evento hacia ".as-link",
-             // impidiendo que la plantilla interprete esto como un comando para reproducir/pausar/reiniciar el audio.
+             // Detiene la propagación para que al hacer clic en ver letra no altere el reproductor
              event.stopPropagation();
              event.preventDefault();
              
@@ -488,14 +504,12 @@
              if (targetLyrics.is(':visible')) {
                  targetLyrics.slideUp(350);
              } else {
-                 // Cierra de forma elegante cualquier otra letra que esté abierta para mantener la interfaz limpia
                  $('.block-lyrics').not('#' + lyricsId).slideUp(350);
                  targetLyrics.slideDown(350);
              }
          }
 
          $(document).ready(function() {
-             // Seguridad extra: previene que cualquier clic aleatorio dentro de la caja de texto de las letras afecte la reproducción del audio
              $('.block-lyrics').on('click', function(e) {
                  e.stopPropagation();
              });
