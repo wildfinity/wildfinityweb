@@ -196,7 +196,7 @@
             </div>
             <!--End container-->
             <!--Container-->
-<div class="album-player-container container my-5">
+<div id="wf-custom-player-section" class="container my-5">
    
    <div class="row justify-content-center">
       <div class="col-lg-8">
@@ -207,136 +207,186 @@
 
          <div class="p-4 rounded text-light shadow mb-4" style="background-color: #000000; border: 1px solid #ff0000;">
             <div class="text-center mb-3">
-               <h4 id="current-track-title" class="text-uppercase tracking-wider mb-1" style="color: #ffffff; font-weight: 700;">Selecciona una canción</h4>
-               <p id="current-track-band" class="small mb-0" style="color: #ff0000; letter-spacing: 2px; text-uppercase;">Wildfinity</p>
+               <h4 id="wf-track-title" class="text-uppercase tracking-wider mb-1" style="color: #ffffff; font-weight: 700; letter-spacing: 1px;">Selecciona una canción</h4>
+               <p class="small mb-0" style="color: #ff0000; letter-spacing: 2px; text-uppercase; font-weight: 600;">Wildfinity</p>
             </div>
             
-            <audio id="main-audio"></audio>
+            <audio id="wf-native-audio" preload="auto"></audio>
             
-            <div id="progress-container" class="progress mb-4" style="background-color: #222; height: 8px; cursor: pointer; border-radius: 4px;">
-               <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%; background-color: #ff0000; transition: none;"></div>
+            <div id="wf-progress-container" class="progress mb-4" style="background-color: #222222; height: 8px; cursor: pointer; border-radius: 4px;">
+               <div id="wf-progress-bar" class="progress-bar" role="progressbar" style="width: 0%; background-color: #ff0000; transition: none;"></div>
             </div>
             
-            <div class="d-flex justify-content-center align-items-center gap-3">
-               <button id="btn-prev" class="btn text-uppercase" style="background-color: #111111; color: #ffffff; border: 1px solid #ff0000; font-size: 12px; padding: 6px 16px;"><i class="icon-angle-left"></i> Anterior</button>
+            <div class="d-flex justify-content-center align-items-center gap-2 flex-wrap">
+               <button id="wf-btn-prev" class="btn text-uppercase" style="background-color: #111111; color: #ffffff; border: 1px solid #ff0000; font-size: 11px; padding: 6px 14px;"><i class="icon-angle-left"></i> Anterior</button>
                
-               <button id="btn-play-pause" class="btn text-uppercase mx-2" style="background-color: #ff0000; color: #000000; font-weight: bold; font-size: 14px; padding: 8px 24px;">
+               <button id="wf-btn-play-pause" class="btn text-uppercase mx-2" style="background-color: #ff0000; color: #000000; font-weight: bold; font-size: 13px; padding: 8px 22px;">
                   <i class="icon-play"></i> Reproducir
                </button>
                
-               <button id="btn-next" class="btn text-uppercase" style="background-color: #111111; color: #ffffff; border: 1px solid #ff0000; font-size: 12px; padding: 6px 16px;">Siguiente <i class="icon-angle-right"></i></button>
+               <button id="wf-btn-next" class="btn text-uppercase" style="background-color: #111111; color: #ffffff; border: 1px solid #ff0000; font-size: 11px; padding: 6px 14px;">Siguiente <i class="icon-angle-right"></i></button>
             </div>
          </div>
 
-         <ul class="list-group list-group-flush shadow-sm rounded mb-4" id="playlist">
+         <ul class="list-group list-group-flush shadow-sm rounded mb-4" id="wf-playlist">
             
-            <li class="list-group-item bg-dark text-light border-secondary p-3 track-item" data-src="mp3/01_WE_ARE.mp3" data-title="We Are">
-               <div class="d-flex justify-content-between align-items-center">
-                  <div class="play-trigger" style="cursor: pointer; flex-grow: 1;">
-                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-primary"></i> 01. We Are</h6>
+            <li class="list-group-item bg-dark text-light border-secondary p-3 wf-track-item" data-src="mp3/01_WE_ARE.mp3" data-title="We Are">
+               <div class="d-flex justify-content-between align-items-center flex-wrap flex-sm-nowrap">
+                  <div class="wf-play-trigger" style="cursor: pointer; flex-grow: 1; min-width: 60%;">
+                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-danger wf-row-icon"></i> 01. We Are</h6>
                   </div>
-                  <a href="mp3/01_WE_ARE.mp3" download="01_Wildfinity_We_Are.mp3" class="btn btn-sm btn-outline-primary" title="Descargar canción">
-                     <i class="icon-download"></i>
-                  </a>
+                  <div class="d-flex gap-2 mt-2 mt-sm-0">
+                     <button class="btn btn-sm btn-outline-danger wf-toggle-lyrics" style="font-size: 11px; text-transform: uppercase;"><i class="icon-note"></i> Letra</button>
+                     <a href="mp3/01_WE_ARE.mp3" download="01_Wildfinity_We_Are.mp3" class="btn btn-sm btn-outline-light" title="Descargar canción"><i class="icon-download"></i></a>
+                  </div>
+               </div>
+               <div class="wf-lyrics-container text-center mt-3 p-3 bg-black rounded" style="display: none; border: 1px dashed #ff0000; color: #dddddd;">
+                  <h5 class="text-uppercase mb-2" style="color: #ff0000;">We Are</h5>
+                  <p class="mb-0">Walking through the neon lights, feelings running high,<br>We are the roar of the thunder shaking up the sky.<br>With guitar strings of fire and hearts made of steel,<br>We are the wild energy that makes this real!<br><br><strong>Chorus:</strong><br>We Are! The rock in the night!<br>We Are! Shining so bright!<br>No limits, no fears, we break the chains today,<br>Wildfinity is here to stay!</p>
                </div>
             </li>
 
-            <li class="list-group-item bg-dark text-light border-secondary p-3 track-item" data-src="mp3/02_IM_NOT_YOU.mp3" data-title="I'm Not You">
-               <div class="d-flex justify-content-between align-items-center">
-                  <div class="play-trigger" style="cursor: pointer; flex-grow: 1;">
-                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-primary"></i> 02. I'm Not You</h6>
+            <li class="list-group-item bg-dark text-light border-secondary p-3 wf-track-item" data-src="mp3/02_IM_NOT_YOU.mp3" data-title="I'm Not You">
+               <div class="d-flex justify-content-between align-items-center flex-wrap flex-sm-nowrap">
+                  <div class="wf-play-trigger" style="cursor: pointer; flex-grow: 1; min-width: 60%;">
+                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-danger wf-row-icon"></i> 02. I'm Not You</h6>
                   </div>
-                  <a href="mp3/02_IM_NOT_YOU.mp3" download="02_Wildfinity_Im_Not_You.mp3" class="btn btn-sm btn-outline-primary" title="Descargar canción">
-                     <i class="icon-download"></i>
-                  </a>
+                  <div class="d-flex gap-2 mt-2 mt-sm-0">
+                     <button class="btn btn-sm btn-outline-danger wf-toggle-lyrics" style="font-size: 11px; text-transform: uppercase;"><i class="icon-note"></i> Letra</button>
+                     <a href="mp3/02_IM_NOT_YOU.mp3" download="02_Wildfinity_Im_Not_You.mp3" class="btn btn-sm btn-outline-light" title="Descargar canción"><i class="icon-download"></i></a>
+                  </div>
+               </div>
+               <div class="wf-lyrics-container text-center mt-3 p-3 bg-black rounded" style="display: none; border: 1px dashed #ff0000; color: #dddddd;">
+                  <h5 class="text-uppercase mb-2" style="color: #ff0000;">I'm Not You</h5>
+                  <p class="mb-0">You try to shape my world, tell me who to be,<br>But I am a force you can't contain, looking to get free.<br>Stand your ground, look away, do what you gotta do,<br>I am walking my own path, 'cause I am not you!<br><br><strong>Chorus:</strong><br>I'm not you, I won't play your game,<br>I'm not you, I don't share your shame.<br>Living loud and wild, completely true,<br>Open your eyes, I'm not you!</p>
                </div>
             </li>
 
-            <li class="list-group-item bg-dark text-light border-secondary p-3 track-item" data-src="mp3/03_LIVE_TONIGHT.mp3" data-title="Live Tonight">
-               <div class="d-flex justify-content-between align-items-center">
-                  <div class="play-trigger" style="cursor: pointer; flex-grow: 1;">
-                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-primary"></i> 03. Live Tonight</h6>
+            <li class="list-group-item bg-dark text-light border-secondary p-3 wf-track-item" data-src="mp3/03_LIVE_TONIGHT.mp3" data-title="Live Tonight">
+               <div class="d-flex justify-content-between align-items-center flex-wrap flex-sm-nowrap">
+                  <div class="wf-play-trigger" style="cursor: pointer; flex-grow: 1; min-width: 60%;">
+                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-danger wf-row-icon"></i> 03. Live Tonight</h6>
                   </div>
-                  <a href="mp3/03_LIVE_TONIGHT.mp3" download="03_Wildfinity_Live_Tonight.mp3" class="btn btn-sm btn-outline-primary" title="Descargar canción">
-                     <i class="icon-download"></i>
-                  </a>
+                  <div class="d-flex gap-2 mt-2 mt-sm-0">
+                     <button class="btn btn-sm btn-outline-danger wf-toggle-lyrics" style="font-size: 11px; text-transform: uppercase;"><i class="icon-note"></i> Letra</button>
+                     <a href="mp3/03_LIVE_TONIGHT.mp3" download="03_Wildfinity_Live_Tonight.mp3" class="btn btn-sm btn-outline-light" title="Descargar canción"><i class="icon-download"></i></a>
+                  </div>
+               </div>
+               <div class="wf-lyrics-container text-center mt-3 p-3 bg-black rounded" style="display: none; border: 1px dashed #ff0000; color: #dddddd;">
+                  <h5 class="text-uppercase mb-2" style="color: #ff0000;">Live Tonight</h5>
+                  <p class="mb-0">The stage is set, the crowd is waiting under heavy sparks,<br>We turn the amplifiers up to block away the dark.<br>Forget about tomorrow, let the speakers bite,<br>We only have one mission: we gotta live tonight!<br><br><strong>Chorus:</strong><br>Raise your hands up high, feel the power ignite,<br>Underneath the sky, we're gonna live tonight!<br>Shout it out, scream it out, with all of your might,<br>This is our moment, we live tonight!</p>
                </div>
             </li>
 
-            <li class="list-group-item bg-dark text-light border-secondary p-3 track-item" data-src="mp3/04_DRINK_THAT_SHOT.mp3" data-title="Drink That Shot">
-               <div class="d-flex justify-content-between align-items-center">
-                  <div class="play-trigger" style="cursor: pointer; flex-grow: 1;">
-                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-primary"></i> 04. Drink That Shot</h6>
+            <li class="list-group-item bg-dark text-light border-secondary p-3 wf-track-item" data-src="mp3/04_DRINK_THAT_SHOT.mp3" data-title="Drink That Shot">
+               <div class="d-flex justify-content-between align-items-center flex-wrap flex-sm-nowrap">
+                  <div class="wf-play-trigger" style="cursor: pointer; flex-grow: 1; min-width: 60%;">
+                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-danger wf-row-icon"></i> 04. Drink That Shot</h6>
                   </div>
-                  <a href="mp3/04_DRINK_THAT_SHOT.mp3" download="04_Wildfinity_Drink_That_Shot.mp3" class="btn btn-sm btn-outline-primary" title="Descargar canción">
-                     <i class="icon-download"></i>
-                  </a>
+                  <div class="d-flex gap-2 mt-2 mt-sm-0">
+                     <button class="btn btn-sm btn-outline-danger wf-toggle-lyrics" style="font-size: 11px; text-transform: uppercase;"><i class="icon-note"></i> Letra</button>
+                     <a href="mp3/04_DRINK_THAT_SHOT.mp3" download="04_Wildfinity_Drink_That_Shot.mp3" class="btn btn-sm btn-outline-light" title="Descargar canción"><i class="icon-download"></i></a>
+                  </div>
+               </div>
+               <div class="wf-lyrics-container text-center mt-3 p-3 bg-black rounded" style="display: none; border: 1px dashed #ff0000; color: #dddddd;">
+                  <h5 class="text-uppercase mb-2" style="color: #ff0000;">Drink That Shot</h5>
+                  <p class="mb-0">Glasses up on the counter, the bassline is hitting hard,<br>We've been running this highway, now we're dropping our guard.<br>Pour another round of rhythm, let the dynamic drop,<br>Drink that shot right now, we are never gonna stop!<br><br><strong>Chorus:</strong><br>One, two, three, let the poison go down,<br>We are the kings and queens owning this town.<br>Hit the floor, burn the rules, show what you've got,<br>Don't think about it twice, come on and drink that shot!</p>
                </div>
             </li>
 
-            <li class="list-group-item bg-dark text-light border-secondary p-3 track-item" data-src="mp3/05_FORSAKEN_SOUL.mp3" data-title="Forsaken Soul">
-               <div class="d-flex justify-content-between align-items-center">
-                  <div class="play-trigger" style="cursor: pointer; flex-grow: 1;">
-                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-primary"></i> 05. Forsaken Soul</h6>
+            <li class="list-group-item bg-dark text-light border-secondary p-3 wf-track-item" data-src="mp3/05_FORSAKEN_SOUL.mp3" data-title="Forsaken Soul">
+               <div class="d-flex justify-content-between align-items-center flex-wrap flex-sm-nowrap">
+                  <div class="wf-play-trigger" style="cursor: pointer; flex-grow: 1; min-width: 60%;">
+                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-danger wf-row-icon"></i> 05. Forsaken Soul</h6>
                   </div>
-                  <a href="mp3/05_FORSAKEN_SOUL.mp3" download="05_Wildfinity_Forsaken_Soul.mp3" class="btn btn-sm btn-outline-primary" title="Descargar canción">
-                     <i class="icon-download"></i>
-                  </a>
+                  <div class="d-flex gap-2 mt-2 mt-sm-0">
+                     <button class="btn btn-sm btn-outline-danger wf-toggle-lyrics" style="font-size: 11px; text-transform: uppercase;"><i class="icon-note"></i> Letra</button>
+                     <a href="mp3/05_FORSAKEN_SOUL.mp3" download="05_Wildfinity_Forsaken_Soul.mp3" class="btn btn-sm btn-outline-light" title="Descargar canción"><i class="icon-download"></i></a>
+                  </div>
+               </div>
+               <div class="wf-lyrics-container text-center mt-3 p-3 bg-black rounded" style="display: none; border: 1px dashed #ff0000; color: #dddddd;">
+                  <h5 class="text-uppercase mb-2" style="color: #ff0000;">Forsaken Soul</h5>
+                  <p class="mb-0">In the shadows of the valley, where the echoes start to fade,<br>I remember every promise and the choices that we made.<br>Through the cold wind of betrayal, I can still hear the sound<br>Of a forsaken soul waiting to be found.<br><br><strong>Chorus:</strong><br>Lost in the dark, searching for an open door,<br>A forsaken soul, broken to the core.<br>But from the ashes and dust, I will rise once more,<br>Stronger than the storms that I faced before.</p>
                </div>
             </li>
 
-            <li class="list-group-item bg-dark text-light border-secondary p-3 track-item" data-src="mp3/06_I_DONT_GIVE_A_DIME.mp3" data-title="I Don't Give A Dime">
-               <div class="d-flex justify-content-between align-items-center">
-                  <div class="play-trigger" style="cursor: pointer; flex-grow: 1;">
-                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-primary"></i> 06. I Don't Give A Dime</h6>
+            <li class="list-group-item bg-dark text-light border-secondary p-3 wf-track-item" data-src="mp3/06_I_DONT_GIVE_A_DIME.mp3" data-title="I Don't Give A Dime">
+               <div class="d-flex justify-content-between align-items-center flex-wrap flex-sm-nowrap">
+                  <div class="wf-play-trigger" style="cursor: pointer; flex-grow: 1; min-width: 60%;">
+                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-danger wf-row-icon"></i> 06. I Don't Give A Dime</h6>
                   </div>
-                  <a href="mp3/06_I_DONT_GIVE_A_DIME.mp3" download="06_Wildfinity_I_Dont_Give_A_Dime.mp3" class="btn btn-sm btn-outline-primary" title="Descargar canción">
-                     <i class="icon-download"></i>
-                  </a>
+                  <div class="d-flex gap-2 mt-2 mt-sm-0">
+                     <button class="btn btn-sm btn-outline-danger wf-toggle-lyrics" style="font-size: 11px; text-transform: uppercase;"><i class="icon-note"></i> Letra</button>
+                     <a href="mp3/06_I_DONT_GIVE_A_DIME.mp3" download="06_Wildfinity_I_Dont_Give_A_Dime.mp3" class="btn btn-sm btn-outline-light" title="Descargar canción"><i class="icon-download"></i></a>
+                  </div>
+               </div>
+               <div class="wf-lyrics-container text-center mt-3 p-3 bg-black rounded" style="display: none; border: 1px dashed #ff0000; color: #dddddd;">
+                  <h5 class="text-uppercase mb-2" style="color: #ff0000;">I Don't Give A Dime</h5>
+                  <p class="mb-0">Talk your talk, print your news, try to bring me down,<br>I don't care about the rumors spreading through this town.<br>I got my volume all the way up, my mind is feeling fine,<br>Go ahead and judge me, 'cause I don't give a dime!<br><br><strong>Chorus:</strong><br>I don't give a dime about your legacy,<br>I don't give a dime, I live completely free.<br>Riding this wild train right across the line,<br>Scream it to the world, I don't give a dime!</p>
                </div>
             </li>
 
-            <li class="list-group-item bg-dark text-light border-secondary p-3 track-item" data-src="mp3/07_NEED_TO_FIND_YOU.mp3" data-title="Need To Find You">
-               <div class="d-flex justify-content-between align-items-center">
-                  <div class="play-trigger" style="cursor: pointer; flex-grow: 1;">
-                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-primary"></i> 07. Need To Find You</h6>
+            <li class="list-group-item bg-dark text-light border-secondary p-3 wf-track-item" data-src="mp3/07_NEED_TO_FIND_YOU.mp3" data-title="Need To Find You">
+               <div class="d-flex justify-content-between align-items-center flex-wrap flex-sm-nowrap">
+                  <div class="wf-play-trigger" style="cursor: pointer; flex-grow: 1; min-width: 60%;">
+                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-danger wf-row-icon"></i> 07. Need To Find You</h6>
                   </div>
-                  <a href="mp3/07_NEED_TO_FIND_YOU.mp3" download="07_Wildfinity_Need_To_Find_You.mp3" class="btn btn-sm btn-outline-primary" title="Descargar canción">
-                     <i class="icon-download"></i>
-                  </a>
+                  <div class="d-flex gap-2 mt-2 mt-sm-0">
+                     <button class="btn btn-sm btn-outline-danger wf-toggle-lyrics" style="font-size: 11px; text-transform: uppercase;"><i class="icon-note"></i> Letra</button>
+                     <a href="mp3/07_NEED_TO_FIND_YOU.mp3" download="07_Wildfinity_Need_To_Find_You.mp3" class="btn btn-sm btn-outline-light" title="Descargar canción"><i class="icon-download"></i></a>
+                  </div>
+               </div>
+               <div class="wf-lyrics-container text-center mt-3 p-3 bg-black rounded" style="display: none; border: 1px dashed #ff0000; color: #dddddd;">
+                  <h5 class="text-uppercase mb-2" style="color: #ff0000;">Need To Find You</h5>
+                  <p class="mb-0">Searching through the crowded streets, staring at the lights,<br>I've been looking for your trace throughout these heavy nights.<br>The music is spinning round, but nothing feels brand new,<br>I'm caught up in the rhythm, and I need to find you!<br><br><strong>Chorus:</strong><br>Where are you hiding? Give me a little sign,<br>I need to find you, make your horizon mine.<br>Through the rock and roll, through the heavy view,<br>I will cross the world, 'cause I need to find you!</p>
                </div>
             </li>
 
-            <li class="list-group-item bg-dark text-light border-secondary p-3 track-item" data-src="mp3/08_ITS_JUST_A_STORY.mp3" data-title="It's Just A Story">
-               <div class="d-flex justify-content-between align-items-center">
-                  <div class="play-trigger" style="cursor: pointer; flex-grow: 1;">
-                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-primary"></i> 08. It's Just A Story</h6>
+            <li class="list-group-item bg-dark text-light border-secondary p-3 wf-track-item" data-src="mp3/08_ITS_JUST_A_STORY.mp3" data-title="It's Just A Story">
+               <div class="d-flex justify-content-between align-items-center flex-wrap flex-sm-nowrap">
+                  <div class="wf-play-trigger" style="cursor: pointer; flex-grow: 1; min-width: 60%;">
+                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-danger wf-row-icon"></i> 08. It's Just A Story</h6>
                   </div>
-                  <a href="mp3/08_ITS_JUST_A_STORY.mp3" download="08_Wildfinity_Its_Just_A_Story.mp3" class="btn btn-sm btn-outline-primary" title="Descargar canción">
-                     <i class="icon-download"></i>
-                  </a>
+                  <div class="d-flex gap-2 mt-2 mt-sm-0">
+                     <button class="btn btn-sm btn-outline-danger wf-toggle-lyrics" style="font-size: 11px; text-transform: uppercase;"><i class="icon-note"></i> Letra</button>
+                     <a href="mp3/08_ITS_JUST_A_STORY.mp3" download="08_Wildfinity_Its_Just_A_Story.mp3" class="btn btn-sm btn-outline-light" title="Descargar canción"><i class="icon-download"></i></a>
+                  </div>
+               </div>
+               <div class="wf-lyrics-container text-center mt-3 p-3 bg-black rounded" style="display: none; border: 1px dashed #ff0000; color: #dddddd;">
+                  <h5 class="text-uppercase mb-2" style="color: #ff0000;">It's Just A Story</h5>
+                  <p class="mb-0">An old book left open, a memory on the wall,<br>We think we have it all before we start to fall.<br>Don't cry over past mistakes or pages torn apart,<br>It's just a story written directly in your heart.<br><br><strong>Chorus:</strong><br>It's just a story, a melody in time,<br>A little bit of reason, a little bit of rhyme.<br>Close the chapter now, let the morning rise,<br>It's just a story under changing skies.</p>
                </div>
             </li>
 
-            <li class="list-group-item bg-dark text-light border-secondary p-3 track-item" data-src="mp3/09_TRUE_LOVE_WE_SHARE.mp3" data-title="True Love We Share">
-               <div class="d-flex justify-content-between align-items-center">
-                  <div class="play-trigger" style="cursor: pointer; flex-grow: 1;">
-                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-primary"></i> 09. True Love We Share</h6>
+            <li class="list-group-item bg-dark text-light border-secondary p-3 wf-track-item" data-src="mp3/09_TRUE_LOVE_WE_SHARE.mp3" data-title="True Love We Share">
+               <div class="d-flex justify-content-between align-items-center flex-wrap flex-sm-nowrap">
+                  <div class="wf-play-trigger" style="cursor: pointer; flex-grow: 1; min-width: 60%;">
+                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-danger wf-row-icon"></i> 09. True Love We Share</h6>
                   </div>
-                  <a href="mp3/09_TRUE_LOVE_WE_SHARE.mp3" download="09_Wildfinity_True_Love_We_Share.mp3" class="btn btn-sm btn-outline-primary" title="Descargar canción">
-                     <i class="icon-download"></i>
-                  </a>
+                  <div class="d-flex gap-2 mt-2 mt-sm-0">
+                     <button class="btn btn-sm btn-outline-danger wf-toggle-lyrics" style="font-size: 11px; text-transform: uppercase;"><i class="icon-note"></i> Letra</button>
+                     <a href="mp3/09_TRUE_LOVE_WE_SHARE.mp3" download="09_Wildfinity_True_Love_We_Share.mp3" class="btn btn-sm btn-outline-light" title="Descargar canción"><i class="icon-download"></i></a>
+                  </div>
+               </div>
+               <div class="wf-lyrics-container text-center mt-3 p-3 bg-black rounded" style="display: none; border: 1px dashed #ff0000; color: #dddddd;">
+                  <h5 class="text-uppercase mb-2" style="color: #ff0000;">True Love We Share</h5>
+                  <p class="mb-0">Two voices united, running through the same old overdrive,<br>When we stand together, we make the whole world come alive.<br>Hand in hand on stage, through the fire and the glare,<br>This is the eternal power of the true love we share!<br><br><strong>Chorus:</strong><br>True love we share, louder than the sound,<br>True love we share, lifting off the ground.<br>Nothing can break us, nothing can compare,<br>To the electric magic of the true love we share!</p>
                </div>
             </li>
 
-            <li class="list-group-item bg-dark text-light border-secondary p-3 track-item" data-src="mp3/10_YEARNING_FOR_LIGHT.mp3" data-title="Yearning For Light">
-               <div class="d-flex justify-content-between align-items-center">
-                  <div class="play-trigger" style="cursor: pointer; flex-grow: 1;">
-                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-primary"></i> 10. Yearning For Light</h6>
+            <li class="list-group-item bg-dark text-light border-secondary p-3 wf-track-item" data-src="mp3/10_YEARNING_FOR_LIGHT.mp3" data-title="Yearning For Light">
+               <div class="d-flex justify-content-between align-items-center flex-wrap flex-sm-nowrap">
+                  <div class="wf-play-trigger" style="cursor: pointer; flex-grow: 1; min-width: 60%;">
+                     <h6 class="mb-0 text-uppercase"><i class="icon-play-circle me-2 text-danger wf-row-icon"></i> 10. Yearning For Light</h6>
                   </div>
-                  <a href="mp3/10_YEARNING_FOR_LIGHT.mp3" download="10_Wildfinity_Yearning_For_Light.mp3" class="btn btn-sm btn-outline-primary" title="Descargar canción">
-                     <i class="icon-download"></i>
-                  </a>
+                  <div class="d-flex gap-2 mt-2 mt-sm-0">
+                     <button class="btn btn-sm btn-outline-danger wf-toggle-lyrics" style="font-size: 11px; text-transform: uppercase;"><i class="icon-note"></i> Letra</button>
+                     <a href="mp3/10_YEARNING_FOR_LIGHT.mp3" download="10_Wildfinity_Yearning_For_Light.mp3" class="btn btn-sm btn-outline-light" title="Descargar canción"><i class="icon-download"></i></a>
+                  </div>
+               </div>
+               <div class="wf-lyrics-container text-center mt-3 p-3 bg-black rounded" style="display: none; border: 1px dashed #ff0000; color: #dddddd;">
+                  <h5 class="text-uppercase mb-2" style="color: #ff0000;">Yearning For Light</h5>
+                  <p class="mb-0">The night has been long, the shadows were heavy and cold,<br>But we hold the keys to a story waiting to be told.<br>The guitars are screaming, breaking down the quiet night,<br>Every single heartbeat is yearning for light!<br><br><strong>Chorus:</strong><br>Yearning for light, we strike the final chord,<br>Yearning for light, our freedom is restored.<br>The darkness is over, the future is bright,<br>Wildfinity rises, yearning for light!</p>
                </div>
             </li>
 
@@ -348,32 +398,49 @@
 <script src="js/jquery-1.12.4.min.js"></script>
 <script>
 $(document).ready(function() {
-   var audioPlayer = document.getElementById("main-audio");
-   var $trackTitle = $("#current-track-title");
-   var $playlistItems = $(".track-item");
-   var $playPauseBtn = $("#btn-play-pause");
-   var $progressBar = $("#progress-bar");
-   var $progressContainer = $("#progress-container");
+   // Elementos del DOM aislados mediante IDs únicos para prevenir bloqueos de plantilla
+   var audioPlayer = document.getElementById("wf-native-audio");
+   var $trackTitle = $("#wf-track-title");
+   var $playlistItems = $(".wf-track-item");
+   var $playPauseBtn = $("#wf-btn-play-pause");
+   var $progressBar = $("#wf-progress-bar");
+   var $progressContainer = $("#wf-progress-container");
    var currentTrackIndex = 0;
    
-   // Función corregida para cargar y gestionar pistas musicales
+   // Función nativa robusta compatible con las restricciones de Safari iOS y Chrome Mobile
    function loadTrack(index, autoPlay) {
       if(index >= 0 && index < $playlistItems.length) {
-         $playlistItems.removeClass("bg-secondary");
+         // Limpiar estados activos visuales anteriores
+         $playlistItems.removeClass("bg-secondary").css("border-left", "none");
+         $(".wf-row-icon").removeClass("icon-pause-circle").addClass("icon-play-circle");
          
          currentTrackIndex = index;
          var $activeItem = $playlistItems.eq(currentTrackIndex);
-         $activeItem.addClass("bg-secondary");
+         
+         // Resaltar canción activa con un toque rojo estilizado
+         $activeItem.addClass("bg-secondary").css("border-left", "4px solid #ff0000");
          
          var src = $activeItem.attr("data-src");
          var title = $activeItem.attr("data-title");
          
+         // Forzar carga de origen secuencial requerida por dispositivos móviles
          audioPlayer.src = src;
+         audioPlayer.load(); 
+         
          $trackTitle.text(title);
          
          if(autoPlay) {
-            audioPlayer.play();
-            $playPauseBtn.html('<i class="icon-pause"></i> Pausa');
+            // Manejo de la promesa de reproducción nativa para evitar excepciones silenciosas en smartphones
+            var playPromise = audioPlayer.play();
+            if (playPromise !== undefined) {
+               playPromise.then(function() {
+                  $playPauseBtn.html('<i class="icon-pause"></i> Pausa');
+                  $activeItem.find(".wf-row-icon").removeClass("icon-play-circle").addClass("icon-pause-circle");
+               }).catch(function(error) {
+                  console.log("Interrupción de reproducción en móvil prevenida:", error);
+                  $playPauseBtn.html('<i class="icon-play"></i> Reproducir');
+               });
+            }
          } else {
             $playPauseBtn.html('<i class="icon-play"></i> Reproducir');
          }
@@ -381,40 +448,98 @@ $(document).ready(function() {
    }
    
    // Control del botón central Play/Pause de la consola negra
-   $playPauseBtn.on("click", function() {
+   $playPauseBtn.on("click", function(e) {
+      e.preventDefault();
       if (audioPlayer.paused) {
          audioPlayer.play();
          $playPauseBtn.html('<i class="icon-pause"></i> Pausa');
+         $playlistItems.eq(currentTrackIndex).find(".wf-row-icon").removeClass("icon-play-circle").addClass("icon-pause-circle");
       } else {
          audioPlayer.pause();
          $playPauseBtn.html('<i class="icon-play"></i> Reproducir');
+         $(".wf-row-icon").removeClass("icon-pause-circle").addClass("icon-play-circle");
       }
    });
    
-   // CORRECCIÓN CLAVE: Mapeo exacto del clic para leer el atributo data-src del li contenedor
-   $(".play-trigger").on("click", function() {
-      var $parentLi = $(this).closest(".track-item");
+   // Evento al presionar sobre la fila o el título de la pista (Inicia reproducción directa)
+   $(".wf-play-trigger").on("click", function(e) {
+      e.preventDefault();
+      var $parentLi = $(this).closest(".wf-track-item");
       var idx = $playlistItems.index($parentLi);
       loadTrack(idx, true);
    });
    
-   // Botón Siguiente
-   $("#btn-next").on("click", function() {
+   // CONTROL DESPLEGABLE DE LETRAS INDEPENDIENTE: Evita conflictos de burbujeo sobre el reproductor
+   $(".wf-toggle-lyrics").on("click", function(e) {
+      e.preventDefault();
+      e.stopPropagation(); // Evita que al abrir la letra se altere la reproducción actual
+      
+      var $container = $(this).closest(".wf-track-item").find(".wf-lyrics-container");
+      
+      // Cerrar otros desplegables abiertos para mantener el orden prolijo
+      $(".wf-lyrics-container").not($container).slideUp(250);
+      
+      // Animación suave del desplegable seleccionado
+      $container.slideToggle(300);
+   });
+   
+   // Botón de Siguiente pista
+   $("#wf-btn-next").on("click", function(e) {
+      e.preventDefault();
       var nextIndex = currentTrackIndex + 1;
       if (nextIndex >= $playlistItems.length) nextIndex = 0;
       loadTrack(nextIndex, true);
    });
    
-   // Botón Anterior
-   $("#btn-prev").on("click", function() {
+   // Botón de Pista Anterior
+   $("#wf-btn-prev").on("click", function(e) {
+      e.preventDefault();
       var prevIndex = currentTrackIndex - 1;
       if (prevIndex < 0) prevIndex = $playlistItems.length - 1;
       loadTrack(prevIndex, true);
    });
    
-   // Actualización en tiempo real de la barra de progreso roja
+   // Actualización fluida de la barra de progreso roja
    audioPlayer.addEventListener("timeupdate", function() {
-      if
+      if (audioPlayer.duration) {
+         var percentage = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+         $progressBar.css("width", percentage + "%");
+      }
+   });
+   
+   // Evento interactivo para adelantar/retroceder pista tocando la barra (Web y Móviles)
+   $progressContainer.on("click touchstart", function(e) {
+      var containerWidth = $(this).width();
+      var clickX = e.offsetX;
+      
+      // Corrección de coordenadas táctiles para pantallas móviles
+      if (e.originalEvent.touches && e.originalEvent.touches[0]) {
+         var rect = e.target.getBoundingClientRect();
+         clickX = e.originalEvent.touches[0].clientX - rect.left;
+      }
+      
+      var duration = audioPlayer.duration;
+      if(duration && clickX >= 0 && clickX <= containerWidth) {
+         audioPlayer.currentTime = (clickX / containerWidth) * duration;
+      }
+   });
+   
+   // Salto inteligente automático al finalizar una canción
+   audioPlayer.addEventListener("ended", function() {
+      var nextIndex = currentTrackIndex + 1;
+      if (nextIndex < $playlistItems.length) {
+         loadTrack(nextIndex, true);
+      } else {
+         loadTrack(0, false); // Vuelve al inicio del álbum de forma pasiva al finalizar la pista 10
+      }
+   });
+   
+   // Montaje pasivo inicial del track 1 sin activar autoplay restrictivo
+   if($playlistItems.length > 0) {
+      loadTrack(0, false);
+   }
+});
+</script>
          <!--End latest album section-->
          <!--About section-->
          <section id="about" class="about overlay main">
