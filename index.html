@@ -43,7 +43,7 @@
              padding-bottom: 10px !important;
          }
 
-         /* Resaltado de la pista activa en el color rojo de la banda */
+         /* Resaltado de la pista activa en el color rojo de la banda (#ff2a3b) */
          .wf-track-item.active-track {
              background-color: #ff2a3b !important;
              color: #ffffff !important;
@@ -96,14 +96,14 @@
          document.addEventListener("DOMContentLoaded", function() {
              setTimeout(function() {
                  var loader = document.querySelector('.loader');
-                 if (loader && window.getComputedStyle(loader).display !== 'none') {
+                 if (loader) {
                      loader.style.transition = "opacity 0.4s ease";
                      loader.style.opacity = "0";
                      setTimeout(function() {
                          loader.style.display = "none";
                      }, 400);
                  }
-             }, 1000);
+             }, 800);
          });
       </script>
 
@@ -111,22 +111,15 @@
       
          <header class="header default">
             <div class="left-part">
-               <a class="logo scroll" href="#wrapper">
+               <a class="logo" href="#wrapper">
                   <h2 class="mb-0 uppercase" style="color: #ffffff; letter-spacing: 2px;">WILDFINITY.</h2>
                </a>
             </div>
             <div class="right-part">
                <nav class="main-nav">
-                  <div class="toggle-mobile-but">
-                     <a href="#" class="mobile-but">
-                        <div class="lines"></div>
-                     </a>
-                  </div>
                   <ul class="main-menu list-inline">
-                     <li><a class="scroll list-inline-item" href="#wrapper">Home</a></li>
-                     <li><a class="scroll list-inline-item" href="#album">Album</a></li>
-                     <li><a class="scroll list-inline-item" href="#about">About</a></li>
-                     <li><a class="scroll list-inline-item" href="#contact">Contact</a></li>
+                     <li><a class="list-inline-item" href="#wrapper">Home</a></li>
+                     <li><a class="list-inline-item" href="#album">Album</a></li>
                   </ul>
                </nav>
             </div>
@@ -327,12 +320,8 @@
 
       <script src="js/jquery-1.12.4.min.js"></script>
       <script src="js/jquery.flexslider-min.js"></script>
-      <script src="js/smooth-scroll.js"></script>
       <script src="js/jquery.magnific-popup.min.js"></script>
-      <script src="js/twitterFetcher_min.js"></script>
-      <script src="js/jquery.countdown.min.js"></script>
       <script src="js/placeholders.min.js"></script>
-      <script src="js/script.js"></script>
 
       <script src="js/playerjs.js"></script>
 
@@ -342,14 +331,13 @@
              var $playlistItems = $(".wf-track-item");
              var $trackTitle = $("#current-track-title");
 
-             // 1. Inicializamos PlayerJS apuntando a nuestro div contenedor
-             // Cargamos la primera canción ('mp3/01_WE_ARE.mp3') de inicio
+             // 1. Inicializamos PlayerJS apuntando al contenedor vacío
              var player = new Playerjs({
                  id: "playerjs-container",
                  file: "mp3/01_WE_ARE.mp3"
              });
 
-             // 2. Función para cambiar de pista mandando la orden directa a PlayerJS
+             // 2. Función para gestionar el cambio de canción
              function loadTrack(index, shouldPlay) {
                  if(index >= 0 && index < $playlistItems.length) {
                      $playlistItems.removeClass("active-track");
@@ -363,7 +351,7 @@
                      
                      $trackTitle.text(title);
                      
-                     // Usamos la API de PlayerJS para cambiar el archivo sobre la marcha
+                     // Cambiar pista a través de la API oficial de PlayerJS
                      if (shouldPlay) {
                          player.api("play", src);
                      } else {
@@ -372,27 +360,27 @@
                  }
              }
 
-             // 3. Capturar el evento 'end' de PlayerJS para saltar automáticamente al terminar el tema
+             // 3. Capturar fin de canción para pasar a la siguiente automáticamente
              window.PlayerjsEvents = function(event, id, info) {
                  if (event == "end" && id == "playerjs-container") {
                      var nextIdx = currentTrackIndex + 1;
                      if(nextIdx >= $playlistItems.length) {
-                         nextIdx = 0; // Bucle al primer tema si termina el disco
+                         nextIdx = 0; // Vuelve a empezar el álbum
                      }
                      loadTrack(nextIdx, true);
                  }
              };
 
-             // 4. Hacer clic en cualquier fila de la playlist abajo cambia y reproduce el tema
+             // 4. Click en la lista para cambiar de canción
              $(".wf-track-item").on("click", function(e) {
                  if ($(e.target).closest('a[download]').length) {
-                     return; // Permitir que la descarga funcione independientemente
+                     return; 
                  }
                  var idx = $playlistItems.index(this);
                  loadTrack(idx, true);
              });
 
-             // 5. Botón Anterior externo
+             // 5. Botón Anterior
              $("#btn-prev").on("click", function(e) {
                  e.preventDefault();
                  var nextIdx = currentTrackIndex - 1;
@@ -402,7 +390,7 @@
                  loadTrack(nextIdx, true);
              });
 
-             // 6. Botón Siguiente externo
+             // 6. Botón Siguiente
              $("#btn-next").on("click", function(e) {
                  e.preventDefault();
                  var nextIdx = currentTrackIndex + 1;
