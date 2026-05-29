@@ -255,11 +255,14 @@
                      <li><a class="scroll list-inline-item" href="#wrapper">Home</a></li>
                      <li><a class="scroll list-inline-item" href="#album">Album</a></li>
                      <li><a class="scroll list-inline-item" href="#about">About</a></li>
+                     <!-- Nuevo enlace a Merchandising -->
+                     <li><a class="list-inline-item" href="tienda.html">Merch</a></li>
                      <li><a class="scroll list-inline-item" href="#contact">Contact</a></li>
                   </ul>
                </nav>
             </div>
          </header>
+         
 
          <section class="hero">
             <div class="main-slider slider flexslider">
@@ -299,7 +302,7 @@
                   <div class="col-12 col-md-10 col-lg-9 ">
                      <div class="block-content text-center gap-one-bottom-md">
                         <div class="block-title ">
-                           <h1 class="uppercase">Latest Album</h1>
+                           <h1 class="uppercase">Ultimo Álbum</h1>
                         </div>
                      </div>
                   </div>
@@ -557,7 +560,7 @@ document.addEventListener("DOMContentLoaded", function() {
          </div>
          
          <div class="col-12">
-            <div class="block-content front-p">
+            <div style="display: none;" class="block-content front-p">
                <h3 class="uppercase text-red">Comprar Albùm</h3>
                <ul class="block-social list-inline">
                   <li class="list-inline-item mr-0"><a class="border-3" href="https://music.apple.com/es/album/we-are/1832627084"><i class="socicon-apple"></i></a></li>
@@ -1229,34 +1232,38 @@ document.addEventListener("DOMContentLoaded", function() {
             <!--End container-->
          </section>
          <!--End contact section-->  
-         <footer class="pt-5 pb-5 footer">
-            <!--Container-->
-            <div class="container">
-               <div class="row justify-content-between align-items-center">
-                  <div class="col-md-6">
-                     <small class="small"><span>&copy; 2026 all rights reserved - </span> Wildfinity Producciones.</small>
-                  </div>
-                  <a href="aviso-legal.html">Aviso Legal</a>
-                  <div style="display: none;"  class="col-md-6 text-md-right">
-                     <ul class="list-inline small">
-                        <li class="list-inline-item">
-                           <a href="#">Politica de p</a>
-                        </li>
-                        <li class="list-inline-item">
-                           <a href="#">Terms of Use</a>
-                        </li>
-                        <li class="list-inline-item">
-                           <a href="#">About</a>
-                        </li>
-                        <li class="list-inline-item">
-                           <a href="aviso-legal.html">Legal</a>
-                        </li>
-                     </ul>
-                  </div>
-               </div>
+<footer class="pt-5 pb-5 footer">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Créditos principales -->
+            <div class="col-md-6 mb-3 mb-md-0">
+                <small class="small">&copy; 2026 Wildfinity Producciones. Todos los derechos reservados.</small>
             </div>
-            <!--End container-->
-         </footer>
+            
+            <!-- Enlaces Legales -->
+            <div class="col-md-6 text-md-right">
+                <ul class="list-inline small mb-0">
+                    <li class="list-inline-item">
+                        <a href="aviso-legal.html">Aviso Legal</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <span class="text-muted">|</span>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="privacidad.html">Privacidad</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <span class="text-muted">|</span>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="cookies.html">Cookies</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+            
          <a class="block-top scroll" href="#wrapper">
          <i class="icon-angle-up"></i></a>
       </div>
